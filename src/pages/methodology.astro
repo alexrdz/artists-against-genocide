@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { loadPublicExport } from '../lib/load-export';
+
+const data = loadPublicExport();
+const categoryEntries = Object.entries(data.categoryDefinitions);
+---
+
+<BaseLayout title="Methodology — Palestine Music Directory" description="How the Palestine Music Directory collects, validates, and publishes evidence.">
+  <div class="container methodology">
+    <h1 style="margin-bottom: var(--spacing-6)">Methodology</h1>
+
+    <div class="methodology__section">
+      <h2>What this directory is</h2>
+      <p>
+        The Palestine Music Directory is a community-maintained index of musicians who have made
+        public statements against the genocide of Palestinians, signed open letters, or joined
+        collective boycotts. Every entry traces back to at least one named, verifiable source.
+        Inclusion is documentation, not endorsement.
+      </p>
+    </div>
+
+    <div class="methodology__section">
+      <h2>Evidence categories</h2>
+      <p>Each evidence record is classified into one of four categories:</p>
+      <div class="methodology__category-grid">
+        {categoryEntries.map(([code, desc]) => (
+          <div class="methodology__category-card">
+            <div class={`methodology__category-code cat-badge cat-badge--${code}`}>{code}</div>
+            <div class="methodology__category-desc">{desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="methodology__section">
+      <h2>Research baseline</h2>
+      <p>
+        The directory was seeded from a research import baseline packaged on
+        {new Date(data.generatedAt).toLocaleDateString()} with a research snapshot date of
+        {data.researchSnapshotDate}. The baseline contains {data.stats.totalArtists} published
+        artist profiles and {data.stats.totalEvidence} evidence records.
+      </p>
+      <p>
+        The research snapshot date is <strong>not</strong> the date of a statement or a new
+        source review. It marks when the research was compiled, not when any artist made
+        a statement.
+      </p>
+    </div>
+
+    <div class="methodology__section">
+      <h2>Publication process</h2>
+      <p>
+        Every artist profile goes through an editorial review before publication:
+      </p>
+      <ol style="padding-left: var(--spacing-5); color: var(--color-text-secondary); line-height: 1.7">
+        <li><strong>Import:</strong> Raw research data is validated against a strict Zod schema and transformed into canonical records.</li>
+        <li><strong>Review:</strong> An editor verifies source support, identities, campaign associations, quotations, and dates.</li>
+        <li><strong>Publish:</strong> Only reviewed profiles can be published. The publication safeguard prevents unreviewed profiles from appearing in public output.</li>
+        <li><strong>Withdraw:</strong> Published profiles can be withdrawn at any time if new information warrants it.</li>
+      </ol>
+    </div>
+
+    <div class="methodology__section">
+      <h2>Limitations</h2>
+      <ul class="methodology__list">
+        {data.limitations.map(l => <li>{l}</li>)}
+      </ul>
+    </div>
+
+    <div class="methodology__section">
+      <h2>What this directory is not</h2>
+      <ul class="methodology__list">
+        <li>It is not a complete worldwide census of musicians who have spoken about Palestine.</li>
+        <li>It is not a political endorsement of any artist's body of work or personal views.</li>
+        <li>It is not a list of "good" or "bad" artists — it documents public statements, not moral judgments.</li>
+        <li>Absence from this directory does not establish silence or any political position.</li>
+        <li>An organizer attribution is not independent authentication of every signature or identity.</li>
+      </ul>
+    </div>
+
+    <div class="methodology__section">
+      <h2>Source verification</h2>
+      <p>
+        Every evidence record includes a direct link to its source and a label identifying the
+        source publication or platform. Sources range from campaign websites (e.g., No Music for
+        Genocide, Musicians for Palestine, Artists4Ceasefire) to news reports from outlets such as
+        The Guardian, NME, Rolling Stone, and BBC News.
+      </p>
+      <p>
+        Editors review each source link before publication. Broken links or unverifiable claims
+        result in a profile being held in draft status until resolved.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

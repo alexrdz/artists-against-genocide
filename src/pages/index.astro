@@ -1,0 +1,450 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { loadPublicExport } from '../lib/load-export';
+
+const data = loadPublicExport();
+
+const categoryLabels: Record<string, string> = {
+  'G-D': 'Direct anti-genocide',
+  'G-C': 'Collective anti-genocide',
+  'S': 'Solidarity / ceasefire',
+  'H': 'Historical-only',
+};
+
+const campaignLabels: Record<string, string> = {
+  nmg: 'No Music for Genocide',
+  mfp: 'Musicians for Palestine',
+  euro: 'Eurovision boycott',
+  a4c: 'Artists4Ceasefire',
+  other: 'Other sources',
+};
+---
+
+<BaseLayout
+  title="Palestine Music Directory"
+  description="A directory of musicians who have made public statements against the genocide of Palestinians."
+>
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__eyebrow">Community-maintained · Research baseline {data.researchSnapshotDate}</div>
+      <h1 class="hero__title">Musicians against the genocide of Palestinians</h1>
+      <p class="hero__description">
+        A directory of artists who have made public statements, signed open letters, or joined
+        boycotts documenting the genocide of Palestinians. Every entry traces back to a named,
+        verifiable source. Inclusion is documentation, not endorsement.
+      </p>
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <span class="hero__stat-value">{data.stats.publishedArtists}</span>
+          <span class="hero__stat-label">Published profiles</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-value">{data.stats.totalEvidence}</span>
+          <span class="hero__stat-label">Evidence records</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-value">{data.campaigns.length}</span>
+          <span class="hero__stat-label">Campaigns</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="directory">
+    <div class="container">
+      <div class="search-bar">
+        <svg class="search-bar__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.3-4.3" />
+        </svg>
+        <input
+          type="search"
+          id="search-input"
+          class="search-bar__input"
+          placeholder="Search artists by name..."
+          autocomplete="off"
+          aria-label="Search artists"
+        />
+        <button class="search-bar__clear" id="search-clear" aria-label="Clear search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="directory__layout">
+        <aside class="filters" aria-label="Filters">
+          <div class="filters__header">
+            <span class="filters__title">Filters</span>
+            <button class="filters__clear" id="clear-filters">Clear all</button>
+          </div>
+
+          <div class="filters__group">
+            <div class="filters__group-title">Evidence category</div>
+            {Object.entries(categoryLabels).map(([code, label]) => (
+              <label class="filters__option" data-filter-type="category" data-filter-value={code}>
+                <span class="filters__checkbox" role="checkbox" aria-checked="false" tabindex="0"></span>
+                <span class="filters__cat-badge" style={`background: var(--color-${code.toLowerCase().replace('-', '')})`}></span>
+                <span class="filters__option-label">{label}</span>
+                <span class="filters__option-count" data-count={code}>({0})</span>
+              </label>
+            ))}
+          </div>
+
+          <div class="filters__group">
+            <div class="filters__group-title">Campaign</div>
+            {Object.entries(campaignLabels).map(([id, label]) => (
+              <label class="filters__option" data-filter-type="campaign" data-filter-value={id}>
+                <span class="filters__checkbox" role="checkbox" aria-checked="false" tabindex="0"></span>
+                <span class="filters__option-label">{label}</span>
+                <span class="filters__option-count" data-count={id}>({0})</span>
+              </label>
+            ))}
+          </div>
+        </aside>
+
+        <div class="results">
+          <div class="results__header">
+            <span class="results__count" id="results-count">Loading...</span>
+            <div class="results__sort">
+              <label for="sort-select">Sort:</label>
+              <select id="sort-select">
+                <option value="relevance">Relevance</option>
+                <option value="name">Name (A–Z)</option>
+                <option value="evidence">Most evidence</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="results__grid" id="results-grid" aria-live="polite"></div>
+
+          <div class="pagination" id="pagination"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" define:vars={{ searchIndex: data.searchIndex, artists: data.artists }}>
+    // ── Directory controller ──────────────────────────────────
+    // Pure client-side search and filtering with URL state sync.
+
+    const ARTISTS = artists;
+    const SEARCH_INDEX = searchIndex;
+    const PER_PAGE = 24;
+
+    // State
+    let state = {
+      query: '',
+      campaigns: [],
+      categories: [],
+      sort: 'relevance',
+      page: 1,
+    };
+
+    // ── URL state ───────────────────────────────────────────
+    function readURL() {
+      const params = new URLSearchParams(window.location.search);
+      state.query = params.get('q') || '';
+      state.campaigns = params.get('campaigns') ? params.get('campaigns').split(',') : [];
+      state.categories = params.get('categories') ? params.get('categories').split(',') : [];
+      state.sort = params.get('sort') || 'relevance';
+      state.page = parseInt(params.get('page') || '1', 10);
+    }
+
+    function writeURL() {
+      const params = new URLSearchParams();
+      if (state.query) params.set('q', state.query);
+      if (state.campaigns.length) params.set('campaigns', state.campaigns.join(','));
+      if (state.categories.length) params.set('categories', state.categories.join(','));
+      if (state.sort !== 'relevance') params.set('sort', state.sort);
+      if (state.page > 1) params.set('page', String(state.page));
+
+      const url = params.toString()
+        ? `${window.location.pathname}?${params.toString()}`
+        : window.location.pathname;
+      window.history.replaceState(null, '', url);
+    }
+
+    // ── Text matching ───────────────────────────────────────
+    function normalize(text) {
+      return text.normalize('NFKC').toLowerCase().trim();
+    }
+
+    function tokenize(text) {
+      return normalize(text).split(/[\s,;&|/\\]+/).filter(t => t.length > 0);
+    }
+
+    function scoreArtist(artist, queryTokens) {
+      if (queryTokens.length === 0) return 1;
+      const nameNorm = normalize(artist.name);
+      const nameTokens = tokenize(artist.name);
+      let score = 0;
+
+      for (const token of queryTokens) {
+        if (nameNorm === token) { score += 100; continue; }
+        if (nameNorm.startsWith(token)) { score += 50; continue; }
+        let nameMatch = false;
+        for (const nt of nameTokens) {
+          if (nt === token) { score += 30; nameMatch = true; break; }
+          if (nt.startsWith(token)) { score += 20; nameMatch = true; break; }
+        }
+        if (nameMatch) continue;
+        if (nameNorm.includes(token)) { score += 15; continue; }
+
+        // Check evidence summaries
+        let evMatch = false;
+        for (const ev of artist.evidence) {
+          if (normalize(ev.summary).includes(token)) { score += 5; evMatch = true; }
+        }
+        if (!evMatch) return 0;
+      }
+      return score;
+    }
+
+    function matchesCampaigns(artist, campaigns) {
+      if (campaigns.length === 0) return true;
+      return campaigns.every(c => artist.campaignIds.includes(c));
+    }
+
+    function matchesCategories(artist, categories) {
+      if (categories.length === 0) return true;
+      const cats = new Set(artist.evidence.map(e => e.category));
+      return categories.every(c => cats.has(c));
+    }
+
+    // ── Search and render ───────────────────────────────────
+    function search() {
+      const queryTokens = tokenize(state.query);
+      let results = ARTISTS.filter(a => {
+        if (!matchesCampaigns(a, state.campaigns)) return false;
+        if (!matchesCategories(a, state.categories)) return false;
+        return scoreArtist(a, queryTokens) > 0;
+      });
+
+      // Sort
+      if (state.sort === 'name') {
+        results.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
+      } else if (state.sort === 'evidence') {
+        results.sort((a, b) => b.evidence.length - a.evidence.length || a.sortKey.localeCompare(b.sortKey));
+      } else {
+        results.sort((a, b) => scoreArtist(b, queryTokens) - scoreArtist(a, queryTokens) || a.sortKey.localeCompare(b.sortKey));
+      }
+
+      return results;
+    }
+
+    function computeFacets() {
+      const queryTokens = tokenize(state.query);
+      const preFiltered = ARTISTS.filter(a => scoreArtist(a, queryTokens) > 0);
+
+      const campaignCounts = {};
+      for (const c of ['nmg', 'mfp', 'euro', 'a4c', 'other']) {
+        const test = state.campaigns.includes(c) ? state.campaigns : [...state.campaigns, c];
+        campaignCounts[c] = preFiltered.filter(a => matchesCampaigns(a, test)).length;
+      }
+
+      const categoryCounts = {};
+      for (const cat of ['G-D', 'G-C', 'S', 'H']) {
+        const test = state.categories.includes(cat) ? state.categories : [...state.categories, cat];
+        categoryCounts[cat] = preFiltered.filter(a => matchesCategories(a, test)).length;
+      }
+
+      return { campaigns: campaignCounts, categories: categoryCounts };
+    }
+
+    function renderResults() {
+      const all = search();
+      const total = all.length;
+      const totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
+      state.page = Math.min(Math.max(1, state.page), totalPages);
+
+      const start = (state.page - 1) * PER_PAGE;
+      const pageResults = all.slice(start, start + PER_PAGE);
+
+      // Results count
+      const countEl = document.getElementById('results-count');
+      if (total === 0) {
+        countEl.textContent = 'No results found';
+      } else {
+        countEl.textContent = `${total} ${total === 1 ? 'artist' : 'artists'}${state.query ? ` for "${state.query}"` : ''}`;
+      }
+
+      // Grid
+      const grid = document.getElementById('results-grid');
+      if (pageResults.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state" style="grid-column: 1 / -1">
+            <div class="empty-state__title">No artists found</div>
+            <p>Try adjusting your search or clearing filters.</p>
+          </div>`;
+      } else {
+        grid.innerHTML = pageResults.map(a => {
+          const catBadges = [...new Set(a.evidence.map(e => e.category))]
+            .sort()
+            .map(c => `<span class="cat-badge cat-badge--${c}">${c}</span>`)
+            .join('');
+          const campBadges = a.campaignIds
+            .map(c => `<span class="campaign-badge">${c}</span>`)
+            .join('');
+          return `
+            <a href="/artists/${a.slug}/" class="artist-card fade-in">
+              <div class="artist-card__name">${escapeHtml(a.name)}</div>
+              <div class="artist-card__badges">${catBadges}${campBadges}</div>
+              <div class="artist-card__evidence-count">${a.evidence.length} evidence ${a.evidence.length === 1 ? 'record' : 'records'}</div>
+            </a>`;
+        }).join('');
+      }
+
+      // Pagination
+      renderPagination(totalPages);
+
+      // Facets
+      updateFacets();
+    }
+
+    function renderPagination(totalPages) {
+      const pagEl = document.getElementById('pagination');
+      if (totalPages <= 1) { pagEl.innerHTML = ''; return; }
+
+      let html = '';
+      // Prev
+      html += `<button class="pagination__button" ${state.page === 1 ? 'disabled' : ''} data-page="${state.page - 1}" aria-label="Previous page">‹</button>`;
+
+      // Pages
+      const maxVisible = 7;
+      let startPage = Math.max(1, state.page - 3);
+      let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+      if (endPage - startPage < maxVisible - 1) {
+        startPage = Math.max(1, endPage - maxVisible + 1);
+      }
+
+      for (let i = startPage; i <= endPage; i++) {
+        html += `<button class="pagination__button ${i === state.page ? 'is-active' : ''}" data-page="${i}">${i}</button>`;
+      }
+
+      // Next
+      html += `<button class="pagination__button" ${state.page === totalPages ? 'disabled' : ''} data-page="${state.page + 1}" aria-label="Next page">›</button>`;
+
+      pagEl.innerHTML = html;
+
+      pagEl.querySelectorAll('button[data-page]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.page = parseInt(btn.dataset.page, 10);
+          writeURL();
+          renderResults();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+    }
+
+    function updateFacets() {
+      const facets = computeFacets();
+
+      // Update counts
+      for (const [cat, count] of Object.entries(facets.categories)) {
+        const el = document.querySelector(`[data-count="${cat}"]`);
+        if (el) el.textContent = `(${count})`;
+      }
+      for (const [camp, count] of Object.entries(facets.campaigns)) {
+        const el = document.querySelector(`[data-count="${camp}"]`);
+        if (el) el.textContent = `(${count})`;
+      }
+
+      // Update checkbox states
+      document.querySelectorAll('[data-filter-type]').forEach(el => {
+        const type = el.dataset.filterType;
+        const value = el.dataset.filterValue;
+        const isActive = type === 'category' ? state.categories.includes(value) : state.campaigns.includes(value);
+        const checkbox = el.querySelector('.filters__checkbox');
+        checkbox.classList.toggle('is-checked', isActive);
+        checkbox.setAttribute('aria-checked', String(isActive));
+      });
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ── Event handlers ──────────────────────────────────────
+    const searchInput = document.getElementById('search-input');
+    const searchClear = document.getElementById('search-clear');
+
+    searchInput.value = state.query;
+    if (state.query) searchClear.classList.add('is-visible');
+
+    let debounceTimer;
+    searchInput.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        state.query = searchInput.value;
+        state.page = 1;
+        searchClear.classList.toggle('is-visible', !!state.query);
+        writeURL();
+        renderResults();
+      }, 150);
+    });
+
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      state.query = '';
+      state.page = 1;
+      searchClear.classList.remove('is-visible');
+      writeURL();
+      renderResults();
+      searchInput.focus();
+    });
+
+    // Filter toggles
+    document.querySelectorAll('[data-filter-type]').forEach(el => {
+      const handler = () => {
+        const type = el.dataset.filterType;
+        const value = el.dataset.filterValue;
+        if (type === 'category') {
+          state.categories = state.categories.includes(value)
+            ? state.categories.filter(c => c !== value)
+            : [...state.categories, value];
+        } else {
+          state.campaigns = state.campaigns.includes(value)
+            ? state.campaigns.filter(c => c !== value)
+            : [...state.campaigns, value];
+        }
+        state.page = 1;
+        writeURL();
+        renderResults();
+      };
+      el.addEventListener('click', handler);
+      const checkbox = el.querySelector('.filters__checkbox');
+      checkbox.addEventListener('keydown', (e) => {
+        if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); handler(); }
+      });
+    });
+
+    // Clear filters
+    document.getElementById('clear-filters').addEventListener('click', () => {
+      state.categories = [];
+      state.campaigns = [];
+      state.page = 1;
+      writeURL();
+      renderResults();
+    });
+
+    // Sort
+    document.getElementById('sort-select').value = state.sort;
+    document.getElementById('sort-select').addEventListener('change', (e) => {
+      state.sort = e.target.value;
+      state.page = 1;
+      writeURL();
+      renderResults();
+    });
+
+    // Initial render
+    readURL();
+    searchInput.value = state.query;
+    if (state.query) searchClear.classList.add('is-visible');
+    document.getElementById('sort-select').value = state.sort;
+    renderResults();
+  </script>
+</BaseLayout>

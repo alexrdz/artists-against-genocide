@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { readFileSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { editorialLogSchema } from '../lib/schemas';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const LOG_PATH = join(__dirname, '..', 'data', 'editorial', 'log.json');
+
+let entries: { timestamp: string; action: string; actor: string; count: number; notes?: string }[] = [];
+try {
+  const raw = JSON.parse(readFileSync(LOG_PATH, 'utf-8'));
+  const log = editorialLogSchema.parse(raw);
+  entries = log.entries.reverse(); // Most recent first
+} catch {
+  // No log yet
+}
+
+const actionLabels: Record<string, string> = {
+  import: 'Import',
+  review: 'Review',
+  publish: 'Publish',
+  withdraw: 'Withdraw',
+  unreview: 'Unreview',
+};
+---
+
+<BaseLayout title="Changes — Palestine Music Directory" description="Recent changes and editorial actions.">
+  <div class="container" style="padding-top: var(--spacing-6); padding-bottom: var(--spacing-6)">
+    <h1 style="margin-bottom: var(--spacing-2)">Changes</h1>
+    <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-6); max-width: 600px">
+      A log of editorial actions: imports, reviews, publications, and withdrawals.
+    </p>
+
+    {entries.length === 0 ? (
+      <div class="empty-state">
+        <div class="empty-state__title">No changes logged yet</div>
+      </div>
+    ) : (
+      <div style="display: flex; flex-direction: column; gap: var(--spacing-3)">
+        {entries.map(entry => (
+          <div class="evidence-card" style="border-left-color: var(--color-primary)">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-1)">
+              <span class="cat-badge cat-badge--G-C">{actionLabels[entry.action] ?? entry.action}</span>
+              <span style="font-size: 0.8125rem; color: var(--color-text-muted)">{new Date(entry.timestamp).toLocaleString()}</span>
+            </div>
+            <div style="font-size: 0.875rem; color: var(--color-text-secondary)">
+              by {entry.actor} · {entry.count} {entry.count === 1 ? 'artist' : 'artists'}
+            </div>
+            {entry.notes && (
+              <div style="font-size: 0.875rem; color: var(--color-text); margin-top: var(--spacing-2)">{entry.notes}</div>
+            )}
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>

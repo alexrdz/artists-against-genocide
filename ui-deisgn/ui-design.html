@@ -1,0 +1,654 @@
+<!-- Refactored HTML -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palestine Music Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="page">
+
+  <!-- Continuous Architectural Vertical Grid Backdrop -->
+  <div class="site-grid-backdrop" aria-hidden="true">
+    <div class="layout-page site-grid-backdrop__inner">
+      <div class="site-grid-backdrop__col"></div>
+      <div class="site-grid-backdrop__col"></div>
+      <div class="site-grid-backdrop__col site-grid-backdrop__col--desktop"></div>
+      <div class="site-grid-backdrop__col site-grid-backdrop__col--desktop"></div>
+    </div>
+  </div>
+
+  <!-- Clean Ambient Luminescence -->
+  <div class="site-luminescence" aria-hidden="true">
+    <div class="site-luminescence__glow"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="layout-page site-header__inner">
+      <a href="#" class="site-header__brand">
+        <span class="site-header__badge">PM</span>
+        <span class="site-header__brand-text">Palestine Music Directory</span>
+      </a>
+
+      <nav class="site-header__nav">
+        <a href="#directory" class="site-header__link site-header__link--active">Directory</a>
+        <a href="#campaigns" class="site-header__link">Campaigns</a>
+        <a href="#methodology" class="site-header__link">Methodology</a>
+      </nav>
+
+      <div class="site-header__actions">
+        <span class="site-header__status">
+          <span class="site-header__status-dot"></span>
+          <span>Index Active</span>
+        </span>
+        <a href="#directory-ledger" class="site-header__cta">Explore Index</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-main">
+    <!-- Intro & Search Section -->
+    <section id="directory" class="layout-page u-flow">
+      <!-- Section Coordinate Marker -->
+      <div class="section-marker">
+        <span>01 // START — PUBLIC ARCHIVE</span>
+        <span class="section-marker__meta">VERIFIED RECORDS</span>
+      </div>
+
+      <!-- Hero Typography -->
+      <div class="hero layout-sidebar">
+        <div class="hero__content">
+          <h1 class="hero__title">
+            <span class="hero__title-serif">Music, solidarity,</span>
+            <span class="hero__title-accent">and the evidence.</span>
+          </h1>
+        </div>
+        <div class="hero__sidebar layout-stack">
+          <span class="hero__eyebrow">Archive Mission</span>
+          <p class="hero__body">
+            Explore artists’ documented statements and collective action. Read the evidence behind each entry.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section Coordinate Marker -->
+      <div class="section-marker">
+        <span>02 // SPOTLIGHT &amp; EVIDENCE PILLARS</span>
+        <span class="section-marker__action">CLICK PILLAR TO FILTER</span>
+      </div>
+
+      <!-- Dynamic Architectural Showcase -->
+      <div class="showcase">
+        <!-- 4-Column Interactive Pillar Strip -->
+        <div class="showcase__tabs">
+          <button type="button" onclick="selectPillar('Direct statement')" data-pillar="Direct statement"
+            class="pillar-tab pillar-tab--active">
+            <span class="pillar-tab__num">01.</span>
+            <span class="pillar-tab__title">Direct statement</span>
+          </button>
+          <button type="button" onclick="selectPillar('Collective action')" data-pillar="Collective action"
+            class="pillar-tab">
+            <span class="pillar-tab__num">02.</span>
+            <span class="pillar-tab__title">Collective action</span>
+          </button>
+          <button type="button" onclick="selectPillar('Broader solidarity')" data-pillar="Broader solidarity"
+            class="pillar-tab">
+            <span class="pillar-tab__num">03.</span>
+            <span class="pillar-tab__title">Broader solidarity</span>
+          </button>
+          <button type="button" onclick="selectPillar('Historical support')" data-pillar="Historical support"
+            class="pillar-tab">
+            <span class="pillar-tab__num">04.</span>
+            <span class="pillar-tab__title">Historical support</span>
+          </button>
+        </div>
+
+        <!-- Center Split Showcase -->
+        <div class="showcase__body layout-sidebar">
+          <!-- Left Visual Plate -->
+          <div class="showcase__visual dot-matrix">
+            <div class="showcase__card">
+              <div class="showcase__card-header">
+                <span class="showcase__tag">Direct statement</span>
+                <span class="showcase__id">+01</span>
+              </div>
+              <div class="showcase__card-main">
+                <span class="showcase__subtitle">Featured Record</span>
+                <h2 class="showcase__heading">
+                  Sonic<br>
+                  <span class="showcase__heading-accent">Collective</span>
+                </h2>
+              </div>
+              <div class="showcase__telemetry">
+                <div class="showcase__telemetry-label">
+                  <span class="showcase__icon-badge">
+                    <iconify-icon icon="lucide:radio" class="text-sm"></iconify-icon>
+                  </span>
+                  <span>Broadcast Transcript</span>
+                </div>
+                <svg class="showcase__wave" viewBox="0 0 120 28" fill="none" aria-hidden="true">
+                  <path d="M0 22 L15 18 L28 24 L42 10 L58 16 L74 4 L90 14 L105 6 L120 2" stroke="currentColor"
+                    stroke-width="1.75" fill="none" />
+                  <path d="M0 22 L15 18 L28 24 L42 10 L58 16 L74 4 L90 14 L105 6 L120 2 L120 28 L0 28 Z"
+                    fill="url(#telemetryGrad)" opacity="0.28" />
+                  <defs>
+                    <linearGradient id="telemetryGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#FF4405" />
+                      <stop offset="100%" stop-color="transparent" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Editorial Details Pane -->
+          <div class="showcase__content layout-sidebar">
+            <div class="showcase__details layout-stack">
+              <span class="showcase__meta-title">Verified Action Dossier</span>
+              <p class="showcase__title-copy">Dedicated performance and directed proceeds to relief funds.</p>
+              <div class="showcase__divider" aria-hidden="true"></div>
+
+              <div class="showcase__meta-grid">
+                <div>
+                  <span class="showcase__meta-label">Evidence Source</span>
+                  <span class="showcase__meta-value">Broadcast Transcript</span>
+                </div>
+                <div>
+                  <span class="showcase__meta-label">Logged Date</span>
+                  <span class="showcase__meta-date">Dec 2023 // #A4</span>
+                </div>
+              </div>
+
+              <p class="showcase__desc">
+                During their international broadcast performance, the collective read a statement of solidarity and
+                announced all merchandise proceeds would be directed to mutual aid funds on the ground.
+              </p>
+
+              <div class="showcase__cta-wrap">
+                <button type="button" onclick="focusEntry('a4')" class="btn-primary">
+                  <span>Read evidence</span>
+                  <iconify-icon icon="lucide:arrow-right" class="text-base"></iconify-icon>
+                </button>
+              </div>
+            </div>
+
+            <!-- Vertical Interactive Rail -->
+            <div class="showcase__rail" aria-hidden="true">
+              <span class="showcase__rail-text">Featured Entry</span>
+              <button type="button" onclick="focusEntry('a4')" title="Jump to entry in directory"
+                class="showcase__rail-btn">
+                <iconify-icon icon="lucide:arrow-down" class="text-base"></iconify-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Telemetry Index Bar -->
+        <div class="showcase__footer">
+          <button type="button" onclick="selectPillar('')"
+            class="showcase__footer-btn showcase__footer-btn--active">ALL</button>
+          <button type="button" onclick="selectPillar('Direct statement')" class="showcase__footer-btn">01 (02)</button>
+          <button type="button" onclick="selectPillar('Collective action')" class="showcase__footer-btn">02
+            (02)</button>
+          <button type="button" onclick="selectPillar('Broader solidarity')" class="showcase__footer-btn">03
+            (01)</button>
+          <button type="button" onclick="selectPillar('Historical support')" class="showcase__footer-btn">04
+            (01)</button>
+          <div class="showcase__footer-total">TOTAL: 06</div>
+        </div>
+      </div>
+
+      <!-- Section Coordinate Marker -->
+      <div id="directory-ledger" class="section-marker u-flow">
+        <span>03 // INTERACTIVE DIRECTORY LEDGER</span>
+        <span>SEARCH &amp; FILTER</span>
+      </div>
+
+      <!-- Directory Controls -->
+      <div class="console-bar">
+        <div class="console-bar__inner">
+          <div class="console-bar__search">
+            <iconify-icon icon="lucide:search" class="console-bar__search-icon"></iconify-icon>
+            <input type="text" id="search" aria-label="Search artists, campaigns, keywords"
+              placeholder="Search artists, campaigns, keywords..." class="console-bar__input">
+          </div>
+          <div class="console-bar__filter">
+            <select id="filterType" aria-label="Filter by Evidence Type" class="console-bar__select">
+              <option value="" class="bg-obsidian text-bone">All Evidence Types</option>
+              <option value="Direct statement" class="bg-obsidian text-bone">Direct statement</option>
+              <option value="Collective action" class="bg-obsidian text-bone">Collective action</option>
+              <option value="Broader solidarity" class="bg-obsidian text-bone">Broader solidarity</option>
+              <option value="Historical support" class="bg-obsidian text-bone">Historical support</option>
+            </select>
+          </div>
+          <div class="console-bar__subgroup">
+            <select id="filterCampaign" aria-label="Filter by Campaign" class="console-bar__select">
+              <option value="" class="bg-obsidian text-bone">All Campaigns</option>
+              <option value="Musicians for Palestine" class="bg-obsidian text-bone">Musicians for Palestine</option>
+              <option value="PACBI" class="bg-obsidian text-bone">PACBI</option>
+              <option value="Strike Germany" class="bg-obsidian text-bone">Strike Germany</option>
+            </select>
+            <button id="clearFilters" class="console-bar__clear hidden" title="Reset Filters">
+              <iconify-icon icon="lucide:x" class="text-sm"></iconify-icon>
+              <span>Clear</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Directory Index Section -->
+    <section class="layout-page u-flow pb-28">
+      <div class="directory-header">
+        <h2 class="directory-header__title">
+          <span class="directory-header__dot"></span>
+          <span class="directory-header__text">Directory Results</span>
+          <span class="directory-header__slash">/</span>
+          <span>
+            <strong id="resultCount" class="directory-header__count">0</strong>
+            artists
+          </span>
+        </h2>
+        <div class="directory-header__legend" aria-hidden="true">
+          <span>Classification &amp; Summary</span>
+          <span>Evidence Dossier</span>
+        </div>
+      </div>
+
+      <!-- Streamlined Kinetic Ledger -->
+      <div id="resultsContainer" class="ledger-list">
+        <!-- Results injected via JS -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-state hidden">
+        <iconify-icon icon="lucide:search-x" class="empty-state__icon"></iconify-icon>
+        <h3 class="empty-state__title">No entries found</h3>
+        <p class="empty-state__desc">Adjust your filters or search term to see more results.</p>
+      </div>
+    </section>
+
+    <!-- Campaigns Section -->
+    <section id="campaigns" class="layout-page section-border u-flow">
+      <div class="section-marker text-accent">04 // COLLECTIVE MOVEMENTS</div>
+      <div class="hero layout-sidebar">
+        <div class="hero__content">
+          <h2 class="hero__title">Campaigns</h2>
+        </div>
+        <div class="hero__sidebar layout-stack">
+          <p class="hero__body text-bone">
+            This directory indexes participation in several major solidarity campaigns. Inclusion in a campaign list
+            reflects published attributions by the respective campaign organizers.
+          </p>
+          <div class="campaign-grid">
+            <button type="button" onclick="selectCampaign('Musicians for Palestine')" class="campaign-box">
+              <span class="campaign-box__tag">CAMPAIGN // 01</span>
+              <span class="campaign-box__title">Musicians for Palestine</span>
+            </button>
+            <button type="button" onclick="selectCampaign('PACBI')" class="campaign-box">
+              <span class="campaign-box__tag">CAMPAIGN // 02</span>
+              <span class="campaign-box__title">PACBI</span>
+            </button>
+            <button type="button" onclick="selectCampaign('Strike Germany')" class="campaign-box">
+              <span class="campaign-box__tag">CAMPAIGN // 03</span>
+              <span class="campaign-box__title">Strike Germany</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section id="methodology" class="layout-page section-border u-flow">
+      <div class="section-marker text-accent">05 // ARCHIVAL PROTOCOL</div>
+      <div class="hero layout-sidebar">
+        <div class="hero__content">
+          <h2 class="hero__title">Methodology</h2>
+        </div>
+        <div class="hero__sidebar layout-stack">
+          <p class="hero__body text-bone">
+            Evidence is gathered from public statements, verified social media accounts, and official campaign signatory
+            lists. We prioritize direct quotes and contextual links to source material.
+          </p>
+          <p class="hero__body text-ash">
+            Categories (Direct statement, Collective action, etc.) are applied based on the nature of the primary source
+            material available at the time of archival.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="layout-page site-footer__inner">
+      <div class="site-footer__brand">
+        <span class="site-footer__dot"></span>
+        Palestine Music Directory
+      </div>
+      <div class="site-footer__meta">
+        Absence from this directory does not establish silence. Campaign listings are published attributions, not
+        independently authenticated signatures.
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Interactions -->
+  <script>
+    const db = [
+      {
+        id: "a1",
+        name: "[Placeholder] Aisha Q.",
+        category: "Direct statement",
+        campaign: "",
+        summary: "Published a statement calling for permanent ceasefire and justice.",
+        fullSummary: "In an open letter published on their official website, the artist articulated a detailed stance demanding a permanent ceasefire, lifting of the siege, and accountability.",
+        source: "Artist Official Website",
+        url: "#",
+        date: "Nov 2023",
+      },
+      {
+        id: "a2",
+        name: "[Placeholder] The Continuums",
+        category: "Collective action",
+        campaign: "Musicians for Palestine",
+        summary: "Signatory of the 2021 Musicians for Palestine open letter.",
+        fullSummary: "The band is listed among the signatories of the 2021 open letter organized by Musicians for Palestine, pledging support for Palestinian rights.",
+        source: "Musicians for Palestine Archive",
+        url: "#",
+        date: "May 2021",
+      },
+      {
+        id: "a3",
+        name: "[Placeholder] Elias N.",
+        category: "Broader solidarity",
+        campaign: "Strike Germany",
+        summary: "Withdrew from festival participation in alignment with boycott call.",
+        fullSummary: "Announced withdrawal from a state-funded cultural event, citing the Strike Germany campaign guidelines and expressing solidarity with targeted artists.",
+        source: "Artist Instagram Statement",
+        url: "#",
+        date: "Jan 2024",
+      },
+      {
+        id: "a4",
+        name: "[Placeholder] Sonic Collective",
+        category: "Direct statement",
+        campaign: "",
+        summary: "Dedicated performance and directed proceeds to relief funds.",
+        fullSummary: "During their international broadcast performance, the collective read a statement of solidarity and announced all merchandise proceeds would be directed to mutual aid funds on the ground.",
+        source: "Broadcast Transcript",
+        url: "#",
+        date: "Dec 2023",
+      },
+      {
+        id: "a5",
+        name: "[Placeholder] L. K. Sound",
+        category: "Historical support",
+        campaign: "PACBI",
+        summary: "Endorsed the cultural boycott in 2018.",
+        fullSummary: "Publicly endorsed the Palestinian Campaign for the Academic and Cultural Boycott of Israel (PACBI) ahead of a planned regional tour, which was subsequently cancelled.",
+        source: "PACBI Endorsement List",
+        url: "#",
+        date: "Sep 2018",
+      },
+      {
+        id: "a6",
+        name: "[Placeholder] Studio Violet",
+        category: "Collective action",
+        campaign: "Musicians for Palestine",
+        summary: "Participated in the 2023 renewed campaign letter.",
+        fullSummary: "Added their name to the updated roster of artists supporting the core demands of the Musicians for Palestine network.",
+        source: "Campaign Directory",
+        url: "#",
+        date: "Oct 2023",
+      },
+    ];
+
+    const searchInput = document.getElementById("search");
+    const filterType = document.getElementById("filterType");
+    const filterCampaign = document.getElementById("filterCampaign");
+    const clearBtn = document.getElementById("clearFilters");
+    const container = document.getElementById("resultsContainer");
+    const countDisplay = document.getElementById("resultCount");
+    const emptyState = document.getElementById("emptyState");
+
+    function updatePillarTabs(activeCategory) {
+      const tabs = document.querySelectorAll(".pillar-tab");
+      tabs.forEach((tab) => {
+        const cat = tab.getAttribute("data-pillar");
+        if (cat === activeCategory || (!activeCategory && cat === "Direct statement")) {
+          tab.classList.add("pillar-tab--active");
+        } else {
+          tab.classList.remove("pillar-tab--active");
+        }
+      });
+    }
+
+    window.selectPillar = function (category) {
+      if (filterType) {
+        filterType.value = category;
+        renderList();
+        const ledger = document.getElementById("directory-ledger");
+        if (ledger) ledger.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
+    window.selectCampaign = function (campaignName) {
+      if (filterCampaign) {
+        filterCampaign.value = campaignName;
+        renderList();
+        const ledger = document.getElementById("directory-ledger");
+        if (ledger) ledger.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
+    function renderList() {
+      if (!container) return;
+      const query = searchInput ? searchInput.value.toLowerCase() : "";
+      const selectedType = filterType ? filterType.value : "";
+      const selectedCampaign = filterCampaign ? filterCampaign.value : "";
+
+      updatePillarTabs(selectedType);
+
+      if (query || selectedType || selectedCampaign) {
+        if (clearBtn) {
+          clearBtn.classList.remove("hidden");
+          clearBtn.classList.add("flex");
+        }
+      } else {
+        if (clearBtn) {
+          clearBtn.classList.add("hidden");
+          clearBtn.classList.remove("flex");
+        }
+      }
+
+      const filtered = db.filter((item) => {
+        const matchSearch =
+          item.name.toLowerCase().includes(query) ||
+          item.summary.toLowerCase().includes(query);
+        const matchType = !selectedType || item.category === selectedType;
+        const matchCampaign =
+          !selectedCampaign || item.campaign === selectedCampaign;
+        return matchSearch && matchType && matchCampaign;
+      });
+
+      if (countDisplay) countDisplay.textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        container.innerHTML = "";
+        if (emptyState) emptyState.classList.remove("hidden");
+        return;
+      }
+
+      if (emptyState) emptyState.classList.add("hidden");
+
+      container.innerHTML = filtered
+        .map(
+          (item, idx) => `
+        <article
+          id="entry-${item.id}"
+          onmousemove="handleSpotlight(event, this)"
+          class="ledger-row"
+        >
+          <div
+            class="ledger-row__grid"
+            onclick="toggleDetail('${item.id}')"
+          >
+            <!-- Artist Name & Index Number -->
+            <div class="ledger-row__col-title">
+              <span class="ledger-row__index">
+                0${idx + 1}
+              </span>
+              <h3 class="ledger-row__name">
+                ${item.name}
+              </h3>
+            </div>
+
+            <!-- Technical Metadata + Summary -->
+            <div class="ledger-row__col-meta">
+              <div class="ledger-row__tags">
+                <span class="ledger-row__category">
+                  <span class="ledger-row__tag-dot"></span>
+                  ${item.category}
+                </span>
+                ${item.campaign
+              ? `<span class="text-white/20">//</span>
+                       <span class="ledger-row__campaign">${item.campaign}</span>`
+              : ""
+            }
+              </div>
+              <p class="ledger-row__summary">
+                ${item.summary}
+              </p>
+            </div>
+
+            <!-- Action Trigger -->
+            <div class="ledger-row__col-action">
+              <button
+                type="button"
+                onclick="event.stopPropagation(); toggleDetail('${item.id}')"
+                aria-expanded="false"
+                aria-controls="detail-${item.id}"
+                class="ledger-row__btn"
+              >
+                <span>View evidence details</span>
+                <iconify-icon
+                  icon="lucide:plus"
+                  id="icon-${item.id}"
+                  class="text-sm transition-transform duration-300"
+                ></iconify-icon>
+              </button>
+            </div>
+          </div>
+
+          <!-- Kinetic Evidence Dossier Drawer -->
+          <div id="detail-${item.id}" class="drawer-grid">
+            <div class="drawer-inner">
+              <div class="dossier-box">
+                <div class="absolute inset-0 dot-matrix-subtle pointer-events-none" aria-hidden="true"></div>
+                <div class="dossier-box__content">
+                  <div class="dossier-box__tag">// Documented Record</div>
+                  <p class="dossier-box__text">
+                    ${item.fullSummary}
+                  </p>
+                </div>
+                <div class="dossier-box__meta">
+                  <div class="space-y-1 lg:text-right">
+                    <span class="block text-white/35">Timestamp</span>
+                    <span class="text-emerald-400">${item.date}</span>
+                  </div>
+                  <a
+                    href="${item.url}"
+                    class="dossier-box__link"
+                  >
+                    <span>${item.source}</span>
+                    <iconify-icon icon="lucide:arrow-up-right" class="text-sm"></iconify-icon>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      `
+        )
+        .join("");
+    }
+
+    window.handleSpotlight = function (e, el) {
+      const rect = el.getBoundingClientRect();
+      el.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+      el.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+    };
+
+    window.toggleDetail = function (id, forceOpen = false) {
+      const rowEl = document.getElementById(`entry-${id}`);
+      const detailEl = document.getElementById(`detail-${id}`);
+      const iconEl = document.getElementById(`icon-${id}`);
+      const btnEl = document.querySelector(`button[aria-controls="detail-${id}"]`);
+
+      if (!detailEl || !iconEl || !btnEl) return;
+
+      const isOpen = detailEl.classList.contains("is-open");
+
+      if (!isOpen || forceOpen) {
+        detailEl.classList.add("is-open");
+        if (rowEl) rowEl.classList.add("is-active");
+        iconEl.classList.add("rotate-45");
+        btnEl.setAttribute("aria-expanded", "true");
+      } else {
+        detailEl.classList.remove("is-open");
+        if (rowEl) rowEl.classList.remove("is-active");
+        iconEl.classList.remove("rotate-45");
+        btnEl.setAttribute("aria-expanded", "false");
+      }
+    };
+
+    window.focusEntry = function (id) {
+      if (searchInput) searchInput.value = "";
+      if (filterType) filterType.value = "";
+      if (filterCampaign) filterCampaign.value = "";
+      renderList();
+
+      const target = document.getElementById(`entry-${id}`);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "center" });
+        toggleDetail(id, true);
+      }
+    };
+
+    if (searchInput) searchInput.addEventListener("input", renderList);
+    if (filterType) filterType.addEventListener("change", renderList);
+    if (filterCampaign) filterCampaign.addEventListener("change", renderList);
+
+    if (clearBtn)
+      clearBtn.addEventListener("click", () => {
+        if (searchInput) searchInput.value = "";
+        if (filterType) filterType.value = "";
+        if (filterCampaign) filterCampaign.value = "";
+        renderList();
+      });
+
+    document.addEventListener("DOMContentLoaded", renderList);
+    if (
+      document.readyState === "complete" ||
+      document.readyState === "interactive"
+    ) {
+      setTimeout(renderList, 1);
+    }
+  </script>
+</body>
+
+</html>

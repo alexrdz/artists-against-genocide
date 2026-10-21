@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { loadPublicExport } from '../../lib/load-export';
+
+const data = loadPublicExport();
+---
+
+<BaseLayout title="Campaigns — Palestine Music Directory" description="Campaigns and collective actions documented in the directory.">
+  <div class="container" style="padding-top: var(--spacing-6); padding-bottom: var(--spacing-6)">
+    <h1 style="margin-bottom: var(--spacing-2)">Campaigns</h1>
+    <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-6); max-width: 600px">
+      Collective statements, boycotts, and open letters documented in the directory.
+      Each campaign links to its original source.
+    </p>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-4)">
+      {data.campaigns.map(c => (
+        <a href={`/campaigns/${c.slug}/`} class="campaign-page__hero" style="text-decoration: none; color: inherit; display: block">
+          <h2 class="campaign-page__name">{c.name}</h2>
+          <p class="campaign-page__description">{c.description}</p>
+          <div style="display: flex; gap: var(--spacing-4); font-size: 0.875rem; color: var(--color-text-muted)">
+            <span>{c.artistCount} {c.artistCount === 1 ? 'artist' : 'artists'}</span>
+            <span>·</span>
+            <span>Source: {new URL(c.sourceUrl).hostname}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

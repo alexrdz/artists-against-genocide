@@ -1,0 +1,3145 @@
+{
+  "generatedAt": "2026-10-21T16:23:25.222Z",
+  "researchSnapshotDate": "2026-09-16",
+  "categoryDefinitions": {
+    "G-D": "Direct anti-genocide statement",
+    "G-C": "Collective anti-genocide statement or boycott",
+    "S": "Broader solidarity or ceasefire advocacy",
+    "H": "Historical-only solidarity in the evidence collected"
+  },
+  "limitations": [
+    "The index is not a complete worldwide census.",
+    "An organizer attribution is not independent authentication of every signature or identity.",
+    "Registers overlap and include entries other than individual musicians.",
+    "Absence does not establish silence or any political position.",
+    "Imported artist tier is a legacy strongest-category summary; preserve individual evidence types.",
+    "Review source support, identities, campaign associations, quotations and dates before publication.",
+    "Research snapshot date is not the date of a statement or a new source review.",
+    "Do not automatically merge normalized names or infer positions of band members or label artists."
+  ],
+  "campaigns": [
+    {
+      "id": "nmg",
+      "name": "No Music for Genocide",
+      "slug": "nmg",
+      "sourceUrl": "https://nomusicforgenocide.org/",
+      "description": "An artist boycott collective that published a roster of musicians boycotting the cycle of music industry complicity in the genocide of Palestinians.",
+      "registerId": "nmg",
+      "artistCount": 31
+    },
+    {
+      "id": "mfp",
+      "name": "Musicians for Palestine (2023)",
+      "slug": "mfp",
+      "sourceUrl": "https://musiciansforpalestine.net/2023-letter/",
+      "description": "An open letter published in late 2023, signed by thousands of musicians, describing Gaza as a \"textbook case of genocide\" and demanding a ceasefire.",
+      "registerId": "mfp",
+      "artistCount": 24
+    },
+    {
+      "id": "euro",
+      "name": "Eurovision boycott (2026)",
+      "slug": "euro",
+      "sourceUrl": "https://nomusicforgenocide.org/eurovision",
+      "description": "A campaign calling for the boycott of Eurovision 2026 over the participation of Israel, organized through No Music for Genocide.",
+      "registerId": "euro",
+      "artistCount": 12
+    },
+    {
+      "id": "a4c",
+      "name": "Artists4Ceasefire",
+      "slug": "a4c",
+      "sourceUrl": "https://www.artists4ceasefire.org/",
+      "description": "A public supporter list of artists advocating for a ceasefire and Palestinian rights.",
+      "registerId": null,
+      "artistCount": 15
+    }
+  ],
+  "artists": [
+    {
+      "id": "a-1ad3gr3",
+      "slug": "47soul",
+      "name": "47SOUL",
+      "sortKey": "47soul",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-1udtwwg",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "mfp"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.867Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.867Z"
+    },
+    {
+      "id": "a-111c6sq",
+      "slug": "advance-base",
+      "name": "Advance Base",
+      "sortKey": "advance base",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-hzv0k7",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.867Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.867Z"
+    },
+    {
+      "id": "a-ax8l96",
+      "slug": "aja-monet",
+      "name": "aja monet",
+      "sortKey": "aja monet",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-mezizf",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-i7kz6l",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-1u7olc4",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "a4c"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.796Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.796Z"
+    },
+    {
+      "id": "a-1j4r0e8",
+      "slug": "algiers",
+      "name": "Algiers",
+      "sortKey": "algiers",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-pm23kt",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-1ip2wn7",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "mfp"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.867Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.867Z"
+    },
+    {
+      "id": "a-enw0us",
+      "slug": "amyl-and-the-sniffers",
+      "name": "Amyl and The Sniffers",
+      "sortKey": "amyl and the sniffers",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-1lm2bht",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.867Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.867Z"
+    },
+    {
+      "id": "a-6ykvvq",
+      "slug": "ana-tijoux",
+      "name": "Ana Tijoux",
+      "sortKey": "ana tijoux",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-u42gnw",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-rt5agk",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "mfp"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.866Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.866Z"
+    },
+    {
+      "id": "a-1ery28e",
+      "slug": "arca",
+      "name": "Arca",
+      "sortKey": "arca",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-4cz8af",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.867Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.867Z"
+    },
+    {
+      "id": "a-bg7t0s",
+      "slug": "arooj-aftab",
+      "name": "Arooj Aftab",
+      "sortKey": "arooj aftab",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-1qatje0",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-1g2io45",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-e4li2d",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "mfp",
+        "other",
+        "a4c"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.796Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.796Z"
+    },
+    {
+      "id": "a-kf8nep",
+      "slug": "aurora",
+      "name": "AURORA",
+      "sortKey": "aurora",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-n9g5gn",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.867Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.867Z"
+    },
+    {
+      "id": "a-xgo9mh",
+      "slug": "austra",
+      "name": "Austra",
+      "sortKey": "austra",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-tt91p",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.867Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.867Z"
+    },
+    {
+      "id": "a-gvvyec",
+      "slug": "automatic",
+      "name": "Automatic",
+      "sortKey": "automatic",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-f6dia1",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.867Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.867Z"
+    },
+    {
+      "id": "a-g9b16v",
+      "slug": "babebee",
+      "name": "Babebee",
+      "sortKey": "babebee",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-zofn78",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.867Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.867Z"
+    },
+    {
+      "id": "a-1gr3o0x",
+      "slug": "badbadnotgood",
+      "name": "BADBADNOTGOOD",
+      "sortKey": "badbadnotgood",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-18s7z33",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.866Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.866Z"
+    },
+    {
+      "id": "a-1rkar28",
+      "slug": "barker",
+      "name": "Barker",
+      "sortKey": "barker",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-1smw70a",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.868Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.868Z"
+    },
+    {
+      "id": "a-11igvjc",
+      "slug": "the-blessed-madonna",
+      "name": "The Blessed Madonna",
+      "sortKey": "blessed madonna",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-1sz77js",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-1q73oa8",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-svekil",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-ccndzh",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "other",
+        "a4c"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.796Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.796Z"
+    },
+    {
+      "id": "a-246ev8",
+      "slug": "blonde-redhead",
+      "name": "Blonde Redhead",
+      "sortKey": "blonde redhead",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-145pua8",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-3nbvqw",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-1mz6k79",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.796Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.796Z"
+    },
+    {
+      "id": "a-1od7dk3",
+      "slug": "brian-eno",
+      "name": "Brian Eno",
+      "sortKey": "brian eno",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-qxp77u",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-73pkob",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-z1u5n7",
+          "category": "G-C",
+          "summary": "Named initial signatory of the 2026 Eurovision boycott letter explicitly opposing genocide in Gaza.",
+          "sourceUrl": "https://nomusicforgenocide.org/eurovision",
+          "sourceLabel": "No Music for Genocide: Eurovision letter",
+          "campaignIds": [
+            "euro"
+          ]
+        },
+        {
+          "id": "e-1spvfz7",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        },
+        {
+          "id": "e-1cppypk",
+          "category": "S",
+          "summary": "Listed in the official Together for Palestine benefit-concert lineup; lineup evidence does not establish an individual quote.",
+          "sourceUrl": "https://www.ovoarena.co.uk/events/detail/together-for-palestine",
+          "sourceLabel": "OVO Arena Wembley: event page",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "mfp",
+        "other",
+        "euro",
+        "a4c"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.796Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.796Z"
+    },
+    {
+      "id": "a-43j69g",
+      "slug": "chico-buarque",
+      "name": "Chico Buarque",
+      "sortKey": "chico buarque",
+      "tier": "G-D",
+      "evidence": [
+        {
+          "id": "e-1c7nhtg",
+          "category": "G-D",
+          "summary": "March 2024: Posted that he wanted to join the voices denouncing the genocide of Palestinians in Gaza.",
+          "sourceUrl": "https://www.metropoles.com/entretenimento/musica/apos-lula-chico-buarque-protesta-contra-guerra-em-gaza-genocidio",
+          "sourceLabel": "Metrópoles",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.793Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.794Z"
+    },
+    {
+      "id": "a-1glelnt",
+      "slug": "deerhoof",
+      "name": "Deerhoof",
+      "sortKey": "deerhoof",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-1ryfv98",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-yhgxlg",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-1hiqcpt",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.796Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.796Z"
+    },
+    {
+      "id": "a-fiwryw",
+      "slug": "denzel-curry",
+      "name": "Denzel Curry",
+      "sortKey": "denzel curry",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-12096al",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-1lur6tf",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-19alblo",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.796Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.796Z"
+    },
+    {
+      "id": "a-18feo2p",
+      "slug": "dry-cleaning",
+      "name": "Dry Cleaning",
+      "sortKey": "dry cleaning",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-ck2x1o",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-16leju1",
+          "category": "G-C",
+          "summary": "Named initial signatory of the 2026 Eurovision boycott letter explicitly opposing genocide in Gaza.",
+          "sourceUrl": "https://nomusicforgenocide.org/eurovision",
+          "sourceLabel": "No Music for Genocide: Eurovision letter",
+          "campaignIds": [
+            "euro"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "euro"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.868Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.868Z"
+    },
+    {
+      "id": "a-1f8g287",
+      "slug": "dua-lipa",
+      "name": "Dua Lipa",
+      "sortKey": "dua lipa",
+      "tier": "G-D",
+      "evidence": [
+        {
+          "id": "e-d1sd9j",
+          "category": "G-D",
+          "summary": "May 2024: Publicly called for an end to “Israeli genocide” and solidarity with Gaza.",
+          "sourceUrl": "https://www.theguardian.com/music/article/2024/may/29/dua-lipa-denounces-israeli-genocide-in-instagram-post",
+          "sourceLabel": "The Guardian",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-a1dh1r",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "other",
+        "a4c"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.794Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.794Z"
+    },
+    {
+      "id": "a-1jc2l2j",
+      "slug": "emel-mathlouthi",
+      "name": "Emel Mathlouthi",
+      "sortKey": "emel mathlouthi",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-1pk7gq7",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-kik6y2",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        },
+        {
+          "id": "e-9lj4pz",
+          "category": "S",
+          "summary": "Performed a musical interpretation of Refaat Alareer’s poem after he was killed in an Israeli airstrike.",
+          "sourceUrl": "https://www.aa.com.tr/en/culture/tunisian-singer-honors-gazan-poet-with-musical-interpretation/3216238",
+          "sourceLabel": "Anadolu",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "mfp",
+        "a4c",
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.796Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.796Z"
+    },
+    {
+      "id": "a-1tilyhx",
+      "slug": "eric-clapton",
+      "name": "Eric Clapton",
+      "sortKey": "eric clapton",
+      "tier": "G-D",
+      "evidence": [
+        {
+          "id": "e-1m6tvad",
+          "category": "G-D",
+          "summary": "June 2024: Posted support for Palestinian freedom and opposition to “the genocide in Gaza.”",
+          "sourceUrl": "https://x.com/EricClapton/status/1800596642367758459",
+          "sourceLabel": "Eric Clapton’s own post",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.794Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.794Z"
+    },
+    {
+      "id": "a-moens3",
+      "slug": "fka-twigs",
+      "name": "FKA twigs",
+      "sortKey": "fka twigs",
+      "tier": "H",
+      "evidence": [
+        {
+          "id": "e-1et7uzt",
+          "category": "H",
+          "summary": "Reported participant in the earlier Musicians for Palestine cultural-boycott pledge, before October 2023; not proof of a later Gaza-genocide statement.",
+          "sourceUrl": "https://thequietus.com/news/fka-twigs-arca-seun-kuti-join-musicians-for-palestine-pledge/",
+          "sourceLabel": "The Quietus: earlier boycott pledge",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.866Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.866Z"
+    },
+    {
+      "id": "a-1quh7lj",
+      "slug": "fontaines-dc",
+      "name": "Fontaines D.C.",
+      "sortKey": "fontaines d.c.",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-16pp7s1",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-19qwm4p",
+          "category": "S",
+          "summary": "Reported signatory of the Peace and Justice Project’s Music for a Ceasefire appeal.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-1o1qcg2",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "other",
+        "a4c"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.796Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.796Z"
+    },
+    {
+      "id": "a-e2qalo",
+      "slug": "garbage",
+      "name": "Garbage",
+      "sortKey": "garbage",
+      "tier": "G-D",
+      "evidence": [
+        {
+          "id": "e-1apcz3x",
+          "category": "G-D",
+          "summary": "September 2026: Published statements opposing Israel’s genocide against Palestinians and supporting Macklemore.",
+          "sourceUrl": "https://consequence.net/2026/09/massive-attack-garbage-roger-waters-ed-sheeran-macklemore/",
+          "sourceLabel": "Consequence",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.794Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.794Z"
+    },
+    {
+      "id": "a-mhay4t",
+      "slug": "helado-negro",
+      "name": "Helado Negro",
+      "sortKey": "helado negro",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-1omdtc2",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-znawir",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-1t10ljf",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "mfp",
+        "other",
+        "a4c"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.797Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.797Z"
+    },
+    {
+      "id": "a-ssng52",
+      "slug": "hot-chip",
+      "name": "Hot Chip",
+      "sortKey": "hot chip",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-gkdjb7",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-8bsjlq",
+          "category": "G-C",
+          "summary": "Named initial signatory of the 2026 Eurovision boycott letter explicitly opposing genocide in Gaza.",
+          "sourceUrl": "https://nomusicforgenocide.org/eurovision",
+          "sourceLabel": "No Music for Genocide: Eurovision letter",
+          "campaignIds": [
+            "euro"
+          ]
+        },
+        {
+          "id": "e-1nxujel",
+          "category": "S",
+          "summary": "Listed in the official Together for Palestine benefit-concert lineup; lineup evidence does not establish an individual quote.",
+          "sourceUrl": "https://www.ovoarena.co.uk/events/detail/together-for-palestine",
+          "sourceLabel": "OVO Arena Wembley: event page",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "euro",
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.797Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.797Z"
+    },
+    {
+      "id": "a-13yy5su",
+      "slug": "hozier",
+      "name": "Hozier",
+      "sortKey": "hozier",
+      "tier": "G-D",
+      "evidence": [
+        {
+          "id": "e-bqmde5",
+          "category": "G-D",
+          "summary": "August 2025: Called for an end to genocidal violence and criticized financing of the genocide during an Electric Picnic stage address.",
+          "sourceUrl": "https://www.youtube.com/watch?v=S0y4K55BxBg",
+          "sourceLabel": "Irish Independent: performance video",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.794Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.794Z"
+    },
+    {
+      "id": "a-t7qt66",
+      "slug": "kali-uchis",
+      "name": "Kali Uchis",
+      "sortKey": "kali uchis",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-oznppj",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-1cpc1hs",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-18xdtsi",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "mfp",
+        "other",
+        "a4c"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.797Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.797Z"
+    },
+    {
+      "id": "a-w880yp",
+      "slug": "kehlani",
+      "name": "Kehlani",
+      "sortKey": "kehlani",
+      "tier": "G-D",
+      "evidence": [
+        {
+          "id": "e-cnsc1w",
+          "category": "G-D",
+          "summary": "April 2025: Said “I am anti-genocide” and opposed the actions of the Israeli government in a video response to a concert cancellation.",
+          "sourceUrl": "https://www.latimes.com/entertainment-arts/story/2025-04-28/kehlani-responds-to-cornell-backlash",
+          "sourceLabel": "Los Angeles Times",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-dfiufd",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-1h45ply",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-q7xczs",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "other",
+        "mfp",
+        "a4c"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.795Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.795Z"
+    },
+    {
+      "id": "a-185ulvl",
+      "slug": "keiyaa",
+      "name": "KeiyaA",
+      "sortKey": "keiyaa",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-95xy4s",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-1xix078",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-asg0z5",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.797Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.797Z"
+    },
+    {
+      "id": "a-1omzkj5",
+      "slug": "kelsey-lu",
+      "name": "Kelsey Lu",
+      "sortKey": "kelsey lu",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-146f4j2",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.866Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.866Z"
+    },
+    {
+      "id": "a-1agxfpm",
+      "slug": "kneecap",
+      "name": "Kneecap",
+      "sortKey": "kneecap",
+      "tier": "G-D",
+      "evidence": [
+        {
+          "id": "e-1hgjhjm",
+          "category": "G-D",
+          "summary": "April 2025: Publicly described its Coachella screen messaging as addressing the “US-backed genocide in Gaza.”",
+          "sourceUrl": "https://www.latimes.com/entertainment-arts/story/2025-04-28/kehlani-responds-to-cornell-backlash",
+          "sourceLabel": "Los Angeles Times",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-1imz6qx",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-10bi6fg",
+          "category": "G-C",
+          "summary": "Named initial signatory of the 2026 Eurovision boycott letter explicitly opposing genocide in Gaza.",
+          "sourceUrl": "https://nomusicforgenocide.org/eurovision",
+          "sourceLabel": "No Music for Genocide: Eurovision letter",
+          "campaignIds": [
+            "euro"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "other",
+        "nmg",
+        "euro"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.795Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.795Z"
+    },
+    {
+      "id": "a-6bqws6",
+      "slug": "laurel-halo",
+      "name": "Laurel Halo",
+      "sortKey": "laurel halo",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-2mt7to",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-1u76mno",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-1n7vt1d",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-iyaf4p",
+          "category": "G-C",
+          "summary": "Named initial signatory of the 2026 Eurovision boycott letter explicitly opposing genocide in Gaza.",
+          "sourceUrl": "https://nomusicforgenocide.org/eurovision",
+          "sourceLabel": "No Music for Genocide: Eurovision letter",
+          "campaignIds": [
+            "euro"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "other",
+        "euro"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.797Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.797Z"
+    },
+    {
+      "id": "a-kdmh12",
+      "slug": "lucy-dacus",
+      "name": "Lucy Dacus",
+      "sortKey": "lucy dacus",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-1k4mnro",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-n3szss",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-ul2qcp",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-10971sx",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "other",
+        "a4c"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.797Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.797Z"
+    },
+    {
+      "id": "a-n1dzvj",
+      "slug": "macklemore",
+      "name": "Macklemore",
+      "sortKey": "macklemore",
+      "tier": "G-D",
+      "evidence": [
+        {
+          "id": "e-1aw4rg",
+          "category": "G-D",
+          "summary": "May 2024; September 2026: Released “Hind’s Hall,” addressing genocide and supporting Palestinian solidarity protests; reiterated his anti-genocide position in 2026.",
+          "sourceUrl": "https://www.bbc.com/news/articles/cq5x3vjq06qo",
+          "sourceLabel": "BBC News, September 2026",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-14ohzpz",
+          "category": "G-C",
+          "summary": "Named initial signatory of the 2026 Eurovision boycott letter explicitly opposing genocide in Gaza.",
+          "sourceUrl": "https://nomusicforgenocide.org/eurovision",
+          "sourceLabel": "No Music for Genocide: Eurovision letter",
+          "campaignIds": [
+            "euro"
+          ]
+        },
+        {
+          "id": "e-1envb87",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "other",
+        "euro",
+        "a4c"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.795Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.795Z"
+    },
+    {
+      "id": "a-rbdjwf",
+      "slug": "massive-attack",
+      "name": "Massive Attack",
+      "sortKey": "massive attack",
+      "tier": "G-D",
+      "evidence": [
+        {
+          "id": "e-som33y",
+          "category": "G-D",
+          "summary": "September 2026: Published a statement opposing occupation, apartheid, war crimes, and ongoing genocide against Palestinians.",
+          "sourceUrl": "https://consequence.net/2026/09/massive-attack-garbage-roger-waters-ed-sheeran-macklemore/",
+          "sourceLabel": "Consequence",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-1vnge0i",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-dtaw3z",
+          "category": "G-C",
+          "summary": "Named initial signatory of the 2026 Eurovision boycott letter explicitly opposing genocide in Gaza.",
+          "sourceUrl": "https://nomusicforgenocide.org/eurovision",
+          "sourceLabel": "No Music for Genocide: Eurovision letter",
+          "campaignIds": [
+            "euro"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "other",
+        "nmg",
+        "euro"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.795Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.795Z"
+    },
+    {
+      "id": "a-1b8k0h9",
+      "slug": "mogwai",
+      "name": "Mogwai",
+      "sortKey": "mogwai",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-15cwxla",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-1myg38r",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-1o2kolv",
+          "category": "G-C",
+          "summary": "Named initial signatory of the 2026 Eurovision boycott letter explicitly opposing genocide in Gaza.",
+          "sourceUrl": "https://nomusicforgenocide.org/eurovision",
+          "sourceLabel": "No Music for Genocide: Eurovision letter",
+          "campaignIds": [
+            "euro"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "other",
+        "euro"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.865Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.865Z"
+    },
+    {
+      "id": "a-bgxvgj",
+      "slug": "mykki-blanco",
+      "name": "Mykki Blanco",
+      "sortKey": "mykki blanco",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-avqy67",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-1p73jpk",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "mfp",
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.866Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.866Z"
+    },
+    {
+      "id": "a-wydlei",
+      "slug": "olof-dreijer",
+      "name": "Olof Dreijer",
+      "sortKey": "olof dreijer",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-1xl181r",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-ld2h72",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-1oy1xwi",
+          "category": "G-C",
+          "summary": "Named initial signatory of the 2026 Eurovision boycott letter explicitly opposing genocide in Gaza.",
+          "sourceUrl": "https://nomusicforgenocide.org/eurovision",
+          "sourceLabel": "No Music for Genocide: Eurovision letter",
+          "campaignIds": [
+            "euro"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "other",
+        "euro"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.865Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.865Z"
+    },
+    {
+      "id": "a-1nax3eh",
+      "slug": "paloma-faith",
+      "name": "Paloma Faith",
+      "sortKey": "paloma faith",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-1xmftoh",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-11j1u8k",
+          "category": "G-C",
+          "summary": "Named initial signatory of the 2026 Eurovision boycott letter explicitly opposing genocide in Gaza.",
+          "sourceUrl": "https://nomusicforgenocide.org/eurovision",
+          "sourceLabel": "No Music for Genocide: Eurovision letter",
+          "campaignIds": [
+            "euro"
+          ]
+        },
+        {
+          "id": "e-1agqnxn",
+          "category": "S",
+          "summary": "Listed in the official Together for Palestine benefit-concert lineup; lineup evidence does not establish an individual quote.",
+          "sourceUrl": "https://www.ovoarena.co.uk/events/detail/together-for-palestine",
+          "sourceLabel": "OVO Arena Wembley: event page",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "euro",
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.865Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.865Z"
+    },
+    {
+      "id": "a-13665ia",
+      "slug": "pulp",
+      "name": "Pulp",
+      "sortKey": "pulp",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-1oktdwa",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-ymux23",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "mfp",
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.866Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.866Z"
+    },
+    {
+      "id": "a-5q2gcs",
+      "slug": "residente",
+      "name": "Residente",
+      "sortKey": "residente",
+      "tier": "G-D",
+      "evidence": [
+        {
+          "id": "e-12qdbp9",
+          "category": "G-D",
+          "summary": "December 2023: Announced a release delay and explicitly urged people to denounce the genocide in Gaza.",
+          "sourceUrl": "https://www.wsws.org/en/articles/2023/12/27/kvri-d27.html",
+          "sourceLabel": "World Socialist Web Site, quoting his statement",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.795Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.795Z"
+    },
+    {
+      "id": "a-ntud3g",
+      "slug": "roger-waters",
+      "name": "Roger Waters",
+      "sortKey": "roger waters",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-uwoylh",
+          "category": "G-C",
+          "summary": "Named initial signatory of the 2026 Eurovision boycott letter explicitly opposing genocide in Gaza.",
+          "sourceUrl": "https://nomusicforgenocide.org/eurovision",
+          "sourceLabel": "No Music for Genocide: Eurovision letter",
+          "campaignIds": [
+            "euro"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "euro"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.866Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.867Z"
+    },
+    {
+      "id": "a-1wpzvg",
+      "slug": "rosalía",
+      "name": "Rosalía",
+      "sortKey": "rosalía",
+      "tier": "G-D",
+      "evidence": [
+        {
+          "id": "e-1n18nzp",
+          "category": "G-D",
+          "summary": "November 2025: Said “Yo condeno el genocidio, es obvio” in an interview discussed by Heraldo.",
+          "sourceUrl": "https://www.heraldo.es/noticias/ocio-y-cultura/2025/11/13/rosalia-pronuncia-genocidio-gaza-no-siento-comoda-pseudoactivismo-instagram-1869432.html",
+          "sourceLabel": "Heraldo de Aragón",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.796Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.796Z"
+    },
+    {
+      "id": "a-1yd5pdq",
+      "slug": "saint-levant",
+      "name": "Saint Levant",
+      "sortKey": "saint levant",
+      "tier": "G-D",
+      "evidence": [
+        {
+          "id": "e-zkyucz",
+          "category": "G-D",
+          "summary": "November 2025: Said “This is not a conflict or a war; it is genocide” at the Doha Film Festival.",
+          "sourceUrl": "https://en.yenisafak.com/world/palestinian-rapper-saint-levant-denounces-gaza-genocide-3711187",
+          "sourceLabel": "Yeni Şafak",
+          "campaignIds": [
+            "other"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "other"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.795Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.795Z"
+    },
+    {
+      "id": "a-1d8dyse",
+      "slug": "samora-pinderhughes",
+      "name": "Samora Pinderhughes",
+      "sortKey": "samora pinderhughes",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-1q82zgj",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-gb1s51",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-n3du0c",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "a4c"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.865Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.865Z"
+    },
+    {
+      "id": "a-7k7jn",
+      "slug": "sonny-singh",
+      "name": "Sonny Singh",
+      "sortKey": "sonny singh",
+      "tier": "G-D",
+      "evidence": [
+        {
+          "id": "e-t0owa3",
+          "category": "G-D",
+          "summary": "July 2025: Said musicians must raise their voices and reject “fear, silence, and complicity in genocide.”",
+          "sourceUrl": "https://www.newarab.com/news/musicians-honour-20th-bds-anniversary-album-palestine",
+          "sourceLabel": "The New Arab",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-1wpwbxo",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "other",
+        "mfp"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.795Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.796Z"
+    },
+    {
+      "id": "a-bv0lpl",
+      "slug": "tom-morello",
+      "name": "Tom Morello",
+      "sortKey": "tom morello",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-l9dibf",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-1l42rro",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-1ur6kce",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "mfp",
+        "other",
+        "a4c"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.865Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.865Z"
+    },
+    {
+      "id": "a-9azvsd",
+      "slug": "vijay-iyer",
+      "name": "Vijay Iyer",
+      "sortKey": "vijay iyer",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-y20bgs",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-ociezd",
+          "category": "G-C",
+          "summary": "Reported signatory of the 2023 Musicians for Palestine letter.",
+          "sourceUrl": "https://www.nme.com/news/music/pulp-and-lucy-dacus-among-thousands-of-musicians-to-have-signed-letter-for-gaza-ceasefire-3546651",
+          "sourceLabel": "NME, November 2023",
+          "campaignIds": [
+            "other"
+          ]
+        },
+        {
+          "id": "e-nwg969",
+          "category": "S",
+          "summary": "Named on Artists4Ceasefire’s public supporter list; this alone does not establish personal use of “genocide.”",
+          "sourceUrl": "https://www.artists4ceasefire.org/",
+          "sourceLabel": "Artists4Ceasefire",
+          "campaignIds": [
+            "a4c"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "mfp",
+        "other",
+        "a4c"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.865Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.866Z"
+    },
+    {
+      "id": "a-1wom55j",
+      "slug": "water-from-your-eyes",
+      "name": "Water From Your Eyes",
+      "sortKey": "water from your eyes",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-fudirb",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.868Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.868Z"
+    },
+    {
+      "id": "a-731uzo",
+      "slug": "young-fathers",
+      "name": "Young Fathers",
+      "sortKey": "young fathers",
+      "tier": "G-C",
+      "evidence": [
+        {
+          "id": "e-7k67me",
+          "category": "G-C",
+          "summary": "Listed under “Artist Boycotters” in the explicitly anti-genocide music boycott.",
+          "sourceUrl": "https://nomusicforgenocide.org/page-3-full-list",
+          "sourceLabel": "No Music for Genocide: artist roster",
+          "campaignIds": [
+            "nmg"
+          ]
+        },
+        {
+          "id": "e-fi28o2",
+          "category": "G-C",
+          "summary": "Published signatory of the 2023 letter describing Gaza as a “textbook case of genocide” and demanding a ceasefire.",
+          "sourceUrl": "https://musiciansforpalestine.net/2023-signatories/",
+          "sourceLabel": "Musicians for Palestine: signatories",
+          "campaignIds": [
+            "mfp"
+          ]
+        },
+        {
+          "id": "e-uo0le3",
+          "category": "G-C",
+          "summary": "Named initial signatory of the 2026 Eurovision boycott letter explicitly opposing genocide in Gaza.",
+          "sourceUrl": "https://nomusicforgenocide.org/eurovision",
+          "sourceLabel": "No Music for Genocide: Eurovision letter",
+          "campaignIds": [
+            "euro"
+          ]
+        }
+      ],
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "euro"
+      ],
+      "status": "published",
+      "reviewedAt": "2026-10-21T15:17:30.866Z",
+      "reviewedBy": "agent-assisted",
+      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
+      "importedAt": "2026-10-21T15:16:46.180Z",
+      "updatedAt": "2026-10-21T15:17:30.866Z"
+    }
+  ],
+  "searchIndex": [
+    {
+      "id": "a-1ad3gr3",
+      "slug": "47soul",
+      "name": "47SOUL",
+      "sortKey": "47soul",
+      "tier": "G-C",
+      "campaignIds": [
+        "mfp"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-111c6sq",
+      "slug": "advance-base",
+      "name": "Advance Base",
+      "sortKey": "advance base",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-ax8l96",
+      "slug": "aja-monet",
+      "name": "aja monet",
+      "sortKey": "aja monet",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "a4c"
+      ],
+      "evidenceCategories": [
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-1j4r0e8",
+      "slug": "algiers",
+      "name": "Algiers",
+      "sortKey": "algiers",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "mfp"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 2
+    },
+    {
+      "id": "a-enw0us",
+      "slug": "amyl-and-the-sniffers",
+      "name": "Amyl and The Sniffers",
+      "sortKey": "amyl and the sniffers",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-6ykvvq",
+      "slug": "ana-tijoux",
+      "name": "Ana Tijoux",
+      "sortKey": "ana tijoux",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "mfp"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 2
+    },
+    {
+      "id": "a-1ery28e",
+      "slug": "arca",
+      "name": "Arca",
+      "sortKey": "arca",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-bg7t0s",
+      "slug": "arooj-aftab",
+      "name": "Arooj Aftab",
+      "sortKey": "arooj aftab",
+      "tier": "G-C",
+      "campaignIds": [
+        "mfp",
+        "other",
+        "a4c"
+      ],
+      "evidenceCategories": [
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-kf8nep",
+      "slug": "aurora",
+      "name": "AURORA",
+      "sortKey": "aurora",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-xgo9mh",
+      "slug": "austra",
+      "name": "Austra",
+      "sortKey": "austra",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-gvvyec",
+      "slug": "automatic",
+      "name": "Automatic",
+      "sortKey": "automatic",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-g9b16v",
+      "slug": "babebee",
+      "name": "Babebee",
+      "sortKey": "babebee",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-1gr3o0x",
+      "slug": "badbadnotgood",
+      "name": "BADBADNOTGOOD",
+      "sortKey": "badbadnotgood",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-1rkar28",
+      "slug": "barker",
+      "name": "Barker",
+      "sortKey": "barker",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-11igvjc",
+      "slug": "the-blessed-madonna",
+      "name": "The Blessed Madonna",
+      "sortKey": "blessed madonna",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "other",
+        "a4c"
+      ],
+      "evidenceCategories": [
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 4
+    },
+    {
+      "id": "a-246ev8",
+      "slug": "blonde-redhead",
+      "name": "Blonde Redhead",
+      "sortKey": "blonde redhead",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-1od7dk3",
+      "slug": "brian-eno",
+      "name": "Brian Eno",
+      "sortKey": "brian eno",
+      "tier": "G-C",
+      "campaignIds": [
+        "mfp",
+        "other",
+        "euro",
+        "a4c"
+      ],
+      "evidenceCategories": [
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 5
+    },
+    {
+      "id": "a-43j69g",
+      "slug": "chico-buarque",
+      "name": "Chico Buarque",
+      "sortKey": "chico buarque",
+      "tier": "G-D",
+      "campaignIds": [
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-D"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-1glelnt",
+      "slug": "deerhoof",
+      "name": "Deerhoof",
+      "sortKey": "deerhoof",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-fiwryw",
+      "slug": "denzel-curry",
+      "name": "Denzel Curry",
+      "sortKey": "denzel curry",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-18feo2p",
+      "slug": "dry-cleaning",
+      "name": "Dry Cleaning",
+      "sortKey": "dry cleaning",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "euro"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 2
+    },
+    {
+      "id": "a-1f8g287",
+      "slug": "dua-lipa",
+      "name": "Dua Lipa",
+      "sortKey": "dua lipa",
+      "tier": "G-D",
+      "campaignIds": [
+        "other",
+        "a4c"
+      ],
+      "evidenceCategories": [
+        "G-D",
+        "S"
+      ],
+      "evidenceCount": 2
+    },
+    {
+      "id": "a-1jc2l2j",
+      "slug": "emel-mathlouthi",
+      "name": "Emel Mathlouthi",
+      "sortKey": "emel mathlouthi",
+      "tier": "G-C",
+      "campaignIds": [
+        "mfp",
+        "a4c",
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-1tilyhx",
+      "slug": "eric-clapton",
+      "name": "Eric Clapton",
+      "sortKey": "eric clapton",
+      "tier": "G-D",
+      "campaignIds": [
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-D"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-moens3",
+      "slug": "fka-twigs",
+      "name": "FKA twigs",
+      "sortKey": "fka twigs",
+      "tier": "H",
+      "campaignIds": [
+        "other"
+      ],
+      "evidenceCategories": [
+        "H"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-1quh7lj",
+      "slug": "fontaines-dc",
+      "name": "Fontaines D.C.",
+      "sortKey": "fontaines d.c.",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "other",
+        "a4c"
+      ],
+      "evidenceCategories": [
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-e2qalo",
+      "slug": "garbage",
+      "name": "Garbage",
+      "sortKey": "garbage",
+      "tier": "G-D",
+      "campaignIds": [
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-D"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-mhay4t",
+      "slug": "helado-negro",
+      "name": "Helado Negro",
+      "sortKey": "helado negro",
+      "tier": "G-C",
+      "campaignIds": [
+        "mfp",
+        "other",
+        "a4c"
+      ],
+      "evidenceCategories": [
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-ssng52",
+      "slug": "hot-chip",
+      "name": "Hot Chip",
+      "sortKey": "hot chip",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "euro",
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-13yy5su",
+      "slug": "hozier",
+      "name": "Hozier",
+      "sortKey": "hozier",
+      "tier": "G-D",
+      "campaignIds": [
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-D"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-t7qt66",
+      "slug": "kali-uchis",
+      "name": "Kali Uchis",
+      "sortKey": "kali uchis",
+      "tier": "G-C",
+      "campaignIds": [
+        "mfp",
+        "other",
+        "a4c"
+      ],
+      "evidenceCategories": [
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-w880yp",
+      "slug": "kehlani",
+      "name": "Kehlani",
+      "sortKey": "kehlani",
+      "tier": "G-D",
+      "campaignIds": [
+        "other",
+        "mfp",
+        "a4c"
+      ],
+      "evidenceCategories": [
+        "G-D",
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 4
+    },
+    {
+      "id": "a-185ulvl",
+      "slug": "keiyaa",
+      "name": "KeiyaA",
+      "sortKey": "keiyaa",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-1omzkj5",
+      "slug": "kelsey-lu",
+      "name": "Kelsey Lu",
+      "sortKey": "kelsey lu",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-1agxfpm",
+      "slug": "kneecap",
+      "name": "Kneecap",
+      "sortKey": "kneecap",
+      "tier": "G-D",
+      "campaignIds": [
+        "other",
+        "nmg",
+        "euro"
+      ],
+      "evidenceCategories": [
+        "G-D",
+        "G-C"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-6bqws6",
+      "slug": "laurel-halo",
+      "name": "Laurel Halo",
+      "sortKey": "laurel halo",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "other",
+        "euro"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 4
+    },
+    {
+      "id": "a-kdmh12",
+      "slug": "lucy-dacus",
+      "name": "Lucy Dacus",
+      "sortKey": "lucy dacus",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "other",
+        "a4c"
+      ],
+      "evidenceCategories": [
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 4
+    },
+    {
+      "id": "a-n1dzvj",
+      "slug": "macklemore",
+      "name": "Macklemore",
+      "sortKey": "macklemore",
+      "tier": "G-D",
+      "campaignIds": [
+        "other",
+        "euro",
+        "a4c"
+      ],
+      "evidenceCategories": [
+        "G-D",
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-rbdjwf",
+      "slug": "massive-attack",
+      "name": "Massive Attack",
+      "sortKey": "massive attack",
+      "tier": "G-D",
+      "campaignIds": [
+        "other",
+        "nmg",
+        "euro"
+      ],
+      "evidenceCategories": [
+        "G-D",
+        "G-C"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-1b8k0h9",
+      "slug": "mogwai",
+      "name": "Mogwai",
+      "sortKey": "mogwai",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "other",
+        "euro"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-bgxvgj",
+      "slug": "mykki-blanco",
+      "name": "Mykki Blanco",
+      "sortKey": "mykki blanco",
+      "tier": "G-C",
+      "campaignIds": [
+        "mfp",
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 2
+    },
+    {
+      "id": "a-wydlei",
+      "slug": "olof-dreijer",
+      "name": "Olof Dreijer",
+      "sortKey": "olof dreijer",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "other",
+        "euro"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-1nax3eh",
+      "slug": "paloma-faith",
+      "name": "Paloma Faith",
+      "sortKey": "paloma faith",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "euro",
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-13665ia",
+      "slug": "pulp",
+      "name": "Pulp",
+      "sortKey": "pulp",
+      "tier": "G-C",
+      "campaignIds": [
+        "mfp",
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 2
+    },
+    {
+      "id": "a-5q2gcs",
+      "slug": "residente",
+      "name": "Residente",
+      "sortKey": "residente",
+      "tier": "G-D",
+      "campaignIds": [
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-D"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-ntud3g",
+      "slug": "roger-waters",
+      "name": "Roger Waters",
+      "sortKey": "roger waters",
+      "tier": "G-C",
+      "campaignIds": [
+        "euro"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-1wpzvg",
+      "slug": "rosalía",
+      "name": "Rosalía",
+      "sortKey": "rosalía",
+      "tier": "G-D",
+      "campaignIds": [
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-D"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-1yd5pdq",
+      "slug": "saint-levant",
+      "name": "Saint Levant",
+      "sortKey": "saint levant",
+      "tier": "G-D",
+      "campaignIds": [
+        "other"
+      ],
+      "evidenceCategories": [
+        "G-D"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-1d8dyse",
+      "slug": "samora-pinderhughes",
+      "name": "Samora Pinderhughes",
+      "sortKey": "samora pinderhughes",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "a4c"
+      ],
+      "evidenceCategories": [
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-7k7jn",
+      "slug": "sonny-singh",
+      "name": "Sonny Singh",
+      "sortKey": "sonny singh",
+      "tier": "G-D",
+      "campaignIds": [
+        "other",
+        "mfp"
+      ],
+      "evidenceCategories": [
+        "G-D",
+        "G-C"
+      ],
+      "evidenceCount": 2
+    },
+    {
+      "id": "a-bv0lpl",
+      "slug": "tom-morello",
+      "name": "Tom Morello",
+      "sortKey": "tom morello",
+      "tier": "G-C",
+      "campaignIds": [
+        "mfp",
+        "other",
+        "a4c"
+      ],
+      "evidenceCategories": [
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-9azvsd",
+      "slug": "vijay-iyer",
+      "name": "Vijay Iyer",
+      "sortKey": "vijay iyer",
+      "tier": "G-C",
+      "campaignIds": [
+        "mfp",
+        "other",
+        "a4c"
+      ],
+      "evidenceCategories": [
+        "G-C",
+        "S"
+      ],
+      "evidenceCount": 3
+    },
+    {
+      "id": "a-1wom55j",
+      "slug": "water-from-your-eyes",
+      "name": "Water From Your Eyes",
+      "sortKey": "water from your eyes",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 1
+    },
+    {
+      "id": "a-731uzo",
+      "slug": "young-fathers",
+      "name": "Young Fathers",
+      "sortKey": "young fathers",
+      "tier": "G-C",
+      "campaignIds": [
+        "nmg",
+        "mfp",
+        "euro"
+      ],
+      "evidenceCategories": [
+        "G-C"
+      ],
+      "evidenceCount": 3
+    }
+  ],
+  "stats": {
+    "totalArtists": 54,
+    "publishedArtists": 54,
+    "totalEvidence": 119,
+    "byCategory": {
+      "G-C": 40,
+      "G-D": 13,
+      "H": 1
+    },
+    "byCampaign": {
+      "mfp": 24,
+      "nmg": 31,
+      "a4c": 15,
+      "other": 37,
+      "euro": 12
+    }
+  }
+}
