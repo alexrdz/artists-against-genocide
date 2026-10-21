@@ -8,9 +8,11 @@ export const GET: APIRoute = () => {
   // Directory
   urls.push('/');
 
-  // Methodology and changes
+  // Pages
   urls.push('/methodology');
   urls.push('/changes');
+  urls.push('/submit');
+  urls.push('/disclaimer');
 
   // Campaigns
   urls.push('/campaigns/');

@@ -1,0 +1,450 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const contactEmail = 'aritstsforpalestine@gmail.com';
+---
+
+<BaseLayout
+  title="Submit an Artist or Suggest a Correction — Palestine Music Directory"
+  description="Contribute verified evidence, suggest missing artists, or submit corrections to the Palestine Music Directory."
+>
+  <div class="layout-page methodology">
+    <div class="section-marker">
+      <span>07 // SUBMIT &amp; CONTRIBUTE</span>
+      <span class="section-marker__meta">PUBLIC INTAKE</span>
+    </div>
+
+    <div class="hero" style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 3rem; margin-bottom: 3rem">
+      <h1 class="hero__title" style="font-size: var(--text-2xl); margin-bottom: 1rem">
+        <span class="hero__title-serif">Submit</span>
+        <span class="hero__title-accent">or Correct.</span>
+      </h1>
+      <p class="hero__body" style="max-width: 48rem">
+        Help maintain the accuracy, breadth, and integrity of this index. All submissions are reviewed against verifiable primary sources before publication.
+      </p>
+    </div>
+
+    <!-- Quick Submission Box -->
+    <div style="background: rgba(9, 9, 13, 0.8); border: 1px solid rgba(255, 255, 255, 0.12); padding: 2rem; margin-bottom: 3.5rem;">
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 1.25rem; margin-bottom: 1.5rem;">
+        <div>
+          <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.14em; display: block; margin-bottom: 0.25rem;">
+            Direct Submissions Channel
+          </span>
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: var(--text-lg); color: var(--color-bone); font-weight: 600;">
+              {contactEmail}
+            </span>
+            <button
+              type="button"
+              class="copy-btn"
+              id="copy-email-btn"
+              data-email={contactEmail}
+              style="padding: 0.25rem 0.6rem; font-size: var(--text-xs);"
+            >
+              Copy Email
+            </button>
+          </div>
+        </div>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <a
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}&su=Palestine%20Music%20Directory%20Submission`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="site-header__cta"
+            style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;"
+          >
+            <span>Open in Gmail</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </a>
+          <a
+            href={`mailto:${contactEmail}?subject=Palestine%20Music%20Directory%20Submission`}
+            class="copy-btn"
+            style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;"
+          >
+            <span>Mail App</span>
+          </a>
+        </div>
+      </div>
+
+      <p style="color: var(--color-ash); font-size: var(--text-sm); line-height: 1.6; margin-bottom: 1.5rem;">
+        To ensure rapid review by our editorial team, please format your submission using one of the templates below. You can click <strong>"Open Email App"</strong> or <strong>"Copy Template"</strong> to paste into Gmail or your preferred email provider.
+      </p>
+
+      <!-- Template Selector Tabs -->
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+        <button
+          type="button"
+          class="template-tab template-tab--active"
+          data-tab="new-artist"
+          id="tab-new-artist"
+        >
+          1. New Artist
+        </button>
+        <button
+          type="button"
+          class="template-tab"
+          data-tab="add-evidence"
+          id="tab-add-evidence"
+        >
+          2. Add Evidence / Update
+        </button>
+        <button
+          type="button"
+          class="template-tab"
+          data-tab="correction"
+          id="tab-correction"
+        >
+          3. Correction or Dispute
+        </button>
+      </div>
+
+      <!-- Template 1: New Artist -->
+      <div class="template-panel" id="panel-new-artist">
+        <div style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-bone); background: #040406; border: 1px solid rgba(255, 255, 255, 0.08); padding: 1.25rem; white-space: pre-wrap; line-height: 1.7; margin-bottom: 1.25rem;" id="code-new-artist">Subject: [New Artist] - Artist Name
+
+1. Artist / Band Name: 
+2. Primary Source URL (Strictly required): 
+3. Source Platform / Outlet (e.g. Instagram, Pitchfork, Campaign Signatory): 
+4. Category of Action:
+   [ ] G-D: Direct statement against the genocide
+   [ ] G-C: Collective statement / boycott letter signatory
+   [ ] S: Solidarity / ceasefire appeal / relief benefit
+   [ ] H: Historical solidarity action (pre-Oct 2023)
+5. Associated Campaign (e.g. Musicians for Palestine, Artists4Ceasefire, Strike Germany, None): 
+6. Exact Quote or Action Summary: 
+7. Approximate Date of Statement: 
+8. Additional Notes / Context: </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a
+            id="gmail-new-artist"
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}&su=%5BNew%20Artist%5D%20Submission&body=1.%20Artist%20%2F%20Band%20Name%3A%0A2.%20Primary%20Source%20URL%20(Required)%3A%0A3.%20Source%20Outlet%20(e.g.%20Instagram%2C%20Pitchfork)%3A%0A4.%20Category%20(G-D%20%2F%20G-C%20%2F%20S%20%2F%20H)%3A%0A5.%20Campaign%20Association%3A%0A6.%20Exact%20Quote%20or%20Summary%3A%0A7.%20Date%20of%20Action%3A%0A8.%20Notes%3A%0A`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="site-header__cta"
+            style="display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none;"
+          >
+            <span>Open in Gmail</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </a>
+          <a
+            id="mailto-new-artist"
+            href={`mailto:${contactEmail}?subject=%5BNew%20Artist%5D%20Submission&body=1.%20Artist%20%2F%20Band%20Name%3A%0A2.%20Primary%20Source%20URL%20(Required)%3A%0A3.%20Source%20Outlet%20(e.g.%20Instagram%2C%20Pitchfork)%3A%0A4.%20Category%20(G-D%20%2F%20G-C%20%2F%20S%20%2F%20H)%3A%0A5.%20Campaign%20Association%3A%0A6.%20Exact%20Quote%20or%20Summary%3A%0A7.%20Date%20of%20Action%3A%0A8.%20Notes%3A%0A`}
+            class="copy-btn"
+            style="text-decoration: none;"
+          >
+            Open in Mail App
+          </a>
+          <button
+            type="button"
+            class="copy-btn"
+            data-target="code-new-artist"
+          >
+            Copy Template
+          </button>
+        </div>
+      </div>
+
+      <!-- Template 2: Add Evidence -->
+      <div class="template-panel" id="panel-add-evidence" style="display: none;">
+        <div style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-bone); background: #040406; border: 1px solid rgba(255, 255, 255, 0.08); padding: 1.25rem; white-space: pre-wrap; line-height: 1.7; margin-bottom: 1.25rem;" id="code-add-evidence">Subject: [Add Evidence] - Artist Name
+
+1. Artist Name: 
+2. Existing Directory URL / Slug (if known): 
+3. New Primary Source URL: 
+4. Source Outlet / Platform: 
+5. Category:
+   [ ] G-D (Direct statement)
+   [ ] G-C (Collective statement / boycott)
+   [ ] S (Solidarity / benefit)
+   [ ] H (Historical)
+6. Quote or Description of New Evidence: 
+7. Date of New Action / Statement: </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a
+            id="gmail-add-evidence"
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}&su=%5BAdd%20Evidence%5D%20Submission&body=1.%20Artist%20Name%3A%0A2.%20Directory%20Slug%20or%20URL%3A%0A3.%20New%20Primary%20Source%20URL%3A%0A4.%20Source%20Outlet%3A%0A5.%20Category%20(G-D%20%2F%20G-C%20%2F%20S%20%2F%20H)%3A%0A6.%20Quote%20or%20Description%3A%0A7.%20Date%3A%0A`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="site-header__cta"
+            style="display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none;"
+          >
+            <span>Open in Gmail</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </a>
+          <a
+            id="mailto-add-evidence"
+            href={`mailto:${contactEmail}?subject=%5BAdd%20Evidence%5D%20Submission&body=1.%20Artist%20Name%3A%0A2.%20Directory%20Slug%20or%20URL%3A%0A3.%20New%20Primary%20Source%20URL%3A%0A4.%20Source%20Outlet%3A%0A5.%20Category%20(G-D%20%2F%20G-C%20%2F%20S%20%2F%20H)%3A%0A6.%20Quote%20or%20Description%3A%0A7.%20Date%3A%0A`}
+            class="copy-btn"
+            style="text-decoration: none;"
+          >
+            Open in Mail App
+          </a>
+          <button
+            type="button"
+            class="copy-btn"
+            data-target="code-add-evidence"
+          >
+            Copy Template
+          </button>
+        </div>
+      </div>
+
+      <!-- Template 3: Correction / Dispute -->
+      <div class="template-panel" id="panel-correction" style="display: none;">
+        <div style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-bone); background: #040406; border: 1px solid rgba(255, 255, 255, 0.08); padding: 1.25rem; white-space: pre-wrap; line-height: 1.7; margin-bottom: 1.25rem;" id="code-correction">Subject: [Correction / Dispute] - Artist Name
+
+1. Artist Name: 
+2. Directory Profile URL (e.g. /artists/slug): 
+3. Nature of Correction:
+   [ ] Misattribution or mistaken identity
+   [ ] Clerical error / broken link
+   [ ] Disputed open letter signature
+   [ ] Position updated, clarified, or withdrawn
+   [ ] Request for profile review or withdrawal
+4. Details & Explanation: 
+5. Primary Source Links Supporting Correction: 
+6. Relationship to Artist (Self, Manager/Representative, Reader): </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a
+            id="gmail-correction"
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}&su=%5BCorrection%20%2F%20Dispute%5D%20Request&body=1.%20Artist%20Name%3A%0A2.%20Directory%20URL%3A%0A3.%20Nature%20of%20Correction%3A%0A4.%20Details%20%26%20Explanation%3A%0A5.%20Supporting%20Source%20Links%3A%0A6.%20Relationship%20to%20Artist%3A%0A`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="site-header__cta"
+            style="display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none;"
+          >
+            <span>Open in Gmail</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </a>
+          <a
+            id="mailto-correction"
+            href={`mailto:${contactEmail}?subject=%5BCorrection%20%2F%20Dispute%5D%20Request&body=1.%20Artist%20Name%3A%0A2.%20Directory%20URL%3A%0A3.%20Nature%20of%20Correction%3A%0A4.%20Details%20%26%20Explanation%3A%0A5.%20Supporting%20Source%20Links%3A%0A6.%20Relationship%20to%20Artist%3A%0A`}
+            class="copy-btn"
+            style="text-decoration: none;"
+          >
+            Open in Mail App
+          </a>
+          <button
+            type="button"
+            class="copy-btn"
+            data-target="code-correction"
+          >
+            Copy Template
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editorial Standards & Criteria Section -->
+    <div class="methodology__section">
+      <div class="section-marker">
+        <span>01 · SUBMISSION GUIDELINES &amp; VERIFICATION RULES</span>
+      </div>
+      <h2>What gets accepted into the directory</h2>
+      <p>
+        To preserve historical credibility and protect artists from false attribution, the directory adheres to strict evidentiary standards:
+      </p>
+      <ul class="methodology__list">
+        <li><strong>Primary Sources Only:</strong> Submissions must link directly to verifiable primary material (e.g. official artist social media post, verified interview, campaign petition signatory roster, concert program).</li>
+        <li><strong>No Rumors or Gossip:</strong> Second-hand tweets, Reddit speculation, unverified screenshots, or hearsay cannot be accepted.</li>
+        <li><strong>Exact Quotations:</strong> Quotes must reflect exact wording without redaction or editorial embellishment.</li>
+        <li><strong>Historical Context:</strong> Actions taken prior to October 2023 are cataloged under the <code>H</code> (Historical) category.</li>
+      </ul>
+      <p style="margin-top: 1rem;">
+        For comprehensive details on how evidence is verified and audited, refer to our
+        <a href="/methodology" style="color: var(--color-accent); text-decoration: underline;">Archival Methodology</a>
+        and our
+        <a href="/disclaimer" style="color: var(--color-accent); text-decoration: underline;">Legal Disclaimer &amp; Takedown Policy</a>.
+      </p>
+    </div>
+  </div>
+
+  <style>
+    .template-tab {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--color-ash);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      padding: 0.6rem 1.1rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: all 0.2s ease;
+    }
+
+    .template-tab:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--color-bone);
+    }
+
+    .template-tab--active {
+      background: rgba(255, 68, 5, 0.15);
+      border-color: var(--color-accent);
+      color: var(--color-bone);
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--color-bone);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      padding: 0.6rem 1.25rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--color-bone);
+    }
+  </style>
+
+  <script>
+    // Tab switching
+    const tabs = document.querySelectorAll<HTMLButtonElement>('.template-tab');
+    const panels = document.querySelectorAll<HTMLElement>('.template-panel');
+
+    function selectTab(tabKey: string) {
+      tabs.forEach(tab => {
+        const isActive = tab.dataset.tab === tabKey;
+        tab.classList.toggle('template-tab--active', isActive);
+      });
+      panels.forEach(panel => {
+        panel.style.display = panel.id === `panel-${tabKey}` ? 'block' : 'none';
+      });
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tabKey = tab.dataset.tab;
+        if (tabKey) selectTab(tabKey);
+      });
+    });
+
+    // Handle URL parameters (e.g., ?type=correction&artist=Artist+Name&slug=artist-slug)
+    const params = new URLSearchParams(window.location.search);
+    const typeParam = params.get('type');
+    const artistParam = params.get('artist');
+    const slugParam = params.get('slug');
+
+    if (typeParam === 'correction' || typeParam === 'dispute') {
+      selectTab('correction');
+      if (artistParam) {
+        const codeBlock = document.getElementById('code-correction');
+        const mailtoBtn = document.getElementById('mailto-correction') as HTMLAnchorElement | null;
+        const gmailBtn = document.getElementById('gmail-correction') as HTMLAnchorElement | null;
+        if (codeBlock) {
+          codeBlock.textContent = codeBlock.textContent
+            .replace('Subject: [Correction / Dispute] - Artist Name', `Subject: [Correction / Dispute] - ${artistParam}`)
+            .replace('1. Artist Name: ', `1. Artist Name: ${artistParam}`)
+            .replace('2. Directory Profile URL (e.g. /artists/slug): ', `2. Directory Profile URL: /artists/${slugParam || ''}`);
+        }
+        const subject = encodeURIComponent(`[Correction / Dispute] - ${artistParam}`);
+        const body = encodeURIComponent(
+          `1. Artist Name: ${artistParam}\n2. Directory URL: /artists/${slugParam || ''}\n3. Nature of Correction:\n4. Details & Explanation:\n5. Supporting Source Links:\n6. Relationship to Artist:\n`
+        );
+        if (mailtoBtn) {
+          mailtoBtn.href = `mailto:aritstsforpalestine@gmail.com?subject=${subject}&body=${body}`;
+        }
+        if (gmailBtn) {
+          gmailBtn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=aritstsforpalestine@gmail.com&su=${subject}&body=${body}`;
+        }
+      }
+    } else if (typeParam === 'evidence') {
+      selectTab('add-evidence');
+      if (artistParam) {
+        const codeBlock = document.getElementById('code-add-evidence');
+        const mailtoBtn = document.getElementById('mailto-add-evidence') as HTMLAnchorElement | null;
+        const gmailBtn = document.getElementById('gmail-add-evidence') as HTMLAnchorElement | null;
+        if (codeBlock) {
+          codeBlock.textContent = codeBlock.textContent
+            .replace('Subject: [Add Evidence] - Artist Name', `Subject: [Add Evidence] - ${artistParam}`)
+            .replace('1. Artist Name: ', `1. Artist Name: ${artistParam}`)
+            .replace('2. Existing Directory URL / Slug (if known): ', `2. Directory URL: /artists/${slugParam || ''}`);
+        }
+        const subject = encodeURIComponent(`[Add Evidence] - ${artistParam}`);
+        const body = encodeURIComponent(
+          `1. Artist Name: ${artistParam}\n2. Directory URL: /artists/${slugParam || ''}\n3. New Primary Source URL:\n4. Source Outlet:\n5. Category:\n6. Quote or Description:\n7. Date:\n`
+        );
+        if (mailtoBtn) {
+          mailtoBtn.href = `mailto:aritstsforpalestine@gmail.com?subject=${subject}&body=${body}`;
+        }
+        if (gmailBtn) {
+          gmailBtn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=aritstsforpalestine@gmail.com&su=${subject}&body=${body}`;
+        }
+      }
+    }
+
+    // Copy email button
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+    if (copyEmailBtn) {
+      copyEmailBtn.addEventListener('click', async () => {
+        const email = copyEmailBtn.dataset.email || 'aritstsforpalestine@gmail.com';
+        try {
+          await navigator.clipboard.writeText(email);
+          const original = copyEmailBtn.textContent;
+          copyEmailBtn.textContent = 'Copied!';
+          copyEmailBtn.style.borderColor = 'var(--color-success)';
+          copyEmailBtn.style.color = 'var(--color-success)';
+          setTimeout(() => {
+            copyEmailBtn.textContent = original;
+            copyEmailBtn.style.borderColor = '';
+            copyEmailBtn.style.color = '';
+          }, 2000);
+        } catch (err) {
+          console.error(err);
+        }
+      });
+    }
+
+    // Copy template button functionality
+    const copyBtns = document.querySelectorAll<HTMLButtonElement>('.copy-btn');
+    copyBtns.forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const targetId = btn.dataset.target;
+        if (!targetId) return;
+        const targetEl = document.getElementById(targetId);
+        if (!targetEl) return;
+
+        try {
+          await navigator.clipboard.writeText(targetEl.textContent || '');
+          const originalText = btn.textContent;
+          btn.textContent = 'Copied to Clipboard!';
+          btn.style.borderColor = 'var(--color-success)';
+          btn.style.color = 'var(--color-success)';
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.borderColor = '';
+            btn.style.color = '';
+          }, 2500);
+        } catch (err) {
+          console.error('Failed to copy', err);
+        }
+      });
+    });
+  </script>
+</BaseLayout>

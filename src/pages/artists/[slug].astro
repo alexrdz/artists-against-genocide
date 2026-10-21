@@ -144,6 +144,27 @@ const pageTitle = `${artist.name} — Palestine Music Directory`;
             </div>
           </div>
         </div>
+
+        <div class="sidebar__card">
+          <div class="sidebar__title">Feedback &amp; Corrections</div>
+          <div style="font-size: var(--text-xs); color: var(--color-ash); line-height: 1.5; margin-bottom: 0.75rem;">
+            Notice a broken link, missing evidence, or wish to dispute attribution?
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <a
+              href={`/submit?type=correction&artist=${encodeURIComponent(artist.name)}&slug=${artist.slug}`}
+              style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent); text-decoration: none;"
+            >
+              → Suggest correction or dispute
+            </a>
+            <a
+              href={`/submit?type=evidence&artist=${encodeURIComponent(artist.name)}&slug=${artist.slug}`}
+              style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-bone); text-decoration: none;"
+            >
+              → Add additional evidence
+            </a>
+          </div>
+        </div>
       </aside>
     </div>
   </div>

@@ -16,6 +16,7 @@ const navLinks = [
   { href: '/campaigns', label: 'Campaigns' },
   { href: '/methodology', label: 'Methodology' },
   { href: '/changes', label: 'Changes' },
+  { href: '/submit', label: 'Submit' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -141,11 +142,12 @@ const currentPath = Astro.url.pathname;
             {navLinks.map(link => (
               <a href={link.href}>{link.label}</a>
             ))}
+            <a href="/disclaimer">Disclaimer</a>
           </nav>
         </div>
 
         <div class="site-footer__meta">
-          A community-maintained directory documenting public statements, boycott participation, and collective action by musicians against the genocide of Palestinians. Inclusion is documentation, not endorsement. Research snapshot baseline date does not denote the date an artist made a statement. Absence from this directory does not establish silence or any political position.
+          A community-maintained directory documenting public statements, boycott participation, and collective action by musicians against the genocide of Palestinians. Inclusion is documentation, not endorsement. Research snapshot baseline date does not denote the date an artist made a statement. Absence from this directory does not establish silence or any political position. <a href="/disclaimer" style="color: var(--color-bone); text-decoration: underline;">Read legal disclaimer &amp; takedown policy</a>.
         </div>
       </div>
     </footer>

@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const contactEmail = 'aritstsforpalestine@gmail.com';
+---
+
+<BaseLayout
+  title="Legal Disclaimer & Takedown Policy — Palestine Music Directory"
+  description="Archival notice, non-endorsement policy, limitation of liability, and notice-and-takedown procedures for the Palestine Music Directory."
+>
+  <div class="layout-page methodology">
+    <div class="section-marker">
+      <span>LEGAL NOTICE // ARCHIVAL SAFEGUARDS</span>
+      <span class="section-marker__meta">PUBLIC POLICIES</span>
+    </div>
+
+    <div class="hero" style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 3rem; margin-bottom: 3rem">
+      <h1 class="hero__title" style="font-size: var(--text-2xl); margin-bottom: 1rem">
+        <span class="hero__title-serif">Legal</span>
+        <span class="hero__title-accent">Disclaimer &amp; Takedown.</span>
+      </h1>
+      <p class="hero__body" style="max-width: 48rem">
+        Standards of documentation, non-endorsement policy, third-party attribution limits, and expedited dispute procedures.
+      </p>
+    </div>
+
+    <div class="methodology__section">
+      <div class="section-marker" style="margin-top: 0">
+        <span>01 · ARCHIVAL &amp; JOURNALISTIC PURPOSE</span>
+      </div>
+      <h2>Non-commercial informational archive</h2>
+      <p>
+        The Palestine Music Directory is an independent, non-commercial archival and research initiative operated in the public interest. Its purpose is to aggregate, catalog, and preserve publicly accessible records concerning statements, open letters, benefit actions, and collective boycott participation by musical artists in relation to Palestine and the Gaza genocide.
+      </p>
+      <p>
+        This directory is offered solely for educational, historical, and journalistic reference. It does not sell listings, accept advertising, or monetize access to its data.
+      </p>
+    </div>
+
+    <div class="methodology__section">
+      <div class="section-marker">
+        <span>02 · NON-ENDORSEMENT &amp; NON-BLACKLIST POLICY</span>
+      </div>
+      <h2>Documentation is not endorsement or targeting</h2>
+      <p>
+        Inclusion of an artist or group in this directory constitutes factual documentation of public records; it does not imply or constitute:
+      </p>
+      <ul class="methodology__list">
+        <li>An organizational endorsement of the artist's entire catalog, personal character, or broader political ideology.</li>
+        <li>An endorsement by the artist of this directory, its curators, or its collaborators.</li>
+        <li>A call for boycotts, harassment, blacklisting, or commercial pressure directed toward any entity.</li>
+        <li>A moral judgment or qualitative ranking of any artist or public figure.</li>
+      </ul>
+    </div>
+
+    <div class="methodology__section">
+      <div class="section-marker">
+        <span>03 · NO PRESUMPTION OF SILENCE OR ABSENCE</span>
+      </div>
+      <h2>Absence is not evidence</h2>
+      <p>
+        This directory is not an exhaustive or worldwide census of musicians. Due to language barriers, regional platforms, and research capacity, many artists who have spoken out or taken action are not yet indexed.
+      </p>
+      <p style="color: var(--color-bone);">
+        <strong>Important:</strong> The absence of an artist from this directory does not establish silence, neutrality, opposition, or any political stance. Users are strictly cautioned against drawing negative inferences from an artist's omission.
+      </p>
+    </div>
+
+    <div class="methodology__section">
+      <div class="section-marker">
+        <span>04 · THIRD-PARTY ATTRIBUTIONS &amp; SOURCING CAVEATS</span>
+      </div>
+      <h2>Limits of third-party verification</h2>
+      <p>
+        Records in this index are derived from cited public materials, including published news reports, social media statements, and public campaign registers (e.g., No Music for Genocide, Musicians for Palestine, Artists4Ceasefire, Strike Germany).
+      </p>
+      <p>
+        Where an artist is listed as a signatory to an open letter or campaign, the entry reflects the public attribution provided by the organizing campaign. While curators endeavor to verify primary sources prior to publication, third-party campaign registers may contain clerical errors, duplicates, or unauthenticated submissions. The directory disclaims liability for inaccuracies originating in third-party campaign publications.
+      </p>
+    </div>
+
+    <div class="methodology__section">
+      <div class="section-marker">
+        <span>05 · NOTICE-AND-TAKEDOWN &amp; RIGHT TO RECTIFICATION</span>
+      </div>
+      <h2>Dispute, correction, and removal procedure</h2>
+      <p>
+        The Palestine Music Directory maintains a strict commitment to accuracy and data integrity. If you are an artist, manager, authorized representative, or public reader and believe that a listing contains inaccurate information, false attribution, an unverified signature, or an expired/clarified position, we provide an expedited dispute process.
+      </p>
+
+      <div style="background: rgba(9, 9, 13, 0.8); border: 1px solid rgba(255, 68, 5, 0.3); border-left: 4px solid var(--color-accent); padding: 1.5rem; margin-block: 1.5rem;">
+        <h3 style="font-family: var(--font-display); font-size: var(--text-base); color: var(--color-bone); margin-bottom: 0.5rem;">
+          How to submit a correction or takedown request
+        </h3>
+        <p style="font-size: var(--text-sm); color: var(--color-ash); line-height: 1.6; margin-bottom: 1rem;">
+          Send an email to our editorial desk at:
+          <a href={`mailto:${contactEmail}?subject=Dispute%20or%20Correction%20Request`} style="color: var(--color-accent); font-family: var(--font-mono); font-weight: 600; text-decoration: underline;">
+            {contactEmail}
+          </a>
+        </p>
+        <p style="font-size: var(--text-sm); color: var(--color-bone); margin-bottom: 0.5rem;">
+          Please include the following in your message:
+        </p>
+        <ol style="font-size: var(--text-sm); color: var(--color-ash); padding-left: 1.25rem; line-height: 1.6;">
+          <li><strong>Artist Name &amp; Profile URL:</strong> The specific directory URL or slug in dispute.</li>
+          <li><strong>Nature of Claim:</strong> State whether the claim is misattribution, factual error, disputed signatory status, or updated public stance.</li>
+          <li><strong>Supporting Documentation:</strong> Provide relevant primary source links or proof of representation (e.g., official retraction, verified statement, management contact).</li>
+          <li><strong>Requested Action:</strong> Correction of specific evidence, amendment of tier, or total withdrawal.</li>
+        </ol>
+        <p style="font-size: var(--text-xs); color: var(--color-ash); margin-top: 1rem; margin-bottom: 0;">
+          <strong>Turnaround Commitment:</strong> Takedown and rectification requests received via this channel are reviewed within 48 to 72 hours. While an investigation is underway, records subject to credible dispute may be temporarily placed in draft/withdrawn status in accordance with our editorial governance.
+        </p>
+      </div>
+    </div>
+
+    <div class="methodology__section">
+      <div class="section-marker">
+        <span>06 · FAIR USE &amp; INTELLECTUAL PROPERTY</span>
+      </div>
+      <h2>Fair use statement</h2>
+      <p>
+        All artist names, excerpts of public statements, and promotional materials referenced on this site remain the intellectual property of their respective creators and copyright holders. Such materials are quoted, referenced, and linked under the doctrine of <em>Fair Use</em> (17 U.S.C. § 107) and international fair dealing provisions for the non-commercial purposes of commentary, scholarship, historical archiving, and news reporting.
+      </p>
+      <p>
+        Primary sources are explicitly cited and linked directly to original publications wherever available.
+      </p>
+    </div>
+
+    <div class="methodology__section">
+      <div class="section-marker">
+        <span>07 · LIMITATION OF LIABILITY</span>
+      </div>
+      <h2>Disclaimer of warranties</h2>
+      <p>
+        This directory is provided on an <strong>"as is"</strong> and <strong>"as available"</strong> basis without warranties of any kind, either express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
+      </p>
+      <p>
+        The creators, maintainers, and hosting contributors of this directory shall not be held liable for any direct, indirect, incidental, consequential, or punitive damages arising from the use of, or inability to use, the information contained herein, or from any third-party actions taken in reliance upon the data published in this directory.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
