@@ -41,13 +41,18 @@ const pageTitle = `${artist.name} — Palestine Music Directory`;
 ---
 
 <BaseLayout title={pageTitle} description={`${artist.name}: ${categoryLabels[artist.tier]} — evidence and campaign associations.`}>
-  <div class="container profile">
+  <div class="layout-page profile">
+    <div class="section-marker">
+      <span>DOSSIER · ARTIST PROFILE</span>
+      <span class="section-marker__meta">VERIFIED ARCHIVAL RECORD</span>
+    </div>
+
     <div class="profile__header">
       <a href="/" class="profile__back">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="m15 18-6-6 6-6" />
         </svg>
-        Back to directory
+        <span>Back to directory</span>
       </a>
       <h1 class="profile__name">{artist.name}</h1>
       <div class="profile__badges">
@@ -61,13 +66,18 @@ const pageTitle = `${artist.name} — Palestine Music Directory`;
     </div>
 
     <div class="profile__layout">
-      <div class="profile__evidence">
-        <h2 style="margin-bottom: var(--spacing-4)">Evidence ({artist.evidence.length})</h2>
+      <div class="profile__evidence" data-stack="gap:m">
+        <h2 style="font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-bone); margin-bottom: 0.5rem">
+          Evidence ({artist.evidence.length})
+        </h2>
+
         {artist.evidence.map(ev => (
           <div class={`evidence-card evidence-card--${ev.category}`}>
             <div class="evidence-card__category">
               <span class={`cat-badge cat-badge--${ev.category}`}>{ev.category}</span>
-              <span style="font-size: 0.8125rem; color: var(--color-text-muted)">{categoryLabels[ev.category]}</span>
+              <span style="font-family: var(--font-mono); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-ash)">
+                {categoryLabels[ev.category]}
+              </span>
             </div>
             <p class="evidence-card__summary">{ev.summary}</p>
             <div class="evidence-card__source">
@@ -80,14 +90,14 @@ const pageTitle = `${artist.name} — Palestine Music Directory`;
           </div>
         ))}
 
-        <div style="margin-top: var(--spacing-4); padding: var(--spacing-4); background: var(--color-bg-muted); border-radius: var(--radius-md); font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.6;">
-          <strong>Note:</strong> The research snapshot date ({data.researchSnapshotDate}) is not the date of a statement
+        <div style="padding: 1.5rem; background: rgba(9, 9, 13, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); font-size: var(--text-xs); color: var(--color-ash); line-height: 1.6;">
+          <strong style="color: var(--color-bone);">Note:</strong> The research snapshot date ({data.researchSnapshotDate}) is not the date of a statement
           or a new source review. An organizer attribution is not independent authentication of every signature or
           identity. Absence from this directory does not establish silence or any political position.
         </div>
       </div>
 
-      <aside class="sidebar">
+      <aside class="sidebar" data-stack="gap:m">
         <div class="sidebar__card">
           <div class="sidebar__title">Campaigns ({artistCampaigns.length})</div>
           <div class="sidebar__list">
@@ -106,7 +116,7 @@ const pageTitle = `${artist.name} — Palestine Music Directory`;
               {related.map(r => (
                 <div class="sidebar__list-item">
                   <a href={`/artists/${r.slug}/`}>{r.name}</a>
-                  <span class="cat-badge cat-badge--{r.tier}">{r.tier}</span>
+                  <span class={`cat-badge cat-badge--${r.tier}`}>{r.tier}</span>
                 </div>
               ))}
             </div>
@@ -117,20 +127,20 @@ const pageTitle = `${artist.name} — Palestine Music Directory`;
           <div class="sidebar__title">Profile metadata</div>
           <div class="sidebar__list">
             <div class="sidebar__list-item">
-              <span style="color: var(--color-text-muted)">Tier</span>
+              <span>Tier</span>
               <span class={`cat-badge cat-badge--${artist.tier}`}>{artist.tier}</span>
             </div>
             <div class="sidebar__list-item">
-              <span style="color: var(--color-text-muted)">Evidence records</span>
-              <span>{artist.evidence.length}</span>
+              <span>Evidence records</span>
+              <span style="font-family: var(--font-mono); color: var(--color-bone);">{artist.evidence.length}</span>
             </div>
             <div class="sidebar__list-item">
-              <span style="color: var(--color-text-muted)">Imported</span>
-              <span>{new Date(artist.importedAt).toLocaleDateString()}</span>
+              <span>Imported</span>
+              <span style="font-family: var(--font-mono); color: var(--color-bone);">{new Date(artist.importedAt).toLocaleDateString()}</span>
             </div>
             <div class="sidebar__list-item">
-              <span style="color: var(--color-text-muted)">Reviewed</span>
-              <span>{artist.reviewedAt ? new Date(artist.reviewedAt).toLocaleDateString() : '—'}</span>
+              <span>Reviewed</span>
+              <span style="font-family: var(--font-mono); color: var(--color-bone);">{artist.reviewedAt ? new Date(artist.reviewedAt).toLocaleDateString() : '—'}</span>
             </div>
           </div>
         </div>

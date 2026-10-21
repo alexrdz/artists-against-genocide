@@ -32,47 +32,77 @@ const categoryLabels: Record<string, string> = {
 ---
 
 <BaseLayout title={`${campaign.name} — Palestine Music Directory`} description={campaign.description}>
-  <div class="container" style="padding-top: var(--spacing-6); padding-bottom: var(--spacing-6)">
+  <div class="layout-page" style="padding-bottom: 5rem">
+    <div class="section-marker">
+      <span>CAMPAIGN DOSSIER · {campaign.id.toUpperCase()}</span>
+      <span class="section-marker__meta">ORGANIZED SOLIDARITY MOVEMENT</span>
+    </div>
+
     <a href="/campaigns/" class="profile__back">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="m15 18-6-6 6-6" />
       </svg>
-      All campaigns
+      <span>All campaigns</span>
     </a>
 
     <div class="campaign-page__hero">
+      <span class="campaign-box__tag" style="display:block; margin-bottom: 0.5rem">Documented Campaign</span>
       <h1 class="campaign-page__name">{campaign.name}</h1>
       <p class="campaign-page__description">{campaign.description}</p>
       <a href={campaign.sourceUrl} target="_blank" rel="noopener noreferrer nofollow" class="campaign-page__source">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <span>View verified source: {new URL(campaign.sourceUrl).hostname}</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M15 3h6v6" />
           <path d="M10 14 21 3" />
           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
         </svg>
-        View original source
       </a>
     </div>
 
-    <h2 style="margin-bottom: var(--spacing-4)">
-      {campaignArtists.length} {campaignArtists.length === 1 ? 'artist' : 'artists'} in this campaign
-    </h2>
+    <div class="directory-header" style="margin-bottom: 1.5rem">
+      <h2 class="directory-header__title">
+        <span class="directory-header__dot"></span>
+        <span class="directory-header__text">{campaignArtists.length} {campaignArtists.length === 1 ? 'artist' : 'artists'}</span>
+        <span class="directory-header__slash">/</span>
+        <span>documented in this campaign</span>
+      </h2>
+    </div>
 
-    <div class="results__grid">
-      {campaignArtists.map(a => (
-        <a href={`/artists/${a.slug}/`} class="artist-card">
-          <div class="artist-card__name">{a.name}</div>
-          <div class="artist-card__badges">
-            <span class={`cat-badge cat-badge--${a.tier}`}>{a.tier}</span>
+    <div class="results__grid ledger-list">
+      {campaignArtists.map((a, idx) => (
+        <article class="artist-card ledger-row">
+          <div class="ledger-row__grid">
+            <div class="ledger-row__col-title">
+              <span class="ledger-row__index">{String(idx + 1).padStart(2, '0')}</span>
+              <h3 class="ledger-row__name">
+                <a href={`/artists/${a.slug}/`} class="artist-card__name">{a.name}</a>
+              </h3>
+            </div>
+            <div class="ledger-row__col-meta">
+              <div class="ledger-row__tags artist-card__badges">
+                <span class={`cat-badge cat-badge--${a.tier}`}>{a.tier}</span>
+              </div>
+              <p class="ledger-row__summary">
+                {a.evidence[0] ? a.evidence[0].summary : ''}
+              </p>
+              <div class="artist-card__evidence-count" style="display:none">{a.evidence.length} evidence records</div>
+            </div>
+            <div class="ledger-row__col-action">
+              <a href={`/artists/${a.slug}/`} class="ledger-row__btn">
+                <span>View Dossier</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           </div>
-          <div class="artist-card__evidence-count">{a.evidence.length} evidence {a.evidence.length === 1 ? 'record' : 'records'}</div>
-        </a>
+        </article>
       ))}
     </div>
 
     {campaignArtists.length === 0 && (
       <div class="empty-state">
+        <div class="empty-state__icon">∅</div>
         <div class="empty-state__title">No published artists in this campaign yet</div>
-        <p>Artists may be pending review. Check back later.</p>
+        <p class="empty-state__desc">Artists may be pending review. Check back later.</p>
       </div>
     )}
   </div>

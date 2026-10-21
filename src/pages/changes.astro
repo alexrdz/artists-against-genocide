@@ -27,29 +27,41 @@ const actionLabels: Record<string, string> = {
 ---
 
 <BaseLayout title="Changes — Palestine Music Directory" description="Recent changes and editorial actions.">
-  <div class="container" style="padding-top: var(--spacing-6); padding-bottom: var(--spacing-6)">
-    <h1 style="margin-bottom: var(--spacing-2)">Changes</h1>
-    <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-6); max-width: 600px">
-      A log of editorial actions: imports, reviews, publications, and withdrawals.
-    </p>
+  <div class="layout-page" style="padding-bottom: 5rem">
+    <div class="section-marker">
+      <span>06 · EDITORIAL AUDIT TIMELINE</span>
+      <span class="section-marker__meta">APPEND-ONLY PROVENANCE LOG</span>
+    </div>
+
+    <div class="hero" style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 3rem; margin-bottom: 3rem">
+      <h1 class="hero__title" style="font-size: var(--text-2xl); margin-bottom: 1rem">
+        <span class="hero__title-serif">Audit</span>
+        <span class="hero__title-accent">Changes.</span>
+      </h1>
+      <p class="hero__body" style="max-width: 48rem">
+        A chronological log of all editorial actions: data imports, evidence reviews, publications, and profile withdrawals.
+      </p>
+    </div>
 
     {entries.length === 0 ? (
       <div class="empty-state">
+        <div class="empty-state__icon">∅</div>
         <div class="empty-state__title">No changes logged yet</div>
+        <p class="empty-state__desc">Editorial operations will appear here as they occur.</p>
       </div>
     ) : (
-      <div style="display: flex; flex-direction: column; gap: var(--spacing-3)">
+      <div data-stack="gap:m">
         {entries.map(entry => (
-          <div class="evidence-card" style="border-left-color: var(--color-primary)">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-1)">
+          <div class="evidence-card" style="border-left-color: var(--color-accent); margin-bottom: 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem">
               <span class="cat-badge cat-badge--G-C">{actionLabels[entry.action] ?? entry.action}</span>
-              <span style="font-size: 0.8125rem; color: var(--color-text-muted)">{new Date(entry.timestamp).toLocaleString()}</span>
+              <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: #34d399">{new Date(entry.timestamp).toLocaleString()}</span>
             </div>
-            <div style="font-size: 0.875rem; color: var(--color-text-secondary)">
-              by {entry.actor} · {entry.count} {entry.count === 1 ? 'artist' : 'artists'}
+            <div style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ash)">
+              Operator: <strong style="color: var(--color-bone)">{entry.actor}</strong> · Impacted: <strong style="color: var(--color-accent)">{entry.count} {entry.count === 1 ? 'artist' : 'artists'}</strong>
             </div>
             {entry.notes && (
-              <div style="font-size: 0.875rem; color: var(--color-text); margin-top: var(--spacing-2)">{entry.notes}</div>
+              <div style="font-size: var(--text-sm); color: var(--color-bone); margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(255, 255, 255, 0.06)">{entry.notes}</div>
             )}
           </div>
         ))}

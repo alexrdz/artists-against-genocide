@@ -22,38 +22,71 @@ const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="page">
+    <!-- Continuous Architectural Vertical Grid Backdrop -->
+    <div class="site-grid-backdrop" aria-hidden="true">
+      <div class="layout-page site-grid-backdrop__inner">
+        <div class="site-grid-backdrop__col"></div>
+        <div class="site-grid-backdrop__col"></div>
+        <div class="site-grid-backdrop__col site-grid-backdrop__col--desktop"></div>
+        <div class="site-grid-backdrop__col site-grid-backdrop__col--desktop"></div>
+      </div>
+    </div>
+
+    <!-- Clean Ambient Luminescence -->
+    <div class="site-luminescence" aria-hidden="true">
+      <div class="site-luminescence__glow"></div>
+    </div>
+
     <a href="#main" class="skip-link">Skip to main content</a>
 
     <header class="site-header">
-      <div class="container site-header__inner">
+      <div class="layout-page site-header__inner">
         <a href="/" class="site-header__brand">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="site-header__brand-icon" aria-hidden="true">
-            <circle cx="8" cy="18" r="4" />
-            <path d="M12 18V2l7-3" />
-            <path d="M8 18l3-3" />
-          </svg>
-          <span>Palestine Music Directory</span>
+          <span class="site-header__badge">PM</span>
+          <span class="site-header__brand-text">Palestine Music Directory</span>
         </a>
 
         <nav class="site-header__nav" aria-label="Primary">
-          {navLinks.map(link => (
-            <a
-              href={link.href}
-              aria-current={currentPath === link.href ? 'page' : undefined}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map(link => {
+            const isActive = link.href === '/'
+              ? currentPath === '/'
+              : currentPath.startsWith(link.href);
+            return (
+              <a
+                href={link.href}
+                class={`site-header__link ${isActive ? 'site-header__link--active' : ''}`}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
+
+        <div class="site-header__actions">
+          <span class="site-header__status">
+            <span class="site-header__status-dot"></span>
+            <span>Index Active</span>
+          </span>
+          <a href={currentPath === '/' ? '#directory-ledger' : '/#directory-ledger'} class="site-header__cta">
+            Explore Index
+          </a>
+        </div>
 
         <button
           class="site-header__menu-button"
@@ -62,7 +95,7 @@ const currentPath = Astro.url.pathname;
           aria-expanded="false"
           aria-controls="mobile-nav"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="3" y1="6" x2="21" y2="6" />
             <line x1="3" y1="12" x2="21" y2="12" />
             <line x1="3" y1="18" x2="21" y2="18" />
@@ -75,37 +108,44 @@ const currentPath = Astro.url.pathname;
         id="mobile-nav"
         aria-label="Mobile primary"
       >
-        {navLinks.map(link => (
-          <a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined}>
-            {link.label}
-          </a>
-        ))}
+        {navLinks.map(link => {
+          const isActive = link.href === '/'
+            ? currentPath === '/'
+            : currentPath.startsWith(link.href);
+          return (
+            <a
+              href={link.href}
+              aria-current={isActive ? 'page' : undefined}
+              class={isActive ? 'is-active' : ''}
+            >
+              {link.label}
+            </a>
+          );
+        })}
       </nav>
     </header>
 
-    <main id="main">
+    <main id="main" class="page-main">
       <slot />
     </main>
 
     <footer class="site-footer">
-      <div class="container">
+      <div class="layout-page" data-stack="gap:m">
         <div class="site-footer__inner">
-          <div>
-            <div class="site-footer__brand">Palestine Music Directory</div>
-            <p class="site-footer__tagline">
-              A community-maintained directory of musicians who have made public statements
-              against the genocide of Palestinians. Inclusion is documentation, not endorsement.
-            </p>
+          <div class="site-footer__brand">
+            <span class="site-footer__dot"></span>
+            <span>Palestine Music Directory</span>
           </div>
+
           <nav class="site-footer__nav" aria-label="Footer">
             {navLinks.map(link => (
               <a href={link.href}>{link.label}</a>
             ))}
           </nav>
         </div>
-        <div class="site-footer__bottom">
-          Research snapshot date is not the date of a statement or a new source review.
-          Absence does not establish silence or any political position.
+
+        <div class="site-footer__meta">
+          A community-maintained directory documenting public statements, boycott participation, and collective action by musicians against the genocide of Palestinians. Inclusion is documentation, not endorsement. Research snapshot baseline date does not denote the date an artist made a statement. Absence from this directory does not establish silence or any political position.
         </div>
       </div>
     </footer>

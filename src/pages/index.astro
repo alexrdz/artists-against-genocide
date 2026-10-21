@@ -1,22 +1,91 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { loadPublicExport } from '../lib/load-export';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { loadPublicExport } from "../lib/load-export";
 
 const data = loadPublicExport();
 
 const categoryLabels: Record<string, string> = {
-  'G-D': 'Direct anti-genocide',
-  'G-C': 'Collective anti-genocide',
-  'S': 'Solidarity / ceasefire',
-  'H': 'Historical-only',
+  "G-D": "Direct anti-genocide",
+  "G-C": "Collective anti-genocide",
+  S: "Solidarity / ceasefire",
+  H: "Historical-only",
 };
 
 const campaignLabels: Record<string, string> = {
-  nmg: 'No Music for Genocide',
-  mfp: 'Musicians for Palestine',
-  euro: 'Eurovision boycott',
-  a4c: 'Artists4Ceasefire',
-  other: 'Other sources',
+  nmg: "No Music for Genocide",
+  mfp: "Musicians for Palestine",
+  euro: "Eurovision boycott",
+  a4c: "Artists4Ceasefire",
+  other: "Other sources",
+};
+
+// Pillars setup with real published records for showcase
+const gdArtist =
+  data.artists.find(
+    (a) => a.name === "Massive Attack" || a.name === "Kneecap",
+  ) ||
+  data.artists.find((a) => a.tier === "G-D") ||
+  data.artists[0];
+const gcArtist =
+  data.artists.find((a) => a.name === "Brian Eno") ||
+  data.artists.find((a) => a.tier === "G-C") ||
+  data.artists[1];
+const sArtist =
+  data.artists.find((a) => a.name === "Arooj Aftab") ||
+  data.artists.find((a) => a.tier === "S") ||
+  data.artists[2];
+const hArtist =
+  data.artists.find((a) => a.name === "FKA twigs") ||
+  data.artists.find((a) => a.tier === "H") ||
+  data.artists[3];
+
+const pillarsMap = {
+  "G-D": {
+    code: "G-D",
+    num: "01.",
+    title: "Direct statement",
+    artist: gdArtist,
+    evidence:
+      gdArtist.evidence.find((e) => e.category === "G-D") ||
+      gdArtist.evidence[0],
+    count: data.artists.filter((a) =>
+      a.evidence.some((e) => e.category === "G-D"),
+    ).length,
+  },
+  "G-C": {
+    code: "G-C",
+    num: "02.",
+    title: "Collective action",
+    artist: gcArtist,
+    evidence:
+      gcArtist.evidence.find((e) => e.category === "G-C") ||
+      gcArtist.evidence[0],
+    count: data.artists.filter((a) =>
+      a.evidence.some((e) => e.category === "G-C"),
+    ).length,
+  },
+  S: {
+    code: "S",
+    num: "03.",
+    title: "Broader solidarity",
+    artist: sArtist,
+    evidence:
+      sArtist.evidence.find((e) => e.category === "S") || sArtist.evidence[0],
+    count: data.artists.filter((a) =>
+      a.evidence.some((e) => e.category === "S"),
+    ).length,
+  },
+  H: {
+    code: "H",
+    num: "04.",
+    title: "Historical support",
+    artist: hArtist,
+    evidence:
+      hArtist.evidence.find((e) => e.category === "H") || hArtist.evidence[0],
+    count: data.artists.filter((a) =>
+      a.evidence.some((e) => e.category === "H"),
+    ).length,
+  },
 };
 ---
 
@@ -24,56 +93,334 @@ const campaignLabels: Record<string, string> = {
   title="Palestine Music Directory"
   description="A directory of musicians who have made public statements against the genocide of Palestinians."
 >
-  <section class="hero">
-    <div class="container hero__inner">
-      <div class="hero__eyebrow">Community-maintained · Research baseline {data.researchSnapshotDate}</div>
-      <h1 class="hero__title">Musicians against the genocide of Palestinians</h1>
-      <p class="hero__description">
-        A directory of artists who have made public statements, signed open letters, or joined
-        boycotts documenting the genocide of Palestinians. Every entry traces back to a named,
-        verifiable source. Inclusion is documentation, not endorsement.
-      </p>
-      <div class="hero__stats">
-        <div class="hero__stat">
-          <span class="hero__stat-value">{data.stats.publishedArtists}</span>
-          <span class="hero__stat-label">Published profiles</span>
-        </div>
-        <div class="hero__stat">
-          <span class="hero__stat-value">{data.stats.totalEvidence}</span>
-          <span class="hero__stat-label">Evidence records</span>
-        </div>
-        <div class="hero__stat">
-          <span class="hero__stat-value">{data.campaigns.length}</span>
-          <span class="hero__stat-label">Campaigns</span>
+  <div class="layout-page">
+    <!-- Section Marker 01 -->
+    <div class="section-marker">
+      <span>01 · START — PUBLIC ARCHIVE</span>
+      <span class="section-marker__meta">VERIFIED RECORDS</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" data-split="ratio:3/2 gap:l">
+      <div class="hero__content" data-stack="gap:s">
+        <span class="hero__eyebrow"
+          >Community-maintained · Research baseline {
+            data.researchSnapshotDate
+          }</span
+        >
+        <h1 class="hero__title">
+          <span class="hero__title-serif">Musicians against the</span>
+          <span class="hero__title-accent">genocide of Palestinians.</span>
+        </h1>
+      </div>
+
+      <div class="hero__sidebar" data-stack="gap:m">
+        <span class="hero__eyebrow">Archive Mission</span>
+        <p class="hero__body">
+          A directory of artists who have made public statements, signed open
+          letters, or joined boycotts documenting the genocide of Palestinians.
+          Every entry traces back to a named, verifiable source. Inclusion is
+          documentation, not endorsement.
+        </p>
+
+        <div class="hero__stats" data-cluster="gap:l">
+          <div class="hero__stat">
+            <span class="hero__stat-value">{data.stats.publishedArtists}</span>
+            <span class="hero__stat-label">Published profiles</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-value">{data.stats.totalEvidence}</span>
+            <span class="hero__stat-label">Evidence records</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-value">{data.campaigns.length}</span>
+            <span class="hero__stat-label">Campaigns</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="directory">
-    <div class="container">
-      <div class="search-bar">
-        <svg class="search-bar__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="11" cy="11" r="8" />
-          <path d="m21 21-4.3-4.3" />
-        </svg>
-        <input
-          type="search"
-          id="search-input"
-          class="search-bar__input"
-          placeholder="Search artists by name..."
-          autocomplete="off"
-          aria-label="Search artists"
-        />
-        <button class="search-bar__clear" id="search-clear" aria-label="Clear search">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+    <!-- Section Marker 02 -->
+    <div class="section-marker" data-cluster="justify:between">
+      <span>02 · SPOTLIGHT &amp; EVIDENCE PILLARS</span>
+      <span class="section-marker__action">CLICK PILLAR TO FILTER</span>
+    </div>
+
+    <!-- Dynamic Architectural Showcase -->
+    <section class="showcase" id="evidence-showcase">
+      <!-- 4-Column Interactive Pillar Strip -->
+      <div class="showcase__tabs">
+        <button
+          type="button"
+          class="pillar-tab pillar-tab--active"
+          data-pillar-tab="G-D"
+          onclick="switchShowcasePillar('G-D')"
+        >
+          <span class="pillar-tab__num">01.</span>
+          <span class="pillar-tab__title">Direct statement</span>
+        </button>
+        <button
+          type="button"
+          class="pillar-tab"
+          data-pillar-tab="G-C"
+          onclick="switchShowcasePillar('G-C')"
+        >
+          <span class="pillar-tab__num">02.</span>
+          <span class="pillar-tab__title">Collective action</span>
+        </button>
+        <button
+          type="button"
+          class="pillar-tab"
+          data-pillar-tab="S"
+          onclick="switchShowcasePillar('S')"
+        >
+          <span class="pillar-tab__num">03.</span>
+          <span class="pillar-tab__title">Broader solidarity</span>
+        </button>
+        <button
+          type="button"
+          class="pillar-tab"
+          data-pillar-tab="H"
+          onclick="switchShowcasePillar('H')"
+        >
+          <span class="pillar-tab__num">04.</span>
+          <span class="pillar-tab__title">Historical support</span>
         </button>
       </div>
 
+      <!-- Center Split Showcase -->
+      <div class="showcase__body">
+        <!-- Left Visual Plate -->
+        <div class="showcase__visual dot-matrix">
+          <div class="showcase__card">
+            <div class="showcase__card-header">
+              <span class="showcase__tag" id="showcase-tag"
+                >Direct statement</span
+              >
+              <span class="showcase__id" id="showcase-id">+01</span>
+            </div>
+            <div class="showcase__card-main">
+              <span class="showcase__subtitle">Featured Record</span>
+              <h2 class="showcase__heading" id="showcase-artist">
+                {pillarsMap["G-D"].artist.name}
+              </h2>
+            </div>
+            <div class="showcase__telemetry">
+              <div class="showcase__telemetry-label">
+                <span class="showcase__icon-badge">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    ><circle cx="12" cy="12" r="2"></circle><path
+                      d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"
+                    ></path></svg
+                  >
+                </span>
+                <span id="showcase-source-type">Verified Primary Source</span>
+              </div>
+              <svg
+                class="showcase__wave"
+                viewBox="0 0 120 28"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M0 22 L15 18 L28 24 L42 10 L58 16 L74 4 L90 14 L105 6 L120 2"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  fill="none"></path>
+                <path
+                  d="M0 22 L15 18 L28 24 L42 10 L58 16 L74 4 L90 14 L105 6 L120 2 L120 28 L0 28 Z"
+                  fill="url(#telemetryGrad)"
+                  opacity="0.28"></path>
+                <defs>
+                  <linearGradient
+                    id="telemetryGrad"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop offset="0%" stop-color="#FF4405"></stop>
+                    <stop offset="100%" stop-color="transparent"></stop>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Editorial Details Pane -->
+        <div class="showcase__content">
+          <div class="showcase__details">
+            <div>
+              <span class="showcase__meta-title">Verified Action Dossier</span>
+              <p class="showcase__title-copy" id="showcase-summary">
+                {pillarsMap["G-D"].evidence.summary}
+              </p>
+              <div class="showcase__divider" aria-hidden="true"></div>
+
+              <div class="showcase__meta-grid">
+                <div>
+                  <span class="showcase__meta-label">Evidence Source</span>
+                  <span class="showcase__meta-value" id="showcase-source-label"
+                    >{pillarsMap["G-D"].evidence.sourceLabel}</span
+                  >
+                </div>
+                <div>
+                  <span class="showcase__meta-label">Baseline Snapshot</span>
+                  <span class="showcase__meta-date"
+                    >{data.researchSnapshotDate}</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase__cta-wrap" data-cluster="gap:m">
+              <a
+                href={`/artists/${pillarsMap["G-D"].artist.slug}/`}
+                id="showcase-link"
+                class="btn-primary"
+              >
+                <span>View Full Profile</span>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
+                >
+              </a>
+              <button
+                type="button"
+                onclick="selectPillar('G-D')"
+                class="btn-primary"
+                style="background-color: transparent; border: 1px solid rgba(255,255,255,0.15); box-shadow: none;"
+              >
+                <span>Filter Directory</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Vertical Interactive Rail -->
+          <div class="showcase__rail" aria-hidden="true">
+            <span class="showcase__rail-text">Featured Record</span>
+            <button
+              type="button"
+              onclick="scrollToDirectory()"
+              title="Jump to directory"
+              class="showcase__rail-btn"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Telemetry Index Bar -->
+      <div class="showcase__footer">
+        <button
+          type="button"
+          onclick="selectPillar('')"
+          class="showcase__footer-btn showcase__footer-btn--active"
+          data-pillar-filter="">ALL</button
+        >
+        <button
+          type="button"
+          onclick="selectPillar('G-D')"
+          class="showcase__footer-btn"
+          data-pillar-filter="G-D">01 ({pillarsMap["G-D"].count})</button
+        >
+        <button
+          type="button"
+          onclick="selectPillar('G-C')"
+          class="showcase__footer-btn"
+          data-pillar-filter="G-C">02 ({pillarsMap["G-C"].count})</button
+        >
+        <button
+          type="button"
+          onclick="selectPillar('S')"
+          class="showcase__footer-btn"
+          data-pillar-filter="S">03 ({pillarsMap["S"].count})</button
+        >
+        <button
+          type="button"
+          onclick="selectPillar('H')"
+          class="showcase__footer-btn"
+          data-pillar-filter="H">04 ({pillarsMap["H"].count})</button
+        >
+        <div class="showcase__footer-total">TOTAL: {data.artists.length}</div>
+      </div>
+    </section>
+
+    <!-- Section Marker 03 -->
+    <div id="directory-ledger" class="section-marker">
+      <span>03 · INTERACTIVE DIRECTORY LEDGER</span>
+      <span>SEARCH &amp; FILTER</span>
+    </div>
+
+    <!-- Console Bar -->
+    <div class="console-bar">
+      <div class="console-bar__inner">
+        <div class="console-bar__search">
+          <svg
+            class="console-bar__search-icon"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
+          <input
+            type="search"
+            id="search-input"
+            class="console-bar__input"
+            placeholder="Search artists by name, keyword, or evidence..."
+            autocomplete="off"
+            aria-label="Search artists"
+          />
+          <button
+            class="console-bar__clear"
+            id="search-clear"
+            aria-label="Clear search"
+            title="Clear search"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Directory Main Layout -->
+    <section class="directory">
       <div class="directory__layout">
+        <!-- Left Filter Panel -->
         <aside class="filters" aria-label="Filters">
           <div class="filters__header">
             <span class="filters__title">Filters</span>
@@ -82,28 +429,58 @@ const campaignLabels: Record<string, string> = {
 
           <div class="filters__group">
             <div class="filters__group-title">Evidence category</div>
-            {Object.entries(categoryLabels).map(([code, label]) => (
-              <label class="filters__option" data-filter-type="category" data-filter-value={code}>
-                <span class="filters__checkbox" role="checkbox" aria-checked="false" tabindex="0"></span>
-                <span class="filters__cat-badge" style={`background: var(--color-${code.toLowerCase().replace('-', '')})`}></span>
-                <span class="filters__option-label">{label}</span>
-                <span class="filters__option-count" data-count={code}>({0})</span>
-              </label>
-            ))}
+            {
+              Object.entries(categoryLabels).map(([code, label]) => (
+                <label
+                  class="filters__option"
+                  data-filter-type="category"
+                  data-filter-value={code}
+                >
+                  <span
+                    class="filters__checkbox"
+                    role="checkbox"
+                    aria-checked="false"
+                    tabindex="0"
+                  />
+                  <span
+                    class="filters__cat-badge"
+                    style={`background-color: var(--color-${code.toLowerCase().replace("-", "")})`}
+                  />
+                  <span class="filters__option-label">{label}</span>
+                  <span class="filters__option-count" data-count={code}>
+                    ({0})
+                  </span>
+                </label>
+              ))
+            }
           </div>
 
           <div class="filters__group">
             <div class="filters__group-title">Campaign</div>
-            {Object.entries(campaignLabels).map(([id, label]) => (
-              <label class="filters__option" data-filter-type="campaign" data-filter-value={id}>
-                <span class="filters__checkbox" role="checkbox" aria-checked="false" tabindex="0"></span>
-                <span class="filters__option-label">{label}</span>
-                <span class="filters__option-count" data-count={id}>({0})</span>
-              </label>
-            ))}
+            {
+              Object.entries(campaignLabels).map(([id, label]) => (
+                <label
+                  class="filters__option"
+                  data-filter-type="campaign"
+                  data-filter-value={id}
+                >
+                  <span
+                    class="filters__checkbox"
+                    role="checkbox"
+                    aria-checked="false"
+                    tabindex="0"
+                  />
+                  <span class="filters__option-label">{label}</span>
+                  <span class="filters__option-count" data-count={id}>
+                    ({0})
+                  </span>
+                </label>
+              ))
+            }
           </div>
         </aside>
 
+        <!-- Right Ledger Results -->
         <div class="results">
           <div class="results__header">
             <span class="results__count" id="results-count">Loading...</span>
@@ -117,62 +494,82 @@ const campaignLabels: Record<string, string> = {
             </div>
           </div>
 
-          <div class="results__grid" id="results-grid" aria-live="polite"></div>
+          <!-- Kinetic Ledger List -->
+          <div
+            class="results__grid ledger-list"
+            id="results-grid"
+            aria-live="polite"
+          >
+          </div>
 
+          <!-- Pagination -->
           <div class="pagination" id="pagination"></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <script type="module" define:vars={{ searchIndex: data.searchIndex, artists: data.artists }}>
+  <script
+    type="module"
+    define:vars={{
+      searchIndex: data.searchIndex,
+      artists: data.artists,
+      pillarsMap,
+    }}
+  >
     // ── Directory controller ──────────────────────────────────
-    // Pure client-side search and filtering with URL state sync.
-
     const ARTISTS = artists;
-    const SEARCH_INDEX = searchIndex;
+    const PILLARS_MAP = pillarsMap;
     const PER_PAGE = 24;
 
     // State
     let state = {
-      query: '',
+      query: "",
       campaigns: [],
       categories: [],
-      sort: 'relevance',
+      sort: "relevance",
       page: 1,
     };
 
     // ── URL state ───────────────────────────────────────────
     function readURL() {
       const params = new URLSearchParams(window.location.search);
-      state.query = params.get('q') || '';
-      state.campaigns = params.get('campaigns') ? params.get('campaigns').split(',') : [];
-      state.categories = params.get('categories') ? params.get('categories').split(',') : [];
-      state.sort = params.get('sort') || 'relevance';
-      state.page = parseInt(params.get('page') || '1', 10);
+      state.query = params.get("q") || "";
+      state.campaigns = params.get("campaigns")
+        ? params.get("campaigns").split(",")
+        : [];
+      state.categories = params.get("categories")
+        ? params.get("categories").split(",")
+        : [];
+      state.sort = params.get("sort") || "relevance";
+      state.page = parseInt(params.get("page") || "1", 10);
     }
 
     function writeURL() {
       const params = new URLSearchParams();
-      if (state.query) params.set('q', state.query);
-      if (state.campaigns.length) params.set('campaigns', state.campaigns.join(','));
-      if (state.categories.length) params.set('categories', state.categories.join(','));
-      if (state.sort !== 'relevance') params.set('sort', state.sort);
-      if (state.page > 1) params.set('page', String(state.page));
+      if (state.query) params.set("q", state.query);
+      if (state.campaigns.length)
+        params.set("campaigns", state.campaigns.join(","));
+      if (state.categories.length)
+        params.set("categories", state.categories.join(","));
+      if (state.sort !== "relevance") params.set("sort", state.sort);
+      if (state.page > 1) params.set("page", String(state.page));
 
       const url = params.toString()
         ? `${window.location.pathname}?${params.toString()}`
         : window.location.pathname;
-      window.history.replaceState(null, '', url);
+      window.history.replaceState(null, "", url);
     }
 
     // ── Text matching ───────────────────────────────────────
     function normalize(text) {
-      return text.normalize('NFKC').toLowerCase().trim();
+      return text.normalize("NFKC").toLowerCase().trim();
     }
 
     function tokenize(text) {
-      return normalize(text).split(/[\s,;&|/\\]+/).filter(t => t.length > 0);
+      return normalize(text)
+        .split(/[\s,;&|/\\]+/)
+        .filter((t) => t.length > 0);
     }
 
     function scoreArtist(artist, queryTokens) {
@@ -182,20 +579,39 @@ const campaignLabels: Record<string, string> = {
       let score = 0;
 
       for (const token of queryTokens) {
-        if (nameNorm === token) { score += 100; continue; }
-        if (nameNorm.startsWith(token)) { score += 50; continue; }
+        if (nameNorm === token) {
+          score += 100;
+          continue;
+        }
+        if (nameNorm.startsWith(token)) {
+          score += 50;
+          continue;
+        }
         let nameMatch = false;
         for (const nt of nameTokens) {
-          if (nt === token) { score += 30; nameMatch = true; break; }
-          if (nt.startsWith(token)) { score += 20; nameMatch = true; break; }
+          if (nt === token) {
+            score += 30;
+            nameMatch = true;
+            break;
+          }
+          if (nt.startsWith(token)) {
+            score += 20;
+            nameMatch = true;
+            break;
+          }
         }
         if (nameMatch) continue;
-        if (nameNorm.includes(token)) { score += 15; continue; }
+        if (nameNorm.includes(token)) {
+          score += 15;
+          continue;
+        }
 
-        // Check evidence summaries
         let evMatch = false;
         for (const ev of artist.evidence) {
-          if (normalize(ev.summary).includes(token)) { score += 5; evMatch = true; }
+          if (normalize(ev.summary).includes(token)) {
+            score += 5;
+            evMatch = true;
+          }
         }
         if (!evMatch) return 0;
       }
@@ -204,31 +620,37 @@ const campaignLabels: Record<string, string> = {
 
     function matchesCampaigns(artist, campaigns) {
       if (campaigns.length === 0) return true;
-      return campaigns.every(c => artist.campaignIds.includes(c));
+      return campaigns.every((c) => artist.campaignIds.includes(c));
     }
 
     function matchesCategories(artist, categories) {
       if (categories.length === 0) return true;
-      const cats = new Set(artist.evidence.map(e => e.category));
-      return categories.every(c => cats.has(c));
+      const cats = new Set(artist.evidence.map((e) => e.category));
+      return categories.every((c) => cats.has(c));
     }
 
-    // ── Search and render ───────────────────────────────────
     function search() {
       const queryTokens = tokenize(state.query);
-      let results = ARTISTS.filter(a => {
+      let results = ARTISTS.filter((a) => {
         if (!matchesCampaigns(a, state.campaigns)) return false;
         if (!matchesCategories(a, state.categories)) return false;
         return scoreArtist(a, queryTokens) > 0;
       });
 
-      // Sort
-      if (state.sort === 'name') {
+      if (state.sort === "name") {
         results.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
-      } else if (state.sort === 'evidence') {
-        results.sort((a, b) => b.evidence.length - a.evidence.length || a.sortKey.localeCompare(b.sortKey));
+      } else if (state.sort === "evidence") {
+        results.sort(
+          (a, b) =>
+            b.evidence.length - a.evidence.length ||
+            a.sortKey.localeCompare(b.sortKey),
+        );
       } else {
-        results.sort((a, b) => scoreArtist(b, queryTokens) - scoreArtist(a, queryTokens) || a.sortKey.localeCompare(b.sortKey));
+        results.sort(
+          (a, b) =>
+            scoreArtist(b, queryTokens) - scoreArtist(a, queryTokens) ||
+            a.sortKey.localeCompare(b.sortKey),
+        );
       }
 
       return results;
@@ -236,18 +658,28 @@ const campaignLabels: Record<string, string> = {
 
     function computeFacets() {
       const queryTokens = tokenize(state.query);
-      const preFiltered = ARTISTS.filter(a => scoreArtist(a, queryTokens) > 0);
+      const preFiltered = ARTISTS.filter(
+        (a) => scoreArtist(a, queryTokens) > 0,
+      );
 
       const campaignCounts = {};
-      for (const c of ['nmg', 'mfp', 'euro', 'a4c', 'other']) {
-        const test = state.campaigns.includes(c) ? state.campaigns : [...state.campaigns, c];
-        campaignCounts[c] = preFiltered.filter(a => matchesCampaigns(a, test)).length;
+      for (const c of ["nmg", "mfp", "euro", "a4c", "other"]) {
+        const test = state.campaigns.includes(c)
+          ? state.campaigns
+          : [...state.campaigns, c];
+        campaignCounts[c] = preFiltered.filter((a) =>
+          matchesCampaigns(a, test),
+        ).length;
       }
 
       const categoryCounts = {};
-      for (const cat of ['G-D', 'G-C', 'S', 'H']) {
-        const test = state.categories.includes(cat) ? state.categories : [...state.categories, cat];
-        categoryCounts[cat] = preFiltered.filter(a => matchesCategories(a, test)).length;
+      for (const cat of ["G-D", "G-C", "S", "H"]) {
+        const test = state.categories.includes(cat)
+          ? state.categories
+          : [...state.categories, cat];
+        categoryCounts[cat] = preFiltered.filter((a) =>
+          matchesCategories(a, test),
+        ).length;
       }
 
       return { campaigns: campaignCounts, categories: categoryCounts };
@@ -262,56 +694,127 @@ const campaignLabels: Record<string, string> = {
       const start = (state.page - 1) * PER_PAGE;
       const pageResults = all.slice(start, start + PER_PAGE);
 
-      // Results count
-      const countEl = document.getElementById('results-count');
+      const countEl = document.getElementById("results-count");
       if (total === 0) {
-        countEl.textContent = 'No results found';
+        countEl.textContent = "No results found";
       } else {
-        countEl.textContent = `${total} ${total === 1 ? 'artist' : 'artists'}${state.query ? ` for "${state.query}"` : ''}`;
+        countEl.textContent = `${total} ${total === 1 ? "artist" : "artists"}${state.query ? ` for "${state.query}"` : ""}`;
       }
 
-      // Grid
-      const grid = document.getElementById('results-grid');
+      const grid = document.getElementById("results-grid");
       if (pageResults.length === 0) {
         grid.innerHTML = `
           <div class="empty-state" style="grid-column: 1 / -1">
+            <div class="empty-state__icon">∅</div>
             <div class="empty-state__title">No artists found</div>
-            <p>Try adjusting your search or clearing filters.</p>
+            <p class="empty-state__desc">Try adjusting your search terms or clearing your filters.</p>
           </div>`;
       } else {
-        grid.innerHTML = pageResults.map(a => {
-          const catBadges = [...new Set(a.evidence.map(e => e.category))]
-            .sort()
-            .map(c => `<span class="cat-badge cat-badge--${c}">${c}</span>`)
-            .join('');
-          const campBadges = a.campaignIds
-            .map(c => `<span class="campaign-badge">${c}</span>`)
-            .join('');
-          return `
-            <a href="/artists/${a.slug}/" class="artist-card fade-in">
-              <div class="artist-card__name">${escapeHtml(a.name)}</div>
-              <div class="artist-card__badges">${catBadges}${campBadges}</div>
-              <div class="artist-card__evidence-count">${a.evidence.length} evidence ${a.evidence.length === 1 ? 'record' : 'records'}</div>
-            </a>`;
-        }).join('');
+        grid.innerHTML = pageResults
+          .map((a, idx) => {
+            const primaryEv = a.evidence[0];
+            const catBadges = [...new Set(a.evidence.map((e) => e.category))]
+              .sort()
+              .map((c) => `<span class="cat-badge cat-badge--${c}">${c}</span>`)
+              .join("");
+            const campBadges = a.campaignIds
+              .map(
+                (c) => `<span class="campaign-badge">${escapeHtml(c)}</span>`,
+              )
+              .join("");
+
+            return `
+            <article
+              id="entry-${a.id}"
+              class="artist-card ledger-row"
+              data-slug="${a.slug}"
+              onmousemove="window.handleSpotlight(event, this)"
+            >
+              <div class="ledger-row__grid" onclick="window.handleRowClick(event, '${a.slug}', '${a.id}')">
+                <div class="ledger-row__col-title">
+                  <span class="ledger-row__index">${String(start + idx + 1).padStart(2, "0")}</span>
+                  <h3 class="ledger-row__name">
+                    <a href="/artists/${a.slug}/" class="artist-card__name" onclick="event.stopPropagation()">${escapeHtml(a.name)}</a>
+                  </h3>
+                </div>
+
+                <div class="ledger-row__col-meta">
+                  <div class="ledger-row__tags artist-card__badges">
+                    ${catBadges}
+                    ${campBadges}
+                  </div>
+                  <p class="ledger-row__summary">
+                    ${escapeHtml(primaryEv ? primaryEv.summary : "")}
+                  </p>
+                  <div class="artist-card__evidence-count" style="display:none">${a.evidence.length} evidence records</div>
+                </div>
+
+                <div class="ledger-row__col-action">
+                  <button
+                    type="button"
+                    class="ledger-row__btn"
+                    onclick="event.stopPropagation(); window.toggleDetail('${a.id}')"
+                    aria-expanded="false"
+                    aria-controls="detail-${a.id}"
+                  >
+                    <span>Details</span>
+                    <svg id="icon-${a.id}" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform">
+                      <line x1="12" y1="5" x2="12" y2="19"/>
+                      <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Kinetic Evidence Dossier Drawer -->
+              <div id="detail-${a.id}" class="drawer-grid">
+                <div class="drawer-inner">
+                  <div class="dossier-box">
+                    <div class="dot-matrix-subtle" style="position:absolute; inset:0; pointer-events:none;" aria-hidden="true"></div>
+                    <div class="dossier-box__content">
+                      <div class="dossier-box__tag">● Documented Record</div>
+                      <p class="dossier-box__text">
+                        ${escapeHtml(primaryEv ? primaryEv.summary : "No summary available.")}
+                      </p>
+                    </div>
+                    <div class="dossier-box__meta">
+                      ${
+                        primaryEv && primaryEv.sourceUrl
+                          ? `
+                        <a href="${escapeHtml(primaryEv.sourceUrl)}" target="_blank" rel="noopener noreferrer nofollow" class="dossier-box__link">
+                          <span>${escapeHtml(primaryEv.sourceLabel || "Source")}</span>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                        </a>
+                      `
+                          : ""
+                      }
+                      <a href="/artists/${a.slug}/" class="dossier-box__link" style="border-color:var(--color-accent); color:var(--color-accent);">
+                        <span>Full Profile →</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          `;
+          })
+          .join("");
       }
 
-      // Pagination
       renderPagination(totalPages);
-
-      // Facets
       updateFacets();
     }
 
     function renderPagination(totalPages) {
-      const pagEl = document.getElementById('pagination');
-      if (totalPages <= 1) { pagEl.innerHTML = ''; return; }
+      const pagEl = document.getElementById("pagination");
+      if (totalPages <= 1) {
+        pagEl.innerHTML = "";
+        return;
+      }
 
-      let html = '';
-      // Prev
-      html += `<button class="pagination__button" ${state.page === 1 ? 'disabled' : ''} data-page="${state.page - 1}" aria-label="Previous page">‹</button>`;
+      let html = "";
+      html += `<button class="pagination__button" ${state.page === 1 ? "disabled" : ""} data-page="${state.page - 1}" aria-label="Previous page">‹</button>`;
 
-      // Pages
       const maxVisible = 7;
       let startPage = Math.max(1, state.page - 3);
       let endPage = Math.min(totalPages, startPage + maxVisible - 1);
@@ -320,20 +823,19 @@ const campaignLabels: Record<string, string> = {
       }
 
       for (let i = startPage; i <= endPage; i++) {
-        html += `<button class="pagination__button ${i === state.page ? 'is-active' : ''}" data-page="${i}">${i}</button>`;
+        html += `<button class="pagination__button ${i === state.page ? "is-active" : ""}" data-page="${i}">${i}</button>`;
       }
 
-      // Next
-      html += `<button class="pagination__button" ${state.page === totalPages ? 'disabled' : ''} data-page="${state.page + 1}" aria-label="Next page">›</button>`;
-
+      html += `<button class="pagination__button ${state.page === totalPages ? "disabled" : ""} data-page="${state.page + 1}" aria-label="Next page">›</button>`;
       pagEl.innerHTML = html;
 
-      pagEl.querySelectorAll('button[data-page]').forEach(btn => {
-        btn.addEventListener('click', () => {
+      pagEl.querySelectorAll("button[data-page]").forEach((btn) => {
+        btn.addEventListener("click", () => {
           state.page = parseInt(btn.dataset.page, 10);
           writeURL();
           renderResults();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          const ledger = document.getElementById("directory-ledger");
+          if (ledger) ledger.scrollIntoView({ behavior: "smooth" });
         });
       });
     }
@@ -341,7 +843,6 @@ const campaignLabels: Record<string, string> = {
     function updateFacets() {
       const facets = computeFacets();
 
-      // Update counts
       for (const [cat, count] of Object.entries(facets.categories)) {
         const el = document.querySelector(`[data-count="${cat}"]`);
         if (el) el.textContent = `(${count})`;
@@ -351,79 +852,177 @@ const campaignLabels: Record<string, string> = {
         if (el) el.textContent = `(${count})`;
       }
 
-      // Update checkbox states
-      document.querySelectorAll('[data-filter-type]').forEach(el => {
+      document.querySelectorAll("[data-filter-type]").forEach((el) => {
         const type = el.dataset.filterType;
         const value = el.dataset.filterValue;
-        const isActive = type === 'category' ? state.categories.includes(value) : state.campaigns.includes(value);
-        const checkbox = el.querySelector('.filters__checkbox');
-        checkbox.classList.toggle('is-checked', isActive);
-        checkbox.setAttribute('aria-checked', String(isActive));
+        const isActive =
+          type === "category"
+            ? state.categories.includes(value)
+            : state.campaigns.includes(value);
+        const checkbox = el.querySelector(".filters__checkbox");
+        if (checkbox) {
+          checkbox.classList.toggle("is-checked", isActive);
+          checkbox.setAttribute("aria-checked", String(isActive));
+        }
       });
     }
 
     function escapeHtml(text) {
-      const div = document.createElement('div');
+      if (!text) return "";
+      const div = document.createElement("div");
       div.textContent = text;
       return div.innerHTML;
     }
 
-    // ── Event handlers ──────────────────────────────────────
-    const searchInput = document.getElementById('search-input');
-    const searchClear = document.getElementById('search-clear');
+    // ── Global Interactivity Functions ───────────────────────
+    window.handleSpotlight = function (e, el) {
+      const rect = el.getBoundingClientRect();
+      el.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+      el.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+    };
+
+    window.handleRowClick = function (e, slug, id) {
+      // If clicking inside row but not the details button, navigate to profile
+      window.location.href = `/artists/${slug}/`;
+    };
+
+    window.toggleDetail = function (id, forceOpen = false) {
+      const rowEl = document.getElementById(`entry-${id}`);
+      const detailEl = document.getElementById(`detail-${id}`);
+      const iconEl = document.getElementById(`icon-${id}`);
+      const btnEl = document.querySelector(
+        `button[aria-controls="detail-${id}"]`,
+      );
+
+      if (!detailEl || !iconEl || !btnEl) return;
+
+      const isOpen = detailEl.classList.contains("is-open");
+      if (!isOpen || forceOpen) {
+        detailEl.classList.add("is-open");
+        if (rowEl) rowEl.classList.add("is-active");
+        iconEl.style.transform = "rotate(45deg)";
+        btnEl.setAttribute("aria-expanded", "true");
+      } else {
+        detailEl.classList.remove("is-open");
+        if (rowEl) rowEl.classList.remove("is-active");
+        iconEl.style.transform = "rotate(0deg)";
+        btnEl.setAttribute("aria-expanded", "false");
+      }
+    };
+
+    window.scrollToDirectory = function () {
+      const ledger = document.getElementById("directory-ledger");
+      if (ledger) ledger.scrollIntoView({ behavior: "smooth" });
+    };
+
+    window.selectPillar = function (category) {
+      if (category) {
+        state.categories = [category];
+      } else {
+        state.categories = [];
+      }
+      state.page = 1;
+      writeURL();
+      renderResults();
+
+      document.querySelectorAll("[data-pillar-filter]").forEach((btn) => {
+        btn.classList.toggle(
+          "showcase__footer-btn--active",
+          btn.dataset.pillarFilter === category,
+        );
+      });
+
+      scrollToDirectory();
+    };
+
+    window.switchShowcasePillar = function (pillarCode) {
+      const p = PILLARS_MAP[pillarCode];
+      if (!p) return;
+
+      document.querySelectorAll("[data-pillar-tab]").forEach((tab) => {
+        tab.classList.toggle(
+          "pillar-tab--active",
+          tab.dataset.pillarTab === pillarCode,
+        );
+      });
+
+      const tagEl = document.getElementById("showcase-tag");
+      const idEl = document.getElementById("showcase-id");
+      const artistEl = document.getElementById("showcase-artist");
+      const summaryEl = document.getElementById("showcase-summary");
+      const sourceLabelEl = document.getElementById("showcase-source-label");
+      const linkEl = document.getElementById("showcase-link");
+
+      if (tagEl) tagEl.textContent = p.title;
+      if (idEl) idEl.textContent = `+${p.num.replace(".", "")}`;
+      if (artistEl) artistEl.textContent = p.artist.name;
+      if (summaryEl) summaryEl.textContent = p.evidence.summary;
+      if (sourceLabelEl) sourceLabelEl.textContent = p.evidence.sourceLabel;
+      if (linkEl) linkEl.href = `/artists/${p.artist.slug}/`;
+    };
+
+    // ── Event Handlers ───────────────────────────────────────
+    const searchInput = document.getElementById("search-input");
+    const searchClear = document.getElementById("search-clear");
 
     searchInput.value = state.query;
-    if (state.query) searchClear.classList.add('is-visible');
+    if (state.query) searchClear.classList.add("is-visible");
 
     let debounceTimer;
-    searchInput.addEventListener('input', () => {
+    searchInput.addEventListener("input", () => {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
         state.query = searchInput.value;
         state.page = 1;
-        searchClear.classList.toggle('is-visible', !!state.query);
+        searchClear.classList.toggle("is-visible", !!state.query);
         writeURL();
         renderResults();
       }, 150);
     });
 
-    searchClear.addEventListener('click', () => {
-      searchInput.value = '';
-      state.query = '';
+    searchClear.addEventListener("click", () => {
+      searchInput.value = "";
+      state.query = "";
       state.page = 1;
-      searchClear.classList.remove('is-visible');
+      searchClear.classList.remove("is-visible");
       writeURL();
       renderResults();
       searchInput.focus();
     });
 
     // Filter toggles
-    document.querySelectorAll('[data-filter-type]').forEach(el => {
+    document.querySelectorAll("[data-filter-type]").forEach((el) => {
       const handler = () => {
         const type = el.dataset.filterType;
         const value = el.dataset.filterValue;
-        if (type === 'category') {
+        if (type === "category") {
           state.categories = state.categories.includes(value)
-            ? state.categories.filter(c => c !== value)
+            ? state.categories.filter((c) => c !== value)
             : [...state.categories, value];
         } else {
           state.campaigns = state.campaigns.includes(value)
-            ? state.campaigns.filter(c => c !== value)
+            ? state.campaigns.filter((c) => c !== value)
             : [...state.campaigns, value];
         }
         state.page = 1;
         writeURL();
         renderResults();
       };
-      el.addEventListener('click', handler);
-      const checkbox = el.querySelector('.filters__checkbox');
-      checkbox.addEventListener('keydown', (e) => {
-        if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); handler(); }
-      });
+
+      el.addEventListener("click", handler);
+      const checkbox = el.querySelector(".filters__checkbox");
+      if (checkbox) {
+        checkbox.addEventListener("keydown", (e) => {
+          if (e.key === " " || e.key === "Enter") {
+            e.preventDefault();
+            handler();
+          }
+        });
+      }
     });
 
     // Clear filters
-    document.getElementById('clear-filters').addEventListener('click', () => {
+    document.getElementById("clear-filters").addEventListener("click", () => {
       state.categories = [];
       state.campaigns = [];
       state.page = 1;
@@ -431,9 +1030,9 @@ const campaignLabels: Record<string, string> = {
       renderResults();
     });
 
-    // Sort
-    document.getElementById('sort-select').value = state.sort;
-    document.getElementById('sort-select').addEventListener('change', (e) => {
+    // Sort select
+    document.getElementById("sort-select").value = state.sort;
+    document.getElementById("sort-select").addEventListener("change", (e) => {
       state.sort = e.target.value;
       state.page = 1;
       writeURL();
@@ -443,8 +1042,8 @@ const campaignLabels: Record<string, string> = {
     // Initial render
     readURL();
     searchInput.value = state.query;
-    if (state.query) searchClear.classList.add('is-visible');
-    document.getElementById('sort-select').value = state.sort;
+    if (state.query) searchClear.classList.add("is-visible");
+    document.getElementById("sort-select").value = state.sort;
     renderResults();
   </script>
 </BaseLayout>

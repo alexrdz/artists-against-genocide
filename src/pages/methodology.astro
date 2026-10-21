@@ -7,10 +7,26 @@ const categoryEntries = Object.entries(data.categoryDefinitions);
 ---
 
 <BaseLayout title="Methodology — Palestine Music Directory" description="How the Palestine Music Directory collects, validates, and publishes evidence.">
-  <div class="container methodology">
-    <h1 style="margin-bottom: var(--spacing-6)">Methodology</h1>
+  <div class="layout-page methodology">
+    <div class="section-marker">
+      <span>05 // ARCHIVAL PROTOCOL &amp; METHODOLOGY</span>
+      <span class="section-marker__meta">VERIFICATION STANDARDS</span>
+    </div>
+
+    <div class="hero" style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 3rem; margin-bottom: 3rem">
+      <h1 class="hero__title" style="font-size: var(--text-2xl); margin-bottom: 1rem">
+        <span class="hero__title-serif">Archival</span>
+        <span class="hero__title-accent">Methodology.</span>
+      </h1>
+      <p class="hero__body" style="max-width: 48rem">
+        How the Palestine Music Directory identifies, validates, classifies, and maintains records of artistic solidarity.
+      </p>
+    </div>
 
     <div class="methodology__section">
+      <div class="section-marker" style="margin-top: 0">
+        <span>01 · DIRECTORY SCOPE</span>
+      </div>
       <h2>What this directory is</h2>
       <p>
         The Palestine Music Directory is a community-maintained index of musicians who have made
@@ -21,8 +37,11 @@ const categoryEntries = Object.entries(data.categoryDefinitions);
     </div>
 
     <div class="methodology__section">
+      <div class="section-marker">
+        <span>02 · EVIDENCE CLASSIFICATION</span>
+      </div>
       <h2>Evidence categories</h2>
-      <p>Each evidence record is classified into one of four categories:</p>
+      <p>Each evidence record is classified into one of four categories based on the primary source:</p>
       <div class="methodology__category-grid">
         {categoryEntries.map(([code, desc]) => (
           <div class="methodology__category-card">
@@ -34,6 +53,9 @@ const categoryEntries = Object.entries(data.categoryDefinitions);
     </div>
 
     <div class="methodology__section">
+      <div class="section-marker">
+        <span>03 · BASELINE PROVENANCE</span>
+      </div>
       <h2>Research baseline</h2>
       <p>
         The directory was seeded from a research import baseline packaged on
@@ -41,27 +63,32 @@ const categoryEntries = Object.entries(data.categoryDefinitions);
         {data.researchSnapshotDate}. The baseline contains {data.stats.totalArtists} published
         artist profiles and {data.stats.totalEvidence} evidence records.
       </p>
-      <p>
-        The research snapshot date is <strong>not</strong> the date of a statement or a new
-        source review. It marks when the research was compiled, not when any artist made
-        a statement.
+      <p style="color: var(--color-bone);">
+        <strong>Important:</strong> The research snapshot date is <em>not</em> the date of an individual statement or a new
+        source review. It marks when the baseline research was compiled, not when any artist spoke.
       </p>
     </div>
 
     <div class="methodology__section">
+      <div class="section-marker">
+        <span>04 · PUBLICATION SAFEGUARDS</span>
+      </div>
       <h2>Publication process</h2>
       <p>
-        Every artist profile goes through an editorial review before publication:
+        Every artist profile goes through strict editorial governance before publication:
       </p>
-      <ol style="padding-left: var(--spacing-5); color: var(--color-text-secondary); line-height: 1.7">
-        <li><strong>Import:</strong> Raw research data is validated against a strict Zod schema and transformed into canonical records.</li>
-        <li><strong>Review:</strong> An editor verifies source support, identities, campaign associations, quotations, and dates.</li>
-        <li><strong>Publish:</strong> Only reviewed profiles can be published. The publication safeguard prevents unreviewed profiles from appearing in public output.</li>
-        <li><strong>Withdraw:</strong> Published profiles can be withdrawn at any time if new information warrants it.</li>
+      <ol style="padding-left: 1.5rem; color: var(--color-ash); line-height: 1.8; margin-top: 1rem" data-stack="gap:xs">
+        <li><strong style="color: var(--color-bone)">Import:</strong> Raw research data is validated against a strict Zod schema and transformed into canonical records.</li>
+        <li><strong style="color: var(--color-bone)">Review:</strong> An editor verifies source support, identities, campaign associations, quotations, and dates.</li>
+        <li><strong style="color: var(--color-bone)">Publish:</strong> Only reviewed profiles can be published. The publication safeguard prevents unreviewed profiles from appearing in public output.</li>
+        <li><strong style="color: var(--color-bone)">Withdraw:</strong> Published profiles can be withdrawn at any time if new information warrants it.</li>
       </ol>
     </div>
 
     <div class="methodology__section">
+      <div class="section-marker">
+        <span>05 · BOUNDARIES &amp; LIMITATIONS</span>
+      </div>
       <h2>Limitations</h2>
       <ul class="methodology__list">
         {data.limitations.map(l => <li>{l}</li>)}
@@ -80,6 +107,9 @@ const categoryEntries = Object.entries(data.categoryDefinitions);
     </div>
 
     <div class="methodology__section">
+      <div class="section-marker">
+        <span>06 · VERIFICATION PROTOCOL</span>
+      </div>
       <h2>Source verification</h2>
       <p>
         Every evidence record includes a direct link to its source and a label identifying the

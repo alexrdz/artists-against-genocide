@@ -3,9 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Not found — Palestine Music Directory">
-  <div class="container error-page">
+  <div class="layout-page error-page">
+    <div class="section-marker" style="justify-content: center; margin-bottom: 2rem">
+      <span>ERROR · RECORD NOT LOCATED</span>
+    </div>
     <div class="error-page__code">404</div>
-    <p class="error-page__message">The page you're looking for doesn't exist.</p>
-    <a href="/" class="campaign-page__source">Back to directory</a>
+    <p class="error-page__message">The archival record or page you're searching for does not exist in the active index.</p>
+    <a href="/" class="btn-primary" style="display: inline-flex; margin-top: 1rem">
+      <span>Return to Directory</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
   </div>
 </BaseLayout>

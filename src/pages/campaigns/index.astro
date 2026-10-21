@@ -6,20 +6,35 @@ const data = loadPublicExport();
 ---
 
 <BaseLayout title="Campaigns — Palestine Music Directory" description="Campaigns and collective actions documented in the directory.">
-  <div class="container" style="padding-top: var(--spacing-6); padding-bottom: var(--spacing-6)">
-    <h1 style="margin-bottom: var(--spacing-2)">Campaigns</h1>
-    <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-6); max-width: 600px">
-      Collective statements, boycotts, and open letters documented in the directory.
-      Each campaign links to its original source.
-    </p>
+  <div class="layout-page" style="padding-bottom: 5rem">
+    <div class="section-marker">
+      <span>04 · COLLECTIVE MOVEMENTS</span>
+      <span class="section-marker__meta">ORGANIZED ACTIONS &amp; BOYCOTTS</span>
+    </div>
 
-    <div style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-4)">
-      {data.campaigns.map(c => (
-        <a href={`/campaigns/${c.slug}/`} class="campaign-page__hero" style="text-decoration: none; color: inherit; display: block">
-          <h2 class="campaign-page__name">{c.name}</h2>
+    <div class="hero" data-split="ratio:2/1 gap:l" style="border-bottom: none; padding-block: 1rem 2.5rem;">
+      <div class="hero__content" data-stack="gap:s">
+        <h1 class="hero__title" style="font-size: var(--text-2xl);">
+          <span class="hero__title-serif">Documented</span>
+          <span class="hero__title-accent">Campaigns.</span>
+        </h1>
+      </div>
+      <div class="hero__sidebar">
+        <p class="hero__body">
+          Collective statements, boycotts, and open letters documented in the directory.
+          Each campaign links to its original source. Inclusion in a campaign reflects published attributions by organizers.
+        </p>
+      </div>
+    </div>
+
+    <div class="campaign-grid">
+      {data.campaigns.map((c, idx) => (
+        <a href={`/campaigns/${c.slug}/`} class="campaign-box campaign-page__hero">
+          <span class="campaign-box__tag">CAMPAIGN [0{idx + 1}]</span>
+          <h2 class="campaign-box__title campaign-page__name">{c.name}</h2>
           <p class="campaign-page__description">{c.description}</p>
-          <div style="display: flex; gap: var(--spacing-4); font-size: 0.875rem; color: var(--color-text-muted)">
-            <span>{c.artistCount} {c.artistCount === 1 ? 'artist' : 'artists'}</span>
+          <div data-cluster="gap:m" style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-ash); margin-top: auto;">
+            <span style="color: var(--color-accent); font-weight: 600;">{c.artistCount} {c.artistCount === 1 ? 'artist' : 'artists'}</span>
             <span>·</span>
             <span>Source: {new URL(c.sourceUrl).hostname}</span>
           </div>
