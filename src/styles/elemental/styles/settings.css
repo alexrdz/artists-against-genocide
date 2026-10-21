@@ -1,0 +1,175 @@
+:root {
+  color-scheme: light dark;
+  --color-opacity: 1;
+  --dark: rgb(31 31 31 / var(--color-opacity));
+  --light: rgb(234 234 234 / var(--color-opacity));
+  --measure: 65ch;
+
+  /* Fonts */
+	--font--serif: Georgia, 'Times New Roman', Times, serif;
+	--font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+	--font-mono: Consolas, monaco, 'Ubuntu Mono', 'Liberation Mono', 'Courier New', Courier, monospace;
+  --default-headline-font-weight: 300;
+  --default-font-weight: 400;
+
+
+  /*
+    Fluid typography
+    https://utopia.fyi/type/calculator
+  */
+  --step--1: clamp(0.83rem, calc(0.82rem + 0.08vw), 0.88rem);
+  --step-0: clamp(1.00rem, calc(0.92rem + 0.39vw), 1.10rem);
+  --step-1: clamp(1.20rem, calc(1.02rem + 0.88vw), 1.77rem);
+  --step-2: clamp(1.44rem, calc(1.11rem + 1.65vw), 2.50rem);
+  --step-3: clamp(1.73rem, calc(1.17rem + 2.80vw), 3.53rem);
+  --step-4: clamp(2.07rem, calc(1.17rem + 4.54vw), 5.00rem);
+  --step-5: clamp(2.49rem, calc(1.07rem + 7.11vw), 7.07rem);
+  --step-6: clamp(2.99rem, calc(0.81rem + 10.88vw), 9.99rem);
+  --btn-font-size: var(--step-0);
+
+
+  /* Spacing */
+  --space-3xs: clamp(0.25rem, 0.2283rem + 0.1087vw, 0.3125rem);
+  --space-2xs: clamp(0.5rem, 0.4783rem + 0.1087vw, 0.5625rem);
+  --space-xs: clamp(0.75rem, 0.7065rem + 0.2174vw, 0.875rem);
+  --space-s: clamp(1rem, 0.9565rem + 0.2174vw, 1.125rem);
+  --space-m: clamp(1.5rem, 1.4348rem + 0.3261vw, 1.6875rem);
+  --space-l: clamp(2rem, 1.913rem + 0.4348vw, 2.25rem);
+  --space-xl: clamp(3rem, 2.8696rem + 0.6522vw, 3.375rem);
+  --space-2xl: clamp(4rem, 3.8261rem + 0.8696vw, 4.5rem);
+  --space-3xl: clamp(6rem, 5.7391rem + 1.3043vw, 6.75rem);
+
+  --body-space: 1rem;
+  --body-space-fluid: clamp(1rem, 1vw + 0.5rem, 2rem);
+  --input-padding-block: .75rem;
+  --input-padding-inline: 1rem;
+  /* update as needed for buttons */
+  --btn-padding-block: var(--input-padding-block);
+  --btn-padding-inline: var(--input-padding-inline);
+
+  /* Container Layout widths */
+  --container-size-sm:  65rem;
+  --container-size-md: 75rem;
+  --container-size-lg: 84.375rem;
+  /* Fluid Spacing for Container Layouts */
+  --layout-container-padding-sm: clamp(1rem, 2vw, 3vw);
+  --layout-container-padding-md: clamp(2rem, 4vw, 6vw);
+  --layout-container-padding-lg: clamp(3rem, 6vw, 9vw);
+
+  /* Fluid Spacing for Stack Layouts */
+  --layout-stack-gap-sm: clamp(0.75rem, 2.5vw, 1.5rem); /* Better min value for mobile */
+  --layout-stack-gap-md: clamp(1rem, 3vw, 2rem);        /* Slightly reduced min value */
+  --layout-stack-gap-lg: clamp(1.5rem, 4vw, 3rem);      /* Better max value for desktops */
+
+  /* Fluid Spacing for Cluster Layouts */
+  --layout-cluster-gap-sm: clamp(0.75rem, 2.5vw, 1.5rem);
+  --layout-cluster-gap-md: clamp(1rem, 3vw, 2rem);
+  --layout-cluster-gap-lg: clamp(1.5rem, 4vw, 3rem);
+
+  /* Fluid Spacing for Cluster Layouts */
+  --layout-cluster-padding-sm: clamp(1rem, 2vw, 3vw);
+  --layout-cluster-padding-md: clamp(2rem, 4vw, 6vw);
+  --layout-cluster-padding-lg: clamp(3rem, 6vw, 9vw);
+
+  /* Fluid Spacing for Masonry Layouts */
+  --layout-masonry-gap-sm: clamp(0.75rem, 2.5vw + .5rem, 1.75vw); /* Better min value for mobile */
+  --layout-masonry-gap-md: clamp(1rem, 3vw, 2vw);        /* Slightly reduced min value */
+  --layout-masonry-gap-lg: clamp(1.5rem, 4vw, 3vw);      /* Better max value for desktops */
+
+  /* Fluid Spacing for Grid Layouts */
+  --layout-grid-min-width: clamp(18.75rem, 25vw, 37.5rem);
+  --layout-grid-gap-sm: clamp(0.75rem, 2.5vw, 1.5rem);
+  --layout-grid-gap-md: clamp(1rem, 3vw, 2rem);
+  --layout-grid-gap-lg: clamp(1.5rem, 4vw, 3rem);
+
+  /* Fluid Spacing for Flanked Layouts */
+  --layout-flanked-gap-sm: clamp(0.75rem, 2.5vw, 1.5rem);
+  --layout-flanked-gap-md: clamp(1rem, 3vw, 2rem);
+  --layout-flanked-gap-lg: clamp(1.5rem, 4vw, 3rem);
+
+  --layout-flanked-sidebar-width-sm: 10rem;
+  --layout-flanked-sidebar-width-md: 15rem;
+  --layout-flanked-sidebar-width-lg: 20rem;
+
+  /* Breakpoints for Layouts */
+  --layout-flanked-collapse-sm: 30rem; /* 480px */
+  --layout-flanked-collapse-md: 45rem; /* 720px */
+  --layout-flanked-collapse-lg: 60rem; /* 960px */
+
+  /* Fluid Spacing for Split Layouts */
+  --layout-split-gap-sm: clamp(1rem, 3vw, 1.5rem); /* Ensure minimum is usable on mobile */
+  --layout-split-gap-md: clamp(1.5rem, 4vw, 2.5rem); /* Adjusted for medium balance */
+  --layout-split-gap-lg: clamp(2rem, 5vw, 4rem);    /* Generous gap for large layouts */
+
+  --layout-split-collapse-sm: 30rem; /* 480px */
+  --layout-split-collapse-md: 45rem; /* 720px */
+  --layout-split-collapse-lg: 60rem; /* 960px */
+
+  /* Spacing for Switcher Layout */
+  --layout-switcher-gap-sm: clamp(1rem, 3vw, 1.5rem);
+  --layout-switcher-gap-md: clamp(1.5rem, 4vw, 2.5rem);
+  --layout-switcher-gap-lg: clamp(2rem, 5vw, 4rem);
+
+  --layout-switcher-collapse-sm: 30rem; /* 480px */
+  --layout-switcher-collapse-md: 45rem; /* 720px */
+  --layout-switcher-collapse-lg: 60rem; /* 960px */
+
+  /* Spacing for Cover Layouts */
+  --layout-cover-padding-sm: clamp(1rem, 2vw, 3vw);
+  --layout-cover-padding-md: clamp(2rem, 4vw, 6vw);
+  --layout-cover-padding-lg: clamp(3rem, 6vw, 9vw);
+
+  /* Spacing for Media Object */
+  --layout-media-gap-sm: clamp(1rem, 3vw, 2rem);
+  --layout-media-gap-md: clamp(2rem, 4vw, 3rem);
+  --layout-media-gap-lg: clamp(3rem, 5vw, 4rem);
+
+  --layout-media-padding-sm: clamp(1rem, 2vw, 3vw);
+  --layout-media-padding-md: clamp(2rem, 4vw, 6vw);
+  --layout-media-padding-lg: clamp(3rem, 6vw, 9vw);
+
+  /* Light theme */
+  --color-text-primary: hsl(220 25% 20% / 1); /* Soft dark blue-gray */
+  --color-text-secondary: hsl(220 15% 35% / 1); /* Lighter blue-gray */
+  --color-text-white: hsl(0 0% 100% / 1); /* Pure white for contrast when needed */
+  --color-bg-primary: hsl(210 0% 100% / 1); /* Very soft blue-white */
+  --color-bg-secondary: hsl(214 32% 96% / 1); /* Slightly darker soft blue-white */
+  --color-bg-muted: hsl(220 16% 92% / 1); /* Muted light blue-gray */
+  --color-link-primary: hsl(198deg 78% 27% / 1); /* Rich accessible blue */
+  --color-link-secondary: hsl(212 65% 45% / 1); /* Slightly lighter blue */
+  --color-accent: hsl(185 70% 42% / 1); /* Vibrant teal */
+  --color-accent-text: hsl(220 25% 20% / 1); /* Matching primary text */
+
+  /* Dark theme */
+  --color-text-primary-dark: hsl(220 15% 90% / 1); /* Light gray with blue undertone */
+  --color-text-secondary-dark: hsl(220 10% 80% / 1); /* Slightly darker gray */
+  --color-bg-primary-dark: hsl(222 47% 11% / 1); /* Deep blue-gray */
+  --color-bg-secondary-dark: hsl(222deg 36% 21% / 1); /* Slightly lighter deep blue-gray */
+  --color-bg-muted-dark: hsl(222 43% 18% / 1); /* Muted deep blue-gray */
+  --color-link-primary-dark: hsl(210 85% 60% / 1); /* Bright blue for dark theme */
+  --color-link-secondary-dark: hsl(210 75% 55% / 1); /* Slightly muted blue */
+  --color-link-text-dark: hsl(220 15% 90% / 1); /* Matching primary text */
+  --color-accent-text-dark: hsl(185 70% 42% / 1); /* Same teal as light theme */
+
+
+  /* Inputs */
+  --input-bg-color: var(--color-bg-secondary);
+  --input-text-color: var(--color-text-secondary);
+  --input-border-color: var(--color-bg-muted);
+
+
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-text-primary: var(--color-text-primary-dark);
+		--color-text-secondary: var(--color-text-secondary-dark);
+		--color-bg-primary: var(--color-bg-primary-dark);
+		--color-bg-secondary: var(--color-bg-secondary-dark);
+		--color-bg-muted: var(--color-bg-muted-dark);
+		--color-link-primary: var(--color-link-primary-dark);
+		--color-link-secondary: var(--color-link-secondary-dark);
+		--color-accent: var(--color-accent);
+		--color-accent-text: var(--color-accent-text-dark);
+	}
+}

@@ -1,0 +1,59 @@
+[data-media] {
+  --media-padding: 0;
+  --media-gap: var(--layout-media-gap-sm, 1rem);
+  --justify: flex-start;
+  --align: flex-start;
+
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--media-gap);
+  justify-content: var(--justify);
+  align-items: var(--align);
+  padding: var(--media-padding);
+}
+
+[data-media] > :last-child {
+  flex: 1;
+}
+
+[data-media~="reverse"] {
+  flex-direction: row-reverse;
+}
+
+/* Nested media objects */
+[data-media~="spacing:sm"] > [data-media],
+[data-media~="spacing:sm"] + [data-media] { margin-block-start: 1rem; }
+[data-media~="spacing:md"] > [data-media],
+[data-media~="spacing:md"] + [data-media] { margin-block-start: 2rem; }
+[data-media~="spacing:lg"] > [data-media],
+[data-media~="spacing:lg"] + [data-media] { margin-block-start: 3rem; }
+
+/* Justification */
+[data-media~="justify:start"]   { --justify: flex-start; }
+[data-media~="justify:center"]  { --justify: center; }
+[data-media~="justify:end"]     { --justify: flex-end; }
+[data-media~="justify:around"]  { --justify: space-around; }
+[data-media~="justify:between"] { --justify: space-between; }
+[data-media~="justify:evenly"]  { --justify: space-evenly; }
+
+/* Alignment */
+[data-media~="align:start"]   { --align: flex-start; }
+[data-media~="align:center"]  { --align: center; }
+[data-media~="align:end"]     { --align: flex-end; }
+[data-media~="align:stretch"] { --align: stretch; }
+
+/* Gap scale */
+[data-media~="gap:sm"],
+[data-media~="gap:1"] { --media-gap: var(--layout-media-gap-sm); }
+[data-media~="gap:md"],
+[data-media~="gap:2"] { --media-gap: var(--layout-media-gap-md); }
+[data-media~="gap:lg"],
+[data-media~="gap:3"] { --media-gap: var(--layout-media-gap-lg); }
+
+/* Padding scale */
+[data-media~="padding:sm"],
+[data-media~="padding:1"] { --media-padding: var(--layout-media-padding-sm); }
+[data-media~="padding:md"],
+[data-media~="padding:2"] { --media-padding: var(--layout-media-padding-md); }
+[data-media~="padding:lg"],
+[data-media~="padding:3"] { --media-padding: var(--layout-media-padding-lg); }

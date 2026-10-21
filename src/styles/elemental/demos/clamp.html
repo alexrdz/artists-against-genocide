@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clamp Layout Demo — Elemental</title>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-body">
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <a href="index.html" class="demo-back-btn">← All Layouts</a>
+      <div class="demo-title-group">
+        <h1>Clamp <span class="demo-badge">[data-clamp]</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <select id="nav-select" class="demo-nav-select"></select>
+      <button class="demo-code-toggle-btn" id="code-toggle"><span>&lt;/&gt;</span> Code</button>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <div class="demo-layout">
+    <main class="demo-stage-wrapper">
+      <div class="demo-desc-bar">
+        <strong>Clamp</strong> restricts an element to a relative percentage width (<code>width:10%|25%|50%|75%|80%</code>) and aligns it with logical margin utilities (<code>left</code>, <code>center</code>, <code>right</code>).
+      </div>
+      
+      <div class="demo-stage-container">
+        <div class="demo-target-box demo-p-md">
+          <div id="layout-target" data-clamp="width:60% center padding:sm" class="demo-clamp-wrapper">
+            <div class="demo-item demo-card-highlighted demo-item-centered demo-p-lg">
+              <span class="demo-item-tag" id="clamp-tag">width: 60%</span>
+              <h3 class="demo-heading-md demo-mt-0">Clamped Callout Block</h3>
+              <p class="demo-body-text demo-mb-0">
+                This block is clamped to an exact percentage of its parent context, preventing oversized elements from stretching edge-to-edge.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="demo-controls-panel">
+      <div>
+        <div class="demo-section-title">Percentage Width</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Width Percentage Preset</span>
+            <span class="demo-control-val" id="val-width">width:60%</span>
+          </label>
+          <select id="select-width" class="demo-input-select">
+            <option value="width:10%">width:10%</option>
+            <option value="width:20%">width:20%</option>
+            <option value="width:25%">width:25%</option>
+            <option value="width:30%">width:30%</option>
+            <option value="width:40%">width:40%</option>
+            <option value="width:50%">width:50%</option>
+            <option value="width:60%" selected>width:60%</option>
+            <option value="width:70%">width:70%</option>
+            <option value="width:75%">width:75%</option>
+            <option value="width:80%">width:80%</option>
+            <option value="custom">Custom Slider</option>
+          </select>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-width">
+          <label class="demo-control-label">
+            <span>Custom --width</span>
+            <span class="demo-control-val" id="val-custom-width">60%</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-custom-width" min="10" max="95" value="60">
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Horizontal Alignment</span>
+            <span class="demo-control-val" id="val-align">center</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-align">
+            <button class="demo-toggle-btn" data-val="left">left</button>
+            <button class="demo-toggle-btn active" data-val="center">center</button>
+            <button class="demo-toggle-btn" data-val="right">right</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Padding</div>
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Inline Padding</span>
+            <span class="demo-control-val" id="val-padding">padding:sm</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-padding">
+            <button class="demo-toggle-btn" data-val="">none</button>
+            <button class="demo-toggle-btn active" data-val="padding:sm">sm (16px)</button>
+            <button class="demo-toggle-btn" data-val="padding:md">md (32px)</button>
+            <button class="demo-toggle-btn" data-val="padding:lg">lg (48px)</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="demo-reset-btn" id="btn-reset">↺ Reset to Defaults</button>
+    </aside>
+  </div>
+
+  <div class="demo-code-drawer" id="code-drawer">
+    <div class="demo-code-header">
+      <span class="demo-code-title">HTML Output</span>
+      <button class="demo-copy-btn" id="copy-code-btn"><span>📋</span> Copy HTML</button>
+    </div>
+    <pre class="demo-code-pre"><code id="code-display"></code></pre>
+  </div>
+
+  <script src="demo.js"></script>
+  <script>
+    const demo = new ElementalDemo({ layoutId: 'clamp' });
+    const target = document.getElementById('layout-target');
+
+    let currentWidth = 'width:60%';
+    let currentAlign = 'center';
+    let currentPadding = 'padding:sm';
+
+    function updateTarget() {
+      const customGroup = document.getElementById('group-custom-width');
+      const attrs = [currentAlign, currentPadding];
+
+      if (currentWidth !== 'custom') {
+        attrs.unshift(currentWidth);
+        target.style.removeProperty('--width');
+        customGroup.classList.add('demo-hidden');
+        document.getElementById('val-width').textContent = currentWidth;
+      } else {
+        customGroup.classList.remove('demo-hidden');
+        const customPct = document.getElementById('input-custom-width').value;
+        target.style.setProperty('--width', `${customPct}%`);
+        document.getElementById('val-custom-width').textContent = `${customPct}%`;
+        document.getElementById('val-width').textContent = `var(--width: ${customPct}%)`;
+      }
+
+      target.setAttribute('data-clamp', attrs.filter(Boolean).join(' '));
+
+      document.getElementById('val-align').textContent = currentAlign;
+      document.getElementById('val-padding').textContent = currentPadding || 'none';
+      document.getElementById('clamp-tag').textContent = currentWidth !== 'custom' ? currentWidth : `${document.getElementById('input-custom-width').value}%`;
+
+      demo.updateCode();
+    }
+
+    document.getElementById('select-width').addEventListener('change', (e) => {
+      currentWidth = e.target.value;
+      updateTarget();
+    });
+
+    document.getElementById('input-custom-width').addEventListener('input', updateTarget);
+
+    // Align buttons
+    document.querySelectorAll('#btn-group-align button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-align button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentAlign = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    // Padding buttons
+    document.querySelectorAll('#btn-group-padding button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-padding button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentPadding = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      currentWidth = 'width:60%';
+      currentAlign = 'center';
+      currentPadding = 'padding:sm';
+
+      document.getElementById('select-width').value = 'width:60%';
+      document.querySelectorAll('#btn-group-align button').forEach(b => b.classList.toggle('active', b.dataset.val === 'center'));
+      document.querySelectorAll('#btn-group-padding button').forEach(b => b.classList.toggle('active', b.dataset.val === 'padding:sm'));
+
+      updateTarget();
+    });
+
+    updateTarget();
+  </script>
+</body>
+</html>

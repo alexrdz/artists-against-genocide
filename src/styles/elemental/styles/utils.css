@@ -1,0 +1,92 @@
+/* postitioning */
+.fixed {
+  position: fixed;
+  &.top {
+    inset-block-start: 0;
+  }
+}
+
+.full-height {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+.inverted {
+  background-color: var(--dark);
+  color: var(--light);
+}
+.padded {
+  padding: 2rem;
+}
+.bordered {
+  border: 1px solid var(--dark);
+}
+.measure {
+  --measure: 65ch;
+  max-inline-size: var(--measure);
+}
+.isolate {
+  isolation: isolate;
+}
+
+div[class^="fixed-width-"] {
+  margin-inline: auto;
+}
+.fixed-width-large {
+  inline-size: 100%;
+  max-inline-size: 1200px;
+}
+.fixed-width-small {
+  inline-size: 100%;
+  max-inline-size: 800px;
+}
+
+[class^="spacer-"] {
+  display: block;
+  border: none;
+  visibility: hidden;
+}
+.spacer-small {
+  margin-block: 2rem;
+}
+.spacer-medium {
+  margin-block: 4rem;
+}
+.spacer-large {
+  margin-block: 6rem;
+}
+
+.debug [data-box],
+.debug [data-stack],
+.debug [data-cluster],
+.debug [data-center],
+.debug [data-split],
+.debug [data-switcher],
+.debug [data-cover],
+.debug [data-grid],
+.debug [data-container],
+.debug [data-masonry],
+.debug [data-media],
+.debug [data-flanked],
+.debug [data-clamp],
+.debug [data-reel],
+.debug [data-imposter],
+.debug [data-icon] {
+  background-color: hsl(250deg 50% 50% / 0.2);
+
+  & > * {
+    transition: 0.3s ease-in-out;
+    background-color: hsl(0deg 0% 100% / 0.2);
+  }
+}
+
+.prose {
+  border-inline-start: 1rem solid rgb(31 31 31 / .3);
+  max-inline-size: 65ch;
+  padding-inline-start: 1rem;
+
+  & p {
+    text-wrap: balance;
+  }
+}

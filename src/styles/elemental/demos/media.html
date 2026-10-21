@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Layout Demo — Elemental</title>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-body">
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <a href="index.html" class="demo-back-btn">← All Layouts</a>
+      <div class="demo-title-group">
+        <h1>Media <span class="demo-badge">[data-media]</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <select id="nav-select" class="demo-nav-select"></select>
+      <button class="demo-code-toggle-btn" id="code-toggle"><span>&lt;/&gt;</span> Code</button>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <div class="demo-layout">
+    <main class="demo-stage-wrapper">
+      <div class="demo-desc-bar">
+        <strong>Media</strong> pairs a fixed visual element (avatar, icon, badge) alongside a flexible body (with <code>flex: 1</code> on <code>:last-child</code>). Supports <code>reverse</code> for swapping sides, plus <code>gap:*</code>, <code>padding:*</code>, and <code>align:*</code>.
+      </div>
+      
+      <div class="demo-stage-container demo-stage-container-720">
+        <div class="demo-target-box demo-p-md">
+          <div id="layout-target" data-media="gap:md align:start padding:md" class="demo-media-card">
+            <div class="demo-avatar">
+              AR
+            </div>
+            <div class="demo-media-body">
+              <div class="demo-meta-row">
+                <strong class="demo-author-name">Alex Rodriguez</strong>
+                <span class="demo-caption">2 hours ago</span>
+              </div>
+              <p class="demo-body-text">
+                Elemental layout primitives make CSS composition straightforward. The media object neatly handles comments, notifications, search results, and chat feeds without brittle margin overrides.
+              </p>
+              <div class="demo-links-row">
+                <span class="demo-link">💬 Reply</span>
+                <span class="demo-link">❤️ 12 Likes</span>
+                <span class="demo-link">🔗 Share</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="demo-controls-panel">
+      <div>
+        <div class="demo-section-title">Orientation & Alignment</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-checkbox-label">
+            <input type="checkbox" id="toggle-reverse">
+            <span>Reverse Direction (<code>reverse</code>)</span>
+          </label>
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Cross-Axis Alignment</span>
+            <span class="demo-control-val" id="val-align">align:start</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-align">
+            <button class="demo-toggle-btn active" data-val="align:start">start</button>
+            <button class="demo-toggle-btn" data-val="align:center">center</button>
+            <button class="demo-toggle-btn" data-val="align:end">end</button>
+            <button class="demo-toggle-btn" data-val="align:stretch">stretch</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Spacing & Gap</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Gap Scale Preset</span>
+            <span class="demo-control-val" id="val-gap">gap:md</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-gap">
+            <button class="demo-toggle-btn" data-val="gap:sm">sm</button>
+            <button class="demo-toggle-btn active" data-val="gap:md">md</button>
+            <button class="demo-toggle-btn" data-val="gap:lg">lg</button>
+            <button class="demo-toggle-btn" data-val="custom">Custom</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-gap">
+          <label class="demo-control-label">
+            <span>Custom --media-gap</span>
+            <span class="demo-control-val" id="val-custom-gap">24px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-custom-gap" min="0" max="80" value="24">
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Padding Scale</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Padding Preset</span>
+            <span class="demo-control-val" id="val-padding">padding:md</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-padding">
+            <button class="demo-toggle-btn" data-val="">none (0)</button>
+            <button class="demo-toggle-btn" data-val="padding:sm">sm</button>
+            <button class="demo-toggle-btn active" data-val="padding:md">md</button>
+            <button class="demo-toggle-btn" data-val="padding:lg">lg</button>
+            <button class="demo-toggle-btn" data-val="custom">Custom</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-padding">
+          <label class="demo-control-label">
+            <span>Custom --media-padding</span>
+            <span class="demo-control-val" id="val-custom-padding">24px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-custom-padding" min="0" max="80" value="24">
+        </div>
+      </div>
+
+      <button class="demo-reset-btn" id="btn-reset">↺ Reset to Defaults</button>
+    </aside>
+  </div>
+
+  <div class="demo-code-drawer" id="code-drawer">
+    <div class="demo-code-header">
+      <span class="demo-code-title">HTML Output</span>
+      <button class="demo-copy-btn" id="copy-code-btn"><span>📋</span> Copy HTML</button>
+    </div>
+    <pre class="demo-code-pre"><code id="code-display"></code></pre>
+  </div>
+
+  <script src="demo.js"></script>
+  <script>
+    const demo = new ElementalDemo({ layoutId: 'media' });
+    const target = document.getElementById('layout-target');
+
+    let currentGap = 'gap:md';
+    let currentAlign = 'align:start';
+    let currentPadding = 'padding:md';
+
+    function updateTarget() {
+      const customGapGroup = document.getElementById('group-custom-gap');
+      const customPadGroup = document.getElementById('group-custom-padding');
+      const isReverse = document.getElementById('toggle-reverse').checked ? 'reverse' : '';
+      const attrs = [currentAlign, isReverse];
+
+      if (currentGap !== 'custom') {
+        attrs.push(currentGap);
+        target.style.removeProperty('--media-gap');
+        customGapGroup.classList.add('demo-hidden');
+        document.getElementById('val-gap').textContent = currentGap;
+      } else {
+        customGapGroup.classList.remove('demo-hidden');
+        const customPx = document.getElementById('input-custom-gap').value;
+        target.style.setProperty('--media-gap', `${customPx}px`);
+        document.getElementById('val-custom-gap').textContent = `${customPx}px`;
+        document.getElementById('val-gap').textContent = `var(--media-gap: ${customPx}px)`;
+      }
+
+      if (currentPadding !== 'custom') {
+        if (currentPadding) attrs.push(currentPadding);
+        target.style.removeProperty('--media-padding');
+        customPadGroup.classList.add('demo-hidden');
+        document.getElementById('val-padding').textContent = currentPadding || 'none';
+      } else {
+        customPadGroup.classList.remove('demo-hidden');
+        const padPx = document.getElementById('input-custom-padding').value;
+        target.style.setProperty('--media-padding', `${padPx}px`);
+        document.getElementById('val-custom-padding').textContent = `${padPx}px`;
+        document.getElementById('val-padding').textContent = `var(--media-padding: ${padPx}px)`;
+      }
+
+      target.setAttribute('data-media', attrs.filter(Boolean).join(' '));
+      document.getElementById('val-align').textContent = currentAlign;
+
+      demo.updateCode();
+    }
+
+    // Gap buttons
+    document.querySelectorAll('#btn-group-gap button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-gap button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentGap = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    // Padding buttons
+    document.querySelectorAll('#btn-group-padding button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-padding button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentPadding = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    // Align buttons
+    document.querySelectorAll('#btn-group-align button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-align button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentAlign = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    document.getElementById('input-custom-gap').addEventListener('input', updateTarget);
+    document.getElementById('input-custom-padding').addEventListener('input', updateTarget);
+    document.getElementById('toggle-reverse').addEventListener('change', updateTarget);
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      currentGap = 'gap:md';
+      currentAlign = 'align:start';
+      currentPadding = 'padding:md';
+      document.getElementById('toggle-reverse').checked = false;
+
+      document.querySelectorAll('#btn-group-gap button').forEach(b => b.classList.toggle('active', b.dataset.val === 'gap:md'));
+      document.querySelectorAll('#btn-group-padding button').forEach(b => b.classList.toggle('active', b.dataset.val === 'padding:md'));
+      document.querySelectorAll('#btn-group-align button').forEach(b => b.classList.toggle('active', b.dataset.val === 'align:start'));
+
+      updateTarget();
+    });
+
+    updateTarget();
+  </script>
+</body>
+</html>

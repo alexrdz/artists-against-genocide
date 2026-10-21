@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Switcher Layout Demo — Elemental</title>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-body">
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <a href="index.html" class="demo-back-btn">← All Layouts</a>
+      <div class="demo-title-group">
+        <h1>Switcher <span class="demo-badge">[data-switcher]</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <select id="nav-select" class="demo-nav-select"></select>
+      <button class="demo-code-toggle-btn" id="code-toggle"><span>&lt;/&gt;</span> Code</button>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <div class="demo-layout">
+    <main class="demo-stage-wrapper">
+      <div class="demo-desc-bar">
+        <strong>Switcher</strong> switches between a horizontal side-by-side row and a vertical stack when container space shrinks below a threshold or when item count exceeds a set <code>limit:*</code>.
+      </div>
+      
+      <div class="demo-stage-container" id="stage-box">
+        <div class="demo-target-box">
+          <div id="layout-target" data-switcher="limit:3 gap:md collapse:sm">
+            <!-- Rendered items -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="demo-controls-panel">
+      <div>
+        <div class="demo-section-title">Item Limit & Threshold</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Item Limit (Max items before vertical)</span>
+            <span class="demo-control-val" id="val-limit">limit:3</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-limit">
+            <button class="demo-toggle-btn" data-val="limit:2">limit:2</button>
+            <button class="demo-toggle-btn active" data-val="limit:3">limit:3</button>
+            <button class="demo-toggle-btn" data-val="limit:4">limit:4</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Collapse Threshold</span>
+            <span class="demo-control-val" id="val-collapse">collapse:sm</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-collapse">
+            <button class="demo-toggle-btn active" data-val="collapse:sm">sm (30rem)</button>
+            <button class="demo-toggle-btn" data-val="collapse:md">md (45rem)</button>
+            <button class="demo-toggle-btn" data-val="collapse:lg">lg (60rem)</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Spacing & Items</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Gap Scale Preset</span>
+            <span class="demo-control-val" id="val-gap">gap:md</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-gap">
+            <button class="demo-toggle-btn" data-val="gap:sm">sm (16px)</button>
+            <button class="demo-toggle-btn active" data-val="gap:md">md (24px)</button>
+            <button class="demo-toggle-btn" data-val="gap:lg">lg (40px)</button>
+            <button class="demo-toggle-btn" data-val="custom">Custom</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-gap">
+          <label class="demo-control-label">
+            <span>Custom --switcher-gap</span>
+            <span class="demo-control-val" id="val-custom-gap">24px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-custom-gap" min="0" max="80" value="24">
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Item Count</span>
+            <span class="demo-control-val" id="val-items">3 items</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-item-count" min="2" max="6" value="3">
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Interactive Viewport Tester</div>
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Container Width Simulator</span>
+            <span class="demo-control-val" id="val-width-sim">850px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-width-sim" min="300" max="950" value="850">
+        </div>
+      </div>
+
+      <button class="demo-reset-btn" id="btn-reset">↺ Reset to Defaults</button>
+    </aside>
+  </div>
+
+  <div class="demo-code-drawer" id="code-drawer">
+    <div class="demo-code-header">
+      <span class="demo-code-title">HTML Output</span>
+      <button class="demo-copy-btn" id="copy-code-btn"><span>📋</span> Copy HTML</button>
+    </div>
+    <pre class="demo-code-pre"><code id="code-display"></code></pre>
+  </div>
+
+  <script src="demo.js"></script>
+  <script>
+    const demo = new ElementalDemo({ layoutId: 'switcher' });
+    const target = document.getElementById('layout-target');
+    const stageBox = document.getElementById('stage-box');
+    
+    let currentLimit = 'limit:3';
+    let currentCollapse = 'collapse:sm';
+    let currentGap = 'gap:md';
+
+    function renderItems(count) {
+      demo.setContainerItems(count, (i) => `
+        <div class="demo-item">
+          <span class="demo-item-tag">Item #${i}</span>
+          <div class="demo-item-label">Switcher Block ${i}</div>
+          <div class="demo-item-sub">Switches to vertical row if > limit or < threshold</div>
+        </div>
+      `);
+    }
+
+    function updateTarget() {
+      const customGroup = document.getElementById('group-custom-gap');
+      const attrs = [currentLimit, currentCollapse];
+
+      if (currentGap !== 'custom') {
+        attrs.push(currentGap);
+        target.style.removeProperty('--switcher-gap');
+        customGroup.classList.add('demo-hidden');
+        document.getElementById('val-gap').textContent = currentGap;
+      } else {
+        customGroup.classList.remove('demo-hidden');
+        const customPx = document.getElementById('input-custom-gap').value;
+        target.style.setProperty('--switcher-gap', `${customPx}px`);
+        document.getElementById('val-custom-gap').textContent = `${customPx}px`;
+        document.getElementById('val-gap').textContent = `var(--switcher-gap: ${customPx}px)`;
+      }
+
+      target.setAttribute('data-switcher', attrs.filter(Boolean).join(' '));
+
+      document.getElementById('val-limit').textContent = currentLimit;
+      document.getElementById('val-collapse').textContent = currentCollapse;
+
+      demo.updateCode();
+    }
+
+    // Limit buttons
+    document.querySelectorAll('#btn-group-limit button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-limit button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentLimit = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    // Collapse buttons
+    document.querySelectorAll('#btn-group-collapse button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-collapse button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCollapse = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    // Gap buttons
+    document.querySelectorAll('#btn-group-gap button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-gap button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentGap = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    document.getElementById('input-custom-gap').addEventListener('input', updateTarget);
+
+    // Item count
+    document.getElementById('input-item-count').addEventListener('input', (e) => {
+      const count = parseInt(e.target.value, 10);
+      document.getElementById('val-items').textContent = `${count} items`;
+      renderItems(count);
+      updateTarget();
+    });
+
+    // Viewport Simulator
+    document.getElementById('input-width-sim').addEventListener('input', (e) => {
+      const w = e.target.value;
+      stageBox.style.maxWidth = `${w}px`;
+      document.getElementById('val-width-sim').textContent = `${w}px`;
+    });
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      currentLimit = 'limit:3';
+      currentCollapse = 'collapse:sm';
+      currentGap = 'gap:md';
+
+      document.querySelectorAll('#btn-group-limit button').forEach(b => b.classList.toggle('active', b.dataset.val === 'limit:3'));
+      document.querySelectorAll('#btn-group-collapse button').forEach(b => b.classList.toggle('active', b.dataset.val === 'collapse:sm'));
+      document.querySelectorAll('#btn-group-gap button').forEach(b => b.classList.toggle('active', b.dataset.val === 'gap:md'));
+
+      document.getElementById('input-item-count').value = 3;
+      document.getElementById('val-items').textContent = '3 items';
+      renderItems(3);
+
+      stageBox.style.maxWidth = '850px';
+      document.getElementById('input-width-sim').value = 850;
+      document.getElementById('val-width-sim').textContent = '850px';
+
+      updateTarget();
+    });
+
+    renderItems(3);
+    updateTarget();
+  </script>
+</body>
+</html>

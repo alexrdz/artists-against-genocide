@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masonry Layout Demo — Elemental</title>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-body">
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <a href="index.html" class="demo-back-btn">← All Layouts</a>
+      <div class="demo-title-group">
+        <h1>Masonry <span class="demo-badge">[data-masonry]</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <select id="nav-select" class="demo-nav-select"></select>
+      <button class="demo-code-toggle-btn" id="code-toggle"><span>&lt;/&gt;</span> Code</button>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <div class="demo-layout">
+    <main class="demo-stage-wrapper">
+      <div class="demo-desc-bar">
+        <strong>Masonry</strong> creates a multi-column CSS waterfall layout where elements of varying heights pack tightly without vertical whitespace gaps, using <code>num-cols:*</code> or responsive <code>col-size:*</code>.
+      </div>
+      
+      <div class="demo-stage-container">
+        <div class="demo-target-box">
+          <div id="layout-target" data-masonry="num-cols:3 gap:md">
+            <!-- Dynamically generated variable height cards -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="demo-controls-panel">
+      <div>
+        <div class="demo-section-title">Column Configuration</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Sizing Mode</span>
+            <span class="demo-control-val" id="val-mode">Fixed Columns</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-mode">
+            <button class="demo-toggle-btn active" data-mode="cols">Fixed Columns</button>
+            <button class="demo-toggle-btn" data-mode="col-size">Min Col Width</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group" id="group-num-cols">
+          <label class="demo-control-label">
+            <span>Number of Columns</span>
+            <span class="demo-control-val" id="val-num-cols">num-cols:3</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-num-cols">
+            <button class="demo-toggle-btn" data-val="num-cols:2">2</button>
+            <button class="demo-toggle-btn active" data-val="num-cols:3">3</button>
+            <button class="demo-toggle-btn" data-val="num-cols:4">4</button>
+            <button class="demo-toggle-btn" data-val="num-cols:5">5</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-col-size">
+          <label class="demo-control-label">
+            <span>Column Width Scale</span>
+            <span class="demo-control-val" id="val-col-size">col-size:sm</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-col-size">
+            <button class="demo-toggle-btn active" data-val="col-size:sm">sm (18.75rem)</button>
+            <button class="demo-toggle-btn" data-val="col-size:md">md (25rem)</button>
+            <button class="demo-toggle-btn" data-val="col-size:lg">lg (37.5rem)</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Gap & Items</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Gap Scale Preset</span>
+            <span class="demo-control-val" id="val-gap">gap:md</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-gap">
+            <button class="demo-toggle-btn" data-val="gap:sm">sm (16px)</button>
+            <button class="demo-toggle-btn active" data-val="gap:md">md (24px)</button>
+            <button class="demo-toggle-btn" data-val="gap:lg">lg (36px)</button>
+            <button class="demo-toggle-btn" data-val="custom">Custom</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-gap">
+          <label class="demo-control-label">
+            <span>Custom --masonry-gap</span>
+            <span class="demo-control-val" id="val-custom-gap">24px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-custom-gap" min="0" max="80" value="24">
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Card Count</span>
+            <span class="demo-control-val" id="val-items">9 cards</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-item-count" min="3" max="18" value="9">
+        </div>
+      </div>
+
+      <button class="demo-reset-btn" id="btn-reset">↺ Reset to Defaults</button>
+    </aside>
+  </div>
+
+  <div class="demo-code-drawer" id="code-drawer">
+    <div class="demo-code-header">
+      <span class="demo-code-title">HTML Output</span>
+      <button class="demo-copy-btn" id="copy-code-btn"><span>📋</span> Copy HTML</button>
+    </div>
+    <pre class="demo-code-pre"><code id="code-display"></code></pre>
+  </div>
+
+  <script src="demo.js"></script>
+  <script>
+    const demo = new ElementalDemo({ layoutId: 'masonry' });
+    const target = document.getElementById('layout-target');
+
+    let currentMode = 'cols';
+    let currentNumCols = 'num-cols:3';
+    let currentColSize = 'col-size:sm';
+    let currentGap = 'gap:md';
+
+    const cardDescriptions = [
+      'Compact card with brief status update.',
+      'Medium height card featuring multi-line descriptions and layout metadata tags.',
+      'Short notice card.',
+      'Tall feature breakdown detailing responsive multi-column CSS waterfall flow and browser subgrid behaviors without extra margin hacks.',
+      'Standard card layout.',
+      'Card containing user actions, timestamp indicators, and interactive elements.',
+      'Deep analysis report card explaining cascade ordering in modern CSS columns.',
+      'Quick tag preview.'
+    ];
+
+    function renderItems(count) {
+      demo.setContainerItems(count, (i) => {
+        const desc = cardDescriptions[(i - 1) % cardDescriptions.length];
+        return `
+          <div class="demo-item">
+            <span class="demo-item-tag">Card #${i}</span>
+            <div class="demo-item-label">Masonry Card ${i}</div>
+            <p class="demo-body-text">${desc}</p>
+            <div class="demo-caption">Natural waterfall flow</div>
+          </div>
+        `;
+      });
+    }
+
+    function updateTarget() {
+      const customGroup = document.getElementById('group-custom-gap');
+      const numColsGroup = document.getElementById('group-num-cols');
+      const colSizeGroup = document.getElementById('group-col-size');
+      const attrs = [];
+
+      if (currentMode === 'cols') {
+        attrs.push(currentNumCols);
+        numColsGroup.classList.remove('demo-hidden');
+        colSizeGroup.classList.add('demo-hidden');
+        document.getElementById('val-mode').textContent = 'Fixed Columns';
+      } else {
+        attrs.push(currentColSize);
+        numColsGroup.classList.add('demo-hidden');
+        colSizeGroup.classList.remove('demo-hidden');
+        document.getElementById('val-mode').textContent = 'Min Col Width';
+      }
+
+      if (currentGap !== 'custom') {
+        attrs.push(currentGap);
+        target.style.removeProperty('--masonry-gap');
+        customGroup.classList.add('demo-hidden');
+        document.getElementById('val-gap').textContent = currentGap;
+      } else {
+        customGroup.classList.remove('demo-hidden');
+        const customPx = document.getElementById('input-custom-gap').value;
+        target.style.setProperty('--masonry-gap', `${customPx}px`);
+        document.getElementById('val-custom-gap').textContent = `${customPx}px`;
+        document.getElementById('val-gap').textContent = `var(--masonry-gap: ${customPx}px)`;
+      }
+
+      target.setAttribute('data-masonry', attrs.join(' '));
+
+      document.getElementById('val-num-cols').textContent = currentNumCols;
+      document.getElementById('val-col-size').textContent = currentColSize;
+
+      demo.updateCode();
+    }
+
+    // Mode buttons
+    document.querySelectorAll('#btn-group-mode button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-mode button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentMode = btn.dataset.mode;
+        updateTarget();
+      });
+    });
+
+    // Num cols buttons
+    document.querySelectorAll('#btn-group-num-cols button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-num-cols button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentNumCols = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    // Col size buttons
+    document.querySelectorAll('#btn-group-col-size button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-col-size button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentColSize = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    // Gap buttons
+    document.querySelectorAll('#btn-group-gap button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-gap button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentGap = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    document.getElementById('input-custom-gap').addEventListener('input', updateTarget);
+
+    // Item count
+    document.getElementById('input-item-count').addEventListener('input', (e) => {
+      const count = parseInt(e.target.value, 10);
+      document.getElementById('val-items').textContent = `${count} cards`;
+      renderItems(count);
+      updateTarget();
+    });
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      currentMode = 'cols';
+      currentNumCols = 'num-cols:3';
+      currentColSize = 'col-size:sm';
+      currentGap = 'gap:md';
+
+      document.querySelectorAll('#btn-group-mode button').forEach(b => b.classList.toggle('active', b.dataset.mode === 'cols'));
+      document.querySelectorAll('#btn-group-num-cols button').forEach(b => b.classList.toggle('active', b.dataset.val === 'num-cols:3'));
+      document.querySelectorAll('#btn-group-col-size button').forEach(b => b.classList.toggle('active', b.dataset.val === 'col-size:sm'));
+      document.querySelectorAll('#btn-group-gap button').forEach(b => b.classList.toggle('active', b.dataset.val === 'gap:md'));
+
+      document.getElementById('input-item-count').value = 9;
+      document.getElementById('val-items').textContent = '9 cards';
+      renderItems(9);
+
+      updateTarget();
+    });
+
+    renderItems(9);
+    updateTarget();
+  </script>
+</body>
+</html>

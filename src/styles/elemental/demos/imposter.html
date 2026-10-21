@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imposter Layout Demo — Elemental</title>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-body">
+  <div class="demo-imposter-backdrop" id="fixed-backdrop"></div>
+
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <a href="index.html" class="demo-back-btn">← All Layouts</a>
+      <div class="demo-title-group">
+        <h1>Imposter <span class="demo-badge">[data-imposter]</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <select id="nav-select" class="demo-nav-select"></select>
+      <button class="demo-code-toggle-btn" id="code-toggle"><span>&lt;/&gt;</span> Code</button>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <div class="demo-layout">
+    <main class="demo-stage-wrapper">
+      <div class="demo-desc-bar">
+        <strong>Imposter</strong> positions an overlay element directly centered over its parent container (<code>absolute</code>) or viewport (<code>fixed</code>). When <code>contain</code> is enabled, it bounds the element to <code>calc(100% - (var(--imposter-margin) * 2))</code> and enables internal scrolling (<code>overflow: auto</code>) when content overflows.
+      </div>
+      
+      <div class="demo-stage-container">
+        <!-- Stage frame simulating the relative parent container -->
+        <div class="demo-imposter-frame" id="parent-frame">
+          
+          <!-- Visual guide showing the containment bounds -->
+          <div class="demo-containment-guide" id="containment-guide">
+            <span>Containment limit: calc(100% - 2 * margin)</span>
+          </div>
+
+          <div class="demo-dimmed-45">
+            <div class="demo-meta-row">
+              <h3 class="demo-heading-md demo-mb-0">Parent Container Context</h3>
+              <span class="demo-badge" id="badge-parent-dims">580 × 380 px</span>
+            </div>
+            <p class="demo-body-text demo-mb-0">
+              This parent element has <code>position: relative</code>. The <code>[data-imposter]</code> centers itself precisely over this area.
+            </p>
+          </div>
+
+          <!-- Imposter Target Element -->
+          <div id="layout-target" data-imposter="contain" class="demo-imposter-modal demo-imposter-target-init">
+            <div class="demo-imposter-header-flex">
+              <span class="demo-badge">[data-imposter]</span>
+              <span class="demo-imposter-status-badge" id="modal-status-badge">contain active</span>
+            </div>
+            <h4 class="demo-imposter-title" id="modal-title">Production Release</h4>
+            
+            <div id="modal-body-content">
+              <p class="demo-body-text">
+                Deploying elemental layouts v2.0. All sub-components will inherit reactive CSS custom properties.
+              </p>
+            </div>
+
+            <div class="demo-dialog-footer">
+              <button class="demo-toggle-btn" id="btn-dialog-cancel">Cancel</button>
+              <button class="demo-viewport-btn active" id="btn-dialog-confirm">Confirm Action</button>
+            </div>
+          </div>
+
+          <div class="demo-imposter-footer-flex">
+            <span>Parent Footer Section</span>
+            <code>position: relative</code>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="demo-controls-panel">
+      <div>
+        <div class="demo-section-title">Positioning & Containment</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Positioning Mode</span>
+            <span class="demo-control-val" id="val-mode">absolute</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-mode">
+            <button class="demo-toggle-btn active" data-mode="">absolute (Parent)</button>
+            <button class="demo-toggle-btn" data-mode="fixed">fixed (Viewport)</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-checkbox-label">
+            <input type="checkbox" id="toggle-contain" checked>
+            <span>Enable <code>contain</code> (overflow auto & bounds)</span>
+          </label>
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-checkbox-label">
+            <input type="checkbox" id="toggle-guide" checked>
+            <span>Show Containment Boundary Guide</span>
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Contain Margin (--imposter-margin)</div>
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Margin Preset / Custom</span>
+            <span class="demo-control-val" id="val-margin">24px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-margin" min="0" max="64" value="24">
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Content Volume Tester</div>
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Dialog Content Size</span>
+            <span class="demo-control-val" id="val-content-size">Standard</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-content">
+            <button class="demo-toggle-btn active" data-size="standard">Standard</button>
+            <button class="demo-toggle-btn" data-size="large">Oversized (Tall)</button>
+            <button class="demo-toggle-btn" data-size="massive">Massive (Overflow)</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Parent Container Dimensions</div>
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Parent Width</span>
+            <span class="demo-control-val" id="val-parent-w">580px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-parent-w" min="340" max="800" value="580">
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Parent Height</span>
+            <span class="demo-control-val" id="val-parent-h">380px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-parent-h" min="220" max="550" value="380">
+        </div>
+      </div>
+
+      <button class="demo-reset-btn" id="btn-reset">↺ Reset to Defaults</button>
+    </aside>
+  </div>
+
+  <div class="demo-code-drawer" id="code-drawer">
+    <div class="demo-code-header">
+      <span class="demo-code-title">HTML Output</span>
+      <button class="demo-copy-btn" id="copy-code-btn"><span>📋</span> Copy HTML</button>
+    </div>
+    <pre class="demo-code-pre"><code id="code-display"></code></pre>
+  </div>
+
+  <script src="demo.js"></script>
+  <script>
+    const demo = new ElementalDemo({ layoutId: 'imposter' });
+    const target = document.getElementById('layout-target');
+    const parentFrame = document.getElementById('parent-frame');
+    const guide = document.getElementById('containment-guide');
+    const backdrop = document.getElementById('fixed-backdrop');
+    const modalBody = document.getElementById('modal-body-content');
+
+    let currentMode = '';
+    let currentContentSize = 'standard';
+
+    const CONTENT_TEMPLATES = {
+      standard: `
+        <p class="demo-body-text">
+          Deploying elemental layouts v2.0. All sub-components will inherit reactive CSS custom properties.
+        </p>
+      `,
+      large: `
+        <p class="demo-body-text">
+          This oversized dialog contains extensive confirmation details and release notes that exceed standard modal height.
+        </p>
+        <div class="demo-list-pill-group">
+          <div class="demo-list-pill">✓ 18 Layout Primitives verified</div>
+          <div class="demo-list-pill">✓ CSS Custom Property reactivity tested</div>
+          <div class="demo-list-pill">✓ Containment overflow auto boundary checked</div>
+          <div class="demo-list-pill">✓ Cross-axis alignments & responsive tokens validated</div>
+        </div>
+      `,
+      massive: `
+        <p class="demo-body-text">
+          <strong>Massive Payload:</strong> Notice how with <code>contain</code> active, the modal never overflows the parent container and activates smooth scrollbars. When <code>contain</code> is unchecked, the dialog spills completely out of bounds!
+        </p>
+        <div class="demo-list-pill-group">
+          <div class="demo-list-pill">1. System Architecture Audit Complete</div>
+          <div class="demo-list-pill">2. Fluid Space Scale System Configured</div>
+          <div class="demo-list-pill">3. Zero-dependency Vanilla Demo Studio Verified</div>
+          <div class="demo-list-pill">4. Breakpoint-free responsive design validation</div>
+          <div class="demo-list-pill">5. Container query fallback simulations active</div>
+          <div class="demo-list-pill">6. Imposter max-inline-size: calc(100% - 2 * margin)</div>
+          <div class="demo-list-pill">7. Final production bundle compiled</div>
+        </div>
+      `
+    };
+
+    function updateTarget() {
+      const isContain = document.getElementById('toggle-contain').checked;
+      const showGuide = document.getElementById('toggle-guide').checked;
+      const marginPx = document.getElementById('input-margin').value;
+
+      const attrs = [currentMode, isContain ? 'contain' : ''].filter(Boolean);
+      target.setAttribute('data-imposter', attrs.join(' '));
+
+      if (marginPx !== '24') {
+        target.style.setProperty('--imposter-margin', `${marginPx}px`);
+      } else {
+        target.style.removeProperty('--imposter-margin');
+      }
+
+      // Update containment boundary guide
+      if (showGuide && isContain && !currentMode) {
+        guide.classList.remove('demo-hidden');
+        guide.style.top = `${marginPx}px`;
+        guide.style.left = `${marginPx}px`;
+        guide.style.right = `${marginPx}px`;
+        guide.style.bottom = `${marginPx}px`;
+        guide.querySelector('span').textContent = `Contain limit: margin ${marginPx}px`;
+      } else {
+        guide.classList.add('demo-hidden');
+      }
+
+      // Fixed mode backdrop
+      if (currentMode === 'fixed') {
+        backdrop.classList.add('active');
+      } else {
+        backdrop.classList.remove('active');
+      }
+
+      document.getElementById('val-mode').textContent = currentMode ? 'fixed (Viewport)' : 'absolute (Parent)';
+      document.getElementById('val-margin').textContent = `${marginPx}px`;
+      document.getElementById('modal-status-badge').textContent = isContain ? `contain (margin: ${marginPx}px)` : 'contain disabled';
+
+      demo.updateCode();
+    }
+
+    // Mode buttons
+    document.querySelectorAll('#btn-group-mode button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-mode button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentMode = btn.dataset.mode;
+        updateTarget();
+      });
+    });
+
+    // Content size buttons
+    document.querySelectorAll('#btn-group-content button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-content button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentContentSize = btn.dataset.size;
+        modalBody.innerHTML = CONTENT_TEMPLATES[currentContentSize];
+        document.getElementById('val-content-size').textContent = btn.textContent;
+        updateTarget();
+      });
+    });
+
+    // Parent dimension sliders
+    const updateParentDims = () => {
+      const w = document.getElementById('input-parent-w').value;
+      const h = document.getElementById('input-parent-h').value;
+      parentFrame.style.width = `${w}px`;
+      parentFrame.style.height = `${h}px`;
+      document.getElementById('val-parent-w').textContent = `${w}px`;
+      document.getElementById('val-parent-h').textContent = `${h}px`;
+      document.getElementById('badge-parent-dims').textContent = `${w} × ${h} px`;
+      updateTarget();
+    };
+
+    document.getElementById('input-parent-w').addEventListener('input', updateParentDims);
+    document.getElementById('input-parent-h').addEventListener('input', updateParentDims);
+
+    document.getElementById('toggle-contain').addEventListener('change', updateTarget);
+    document.getElementById('toggle-guide').addEventListener('change', updateTarget);
+    document.getElementById('input-margin').addEventListener('input', updateTarget);
+
+    // Dialog action buttons
+    document.getElementById('btn-dialog-cancel').addEventListener('click', () => {
+      if (currentMode === 'fixed') {
+        currentMode = '';
+        document.querySelectorAll('#btn-group-mode button').forEach(b => b.classList.toggle('active', b.dataset.mode === ''));
+        updateTarget();
+      }
+    });
+
+    backdrop.addEventListener('click', () => {
+      currentMode = '';
+      document.querySelectorAll('#btn-group-mode button').forEach(b => b.classList.toggle('active', b.dataset.mode === ''));
+      updateTarget();
+    });
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      currentMode = '';
+      currentContentSize = 'standard';
+      modalBody.innerHTML = CONTENT_TEMPLATES.standard;
+      document.getElementById('val-content-size').textContent = 'Standard';
+      document.querySelectorAll('#btn-group-content button').forEach(b => b.classList.toggle('active', b.dataset.size === 'standard'));
+      document.querySelectorAll('#btn-group-mode button').forEach(b => b.classList.toggle('active', b.dataset.mode === ''));
+      document.getElementById('toggle-contain').checked = true;
+      document.getElementById('toggle-guide').checked = true;
+      document.getElementById('input-margin').value = 24;
+
+      document.getElementById('input-parent-w').value = 580;
+      document.getElementById('input-parent-h').value = 380;
+      updateParentDims();
+    });
+
+    updateParentDims();
+  </script>
+</body>
+</html>

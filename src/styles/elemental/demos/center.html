@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Center Layout Demo — Elemental</title>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-body">
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <a href="index.html" class="demo-back-btn">← All Layouts</a>
+      <div class="demo-title-group">
+        <h1>Center <span class="demo-badge">[data-center]</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <select id="nav-select" class="demo-nav-select"></select>
+      <button class="demo-code-toggle-btn" id="code-toggle"><span>&lt;/&gt;</span> Code</button>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <div class="demo-layout">
+    <main class="demo-stage-wrapper">
+      <div class="demo-desc-bar">
+        <strong>Center</strong> constrains content horizontally to a maximum width (such as readable prose measure <code>65ch</code>) and centers it with auto margins and optional child alignment.
+      </div>
+      
+      <div class="demo-stage-container">
+        <div class="demo-center-container demo-target-box">
+          <div id="layout-target" data-center="max:measure padding:sm">
+            <div class="demo-item demo-card-highlighted">
+              <span class="demo-item-tag" id="center-tag">[data-center]</span>
+              <h3 class="demo-heading-md">Readable Measure Layout</h3>
+              <p class="demo-lead">
+                The Center primitive ensures typographic elements do not stretch beyond a comfortable reading length across wide monitors, while retaining responsive gutter paddings on compact mobile screens.
+              </p>
+              <div class="demo-actions-bar">
+                <button class="demo-btn-primary">Primary CTA</button>
+                <button class="demo-btn-ghost">Secondary</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="demo-controls-panel">
+      <div>
+        <div class="demo-section-title">Width & Padding</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Max Width</span>
+            <span class="demo-control-val" id="val-max">max:measure</span>
+          </label>
+          <select id="select-max" class="demo-input-select">
+            <option value="max:measure" selected>max:measure (65ch — Prose)</option>
+            <option value="max:sm">max:sm (65rem)</option>
+            <option value="max:md">max:md (75rem)</option>
+            <option value="max:lg">max:lg (84.375rem)</option>
+            <option value="custom">Custom Slider</option>
+          </select>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-max">
+          <label class="demo-control-label">
+            <span>Custom --max-width</span>
+            <span class="demo-control-val" id="val-custom-max">450px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-custom-max" min="200" max="900" value="450">
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Side Padding Preset</span>
+            <span class="demo-control-val" id="val-padding">padding:sm</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-padding">
+            <button class="demo-toggle-btn" data-val="">none</button>
+            <button class="demo-toggle-btn active" data-val="padding:sm">sm (16px)</button>
+            <button class="demo-toggle-btn" data-val="padding:md">md (24px)</button>
+            <button class="demo-toggle-btn" data-val="padding:lg">lg (32px)</button>
+            <button class="demo-toggle-btn" data-val="custom">Custom</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-pad">
+          <label class="demo-control-label">
+            <span>Custom --center-padding</span>
+            <span class="demo-control-val" id="val-custom-pad">24px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-custom-pad" min="0" max="80" value="24">
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Alignment Modifiers</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-checkbox-label">
+            <input type="checkbox" id="toggle-center-text">
+            <span>Center Text (<code>center:text</code>)</span>
+          </label>
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-checkbox-label">
+            <input type="checkbox" id="toggle-center-children">
+            <span>Center Children (<code>center:children</code>)</span>
+          </label>
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-checkbox-label">
+            <input type="checkbox" id="toggle-intrinsic">
+            <span>Intrinsic Center (<code>intrinsic</code>)</span>
+          </label>
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-checkbox-label">
+            <input type="checkbox" id="toggle-center-vertically">
+            <span>Center Vertically (<code>center:vertically</code>)</span>
+          </label>
+        </div>
+      </div>
+
+      <button class="demo-reset-btn" id="btn-reset">↺ Reset to Defaults</button>
+    </aside>
+  </div>
+
+  <div class="demo-code-drawer" id="code-drawer">
+    <div class="demo-code-header">
+      <span class="demo-code-title">HTML Output</span>
+      <button class="demo-copy-btn" id="copy-code-btn"><span>📋</span> Copy HTML</button>
+    </div>
+    <pre class="demo-code-pre"><code id="code-display"></code></pre>
+  </div>
+
+  <script src="demo.js"></script>
+  <script>
+    const demo = new ElementalDemo({ layoutId: 'center' });
+    const target = document.getElementById('layout-target');
+    let currentPadding = 'padding:sm';
+
+    function updateTarget() {
+      const maxVal = document.getElementById('select-max').value;
+      const customMaxGroup = document.getElementById('group-custom-max');
+      const customPadGroup = document.getElementById('group-custom-pad');
+      const attrs = [];
+
+      if (maxVal !== 'custom') {
+        attrs.push(maxVal);
+        target.style.removeProperty('--max-width');
+        customMaxGroup.classList.add('demo-hidden');
+        document.getElementById('val-max').textContent = maxVal;
+      } else {
+        customMaxGroup.classList.remove('demo-hidden');
+        const customPx = document.getElementById('input-custom-max').value;
+        target.style.setProperty('--max-width', `${customPx}px`);
+        document.getElementById('val-custom-max').textContent = `${customPx}px`;
+        document.getElementById('val-max').textContent = `var(--max-width: ${customPx}px)`;
+      }
+
+      if (currentPadding !== 'custom') {
+        if (currentPadding) attrs.push(currentPadding);
+        target.style.removeProperty('--center-padding');
+        customPadGroup.classList.add('demo-hidden');
+        document.getElementById('val-padding').textContent = currentPadding || 'none';
+      } else {
+        customPadGroup.classList.remove('demo-hidden');
+        const padPx = document.getElementById('input-custom-pad').value;
+        target.style.setProperty('--center-padding', `${padPx}px`);
+        document.getElementById('val-custom-pad').textContent = `${padPx}px`;
+        document.getElementById('val-padding').textContent = `var(--center-padding: ${padPx}px)`;
+      }
+
+      if (document.getElementById('toggle-center-text').checked) attrs.push('center:text');
+      if (document.getElementById('toggle-center-children').checked) attrs.push('center:children');
+      if (document.getElementById('toggle-intrinsic').checked) attrs.push('intrinsic');
+      if (document.getElementById('toggle-center-vertically').checked) attrs.push('center:vertically');
+
+      target.setAttribute('data-center', attrs.filter(Boolean).join(' '));
+      document.getElementById('center-tag').textContent = `[data-center="${attrs.filter(Boolean).join(' ')}"]`;
+
+      demo.updateCode();
+    }
+
+    document.querySelectorAll('#btn-group-padding button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-padding button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentPadding = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    document.getElementById('select-max').addEventListener('change', updateTarget);
+    document.getElementById('input-custom-max').addEventListener('input', updateTarget);
+    document.getElementById('input-custom-pad').addEventListener('input', updateTarget);
+    document.getElementById('toggle-center-text').addEventListener('change', updateTarget);
+    document.getElementById('toggle-center-children').addEventListener('change', updateTarget);
+    document.getElementById('toggle-intrinsic').addEventListener('change', updateTarget);
+    document.getElementById('toggle-center-vertically').addEventListener('change', updateTarget);
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      document.getElementById('select-max').value = 'max:measure';
+      currentPadding = 'padding:sm';
+      document.querySelectorAll('#btn-group-padding button').forEach(b => {
+        b.classList.toggle('active', b.dataset.val === 'padding:sm');
+      });
+      document.getElementById('toggle-center-text').checked = false;
+      document.getElementById('toggle-center-children').checked = false;
+      document.getElementById('toggle-intrinsic').checked = false;
+      document.getElementById('toggle-center-vertically').checked = false;
+      updateTarget();
+    });
+
+    updateTarget();
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+[data-masonry] {
+  --min-column-width: 18.75rem;
+  --masonry-gap: var(--layout-masonry-gap-sm, 1rem);
+
+  columns: var(--num-columns, var(--min-column-width));
+  column-gap: var(--masonry-gap);
+}
+
+[data-masonry] > * {
+  break-inside: avoid;
+  margin-block-end: var(--masonry-gap);
+}
+
+/* Column Widths */
+[data-masonry~="col-size:sm"] { --min-column-width: 18.75rem; }
+[data-masonry~="col-size:md"] { --min-column-width: 25rem; }
+[data-masonry~="col-size:lg"] { --min-column-width: 37.5rem; }
+
+/* Number of Columns */
+[data-masonry~="num-cols:2"] { --num-columns: 2; }
+[data-masonry~="num-cols:3"] { --num-columns: 3; }
+[data-masonry~="num-cols:4"] { --num-columns: 4; }
+[data-masonry~="num-cols:5"] { --num-columns: 5; }
+[data-masonry~="num-cols:6"] { --num-columns: 6; }
+
+/* Gap scale */
+[data-masonry~="gap:sm"],
+[data-masonry~="gap:1"] { --masonry-gap: var(--layout-masonry-gap-sm); }
+[data-masonry~="gap:md"],
+[data-masonry~="gap:2"] { --masonry-gap: var(--layout-masonry-gap-md); }
+[data-masonry~="gap:lg"],
+[data-masonry~="gap:3"] { --masonry-gap: var(--layout-masonry-gap-lg); }

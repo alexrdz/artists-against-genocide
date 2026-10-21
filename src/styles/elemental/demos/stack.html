@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stack Layout Demo — Elemental</title>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-body">
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <a href="index.html" class="demo-back-btn">← All Layouts</a>
+      <div class="demo-title-group">
+        <h1>Stack <span class="demo-badge">[data-stack]</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <select id="nav-select" class="demo-nav-select"></select>
+      <button class="demo-code-toggle-btn" id="code-toggle"><span>&lt;/&gt;</span> Code</button>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <div class="demo-layout">
+    <main class="demo-stage-wrapper">
+      <div class="demo-desc-bar">
+        <strong>Stack</strong> creates a vertical flex column that distributes space evenly between direct child elements using <code>gap:*</code> and controls cross-axis alignment with <code>align:*</code>.
+      </div>
+      
+      <div class="demo-stage-container">
+        <div class="demo-target-box">
+          <div id="layout-target" data-stack="gap:m align:stretch">
+            <!-- Rendered items with varied widths to clearly show alignment -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="demo-controls-panel">
+      <div>
+        <div class="demo-section-title">Vertical Gap</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Gap Scale Preset</span>
+            <span class="demo-control-val" id="val-gap">gap:m</span>
+          </label>
+          <select id="select-gap" class="demo-input-select">
+            <option value="gap:3xs">gap:3xs (4px)</option>
+            <option value="gap:2xs">gap:2xs (8px)</option>
+            <option value="gap:xs">gap:xs (12px)</option>
+            <option value="gap:s">gap:s (16px)</option>
+            <option value="gap:m" selected>gap:m (24px)</option>
+            <option value="gap:l">gap:l (36px)</option>
+            <option value="gap:xl">gap:xl (48px)</option>
+            <option value="gap:2xl">gap:2xl (64px)</option>
+            <option value="gap:3xl">gap:3xl (96px)</option>
+            <option value="custom">Custom Slider</option>
+          </select>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-gap">
+          <label class="demo-control-label">
+            <span>Custom --stack-gap</span>
+            <span class="demo-control-val" id="val-custom-gap">24px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-custom-gap" min="0" max="80" value="24">
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Cross-Axis Alignment</div>
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Align Items (Horizontal)</span>
+            <span class="demo-control-val" id="val-align">align:stretch</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-align">
+            <button class="demo-toggle-btn" data-val="align:start">start</button>
+            <button class="demo-toggle-btn" data-val="align:center">center</button>
+            <button class="demo-toggle-btn" data-val="align:end">end</button>
+            <button class="demo-toggle-btn active" data-val="align:stretch">stretch</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Child Items</div>
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Item Count</span>
+            <span class="demo-control-val" id="val-items">3 items</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-item-count" min="1" max="8" value="3">
+        </div>
+      </div>
+
+      <button class="demo-reset-btn" id="btn-reset">↺ Reset to Defaults</button>
+    </aside>
+  </div>
+
+  <div class="demo-code-drawer" id="code-drawer">
+    <div class="demo-code-header">
+      <span class="demo-code-title">HTML Output</span>
+      <button class="demo-copy-btn" id="copy-code-btn"><span>📋</span> Copy HTML</button>
+    </div>
+    <pre class="demo-code-pre"><code id="code-display"></code></pre>
+  </div>
+
+  <script src="demo.js"></script>
+  <script>
+    const demo = new ElementalDemo({ layoutId: 'stack' });
+    const target = document.getElementById('layout-target');
+    let currentAlign = 'align:stretch';
+
+    const cardStyles = [
+      { label: 'Primary Header Block', desc: 'Auto width element expanding to content bounds' },
+      { label: 'Medium Paragraph Card', desc: 'Natural width demonstrating cross-axis positioning' },
+      { label: 'Compact Action Panel', desc: 'Width card with CTA button' },
+      { label: 'Secondary Content Segment', desc: 'Flexible stacked card block' },
+    ];
+
+    function renderItems(count) {
+      demo.setContainerItems(count, (i) => {
+        const item = cardStyles[(i - 1) % cardStyles.length];
+        return `
+          <div class="demo-item">
+            <span class="demo-item-tag">Card #${i}</span>
+            <div class="demo-item-label">${item.label}</div>
+            <div class="demo-item-sub">${item.desc}</div>
+          </div>
+        `;
+      });
+    }
+
+    function updateTarget() {
+      const gapVal = document.getElementById('select-gap').value;
+      const customGroup = document.getElementById('group-custom-gap');
+      const attrs = [];
+
+      if (gapVal !== 'custom') {
+        attrs.push(gapVal);
+        target.style.removeProperty('--stack-gap');
+        customGroup.classList.add('demo-hidden');
+        document.getElementById('val-gap').textContent = gapVal;
+      } else {
+        customGroup.classList.remove('demo-hidden');
+        const customPx = document.getElementById('input-custom-gap').value;
+        target.style.setProperty('--stack-gap', `${customPx}px`);
+        document.getElementById('val-custom-gap').textContent = `${customPx}px`;
+        document.getElementById('val-gap').textContent = `var(--stack-gap: ${customPx}px)`;
+      }
+
+      attrs.push(currentAlign);
+      target.setAttribute('data-stack', attrs.join(' '));
+      document.getElementById('val-align').textContent = currentAlign;
+
+      demo.updateCode();
+    }
+
+    // Align buttons
+    document.querySelectorAll('#btn-group-align button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-align button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentAlign = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    document.getElementById('select-gap').addEventListener('change', updateTarget);
+    document.getElementById('input-custom-gap').addEventListener('input', updateTarget);
+
+    document.getElementById('input-item-count').addEventListener('input', (e) => {
+      const count = parseInt(e.target.value, 10);
+      document.getElementById('val-items').textContent = `${count} item${count > 1 ? 's' : ''}`;
+      renderItems(count);
+      updateTarget();
+    });
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      document.getElementById('select-gap').value = 'gap:m';
+      currentAlign = 'align:stretch';
+      document.querySelectorAll('#btn-group-align button').forEach(b => {
+        b.classList.toggle('active', b.dataset.val === 'align:stretch');
+      });
+      document.getElementById('input-item-count').value = 3;
+      document.getElementById('val-items').textContent = '3 items';
+      renderItems(3);
+      updateTarget();
+    });
+
+    renderItems(3);
+    updateTarget();
+  </script>
+</body>
+</html>

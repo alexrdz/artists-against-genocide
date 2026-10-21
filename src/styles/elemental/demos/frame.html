@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frame Layout Demo — Elemental</title>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-body">
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <a href="index.html" class="demo-back-btn">← All Layouts</a>
+      <div class="demo-title-group">
+        <h1>Frame <span class="demo-badge">[data-frame]</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <select id="nav-select" class="demo-nav-select"></select>
+      <button class="demo-code-toggle-btn" id="code-toggle"><span>&lt;/&gt;</span> Code</button>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <div class="demo-layout">
+    <main class="demo-stage-wrapper">
+      <div class="demo-desc-bar">
+        <strong>Frame</strong> locks visual assets (images, videos, or UI graphics) to a strict aspect ratio (<code>ratio:1</code>, <code>ratio:16/9</code>, <code>ratio:4/3</code>), centering and cropping them with <code>object-fit: cover</code>.
+      </div>
+      
+      <div class="demo-stage-container" id="stage-box">
+        <div class="demo-target-box">
+          <div id="layout-target" data-frame="ratio:16/9" class="demo-card-sidebar">
+            <img id="frame-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'><defs><linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%236366f1'/><stop offset='100%' stop-color='%2338bdf8'/></linearGradient></defs><rect width='800' height='600' fill='url(%23g)'/><circle cx='400' cy='300' r='140' fill='%23ffffff' opacity='0.25'/><text x='50%' y='48%' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='system-ui, sans-serif' font-size='38' font-weight='bold'>Elemental Aspect Frame</text><text x='50%' y='58%' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' opacity='0.8' font-family='monospace' font-size='20'>[data-frame]</text></svg>" alt="Sample Frame Graphic">
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="demo-controls-panel">
+      <div>
+        <div class="demo-section-title">Aspect Ratio</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Aspect Ratio</span>
+            <span class="demo-control-val" id="val-ratio">ratio:16/9</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-ratio">
+            <button class="demo-toggle-btn" data-val="ratio:1">1:1 (Square)</button>
+            <button class="demo-toggle-btn active" data-val="ratio:16/9">16:9 (Widescreen)</button>
+            <button class="demo-toggle-btn" data-val="ratio:4/3">4:3 (Standard)</button>
+            <button class="demo-toggle-btn" data-val="custom">Custom</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-ratio">
+          <label class="demo-control-label">
+            <span>Custom Ratio (e.g. 21 / 9 or 9 / 16)</span>
+          </label>
+          <input type="text" class="demo-input-text" id="input-custom-ratio" value="21 / 9" placeholder="e.g. 21 / 9">
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Stage Sizing & Fit</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Frame Container Width</span>
+            <span class="demo-control-val" id="val-width">600px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-width" min="200" max="750" value="600">
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Object Fit</span>
+            <span class="demo-control-val" id="val-fit">cover</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-fit">
+            <button class="demo-toggle-btn active" data-fit="cover">cover</button>
+            <button class="demo-toggle-btn" data-fit="contain">contain</button>
+            <button class="demo-toggle-btn" data-fit="scale-down">scale-down</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="demo-reset-btn" id="btn-reset">↺ Reset to Defaults</button>
+    </aside>
+  </div>
+
+  <div class="demo-code-drawer" id="code-drawer">
+    <div class="demo-code-header">
+      <span class="demo-code-title">HTML Output</span>
+      <button class="demo-copy-btn" id="copy-code-btn"><span>📋</span> Copy HTML</button>
+    </div>
+    <pre class="demo-code-pre"><code id="code-display"></code></pre>
+  </div>
+
+  <script src="demo.js"></script>
+  <script>
+    const demo = new ElementalDemo({ layoutId: 'frame' });
+    const target = document.getElementById('layout-target');
+    const stageBox = document.getElementById('stage-box');
+    const img = document.getElementById('frame-img');
+
+    let currentRatio = 'ratio:16/9';
+
+    function updateTarget() {
+      const customGroup = document.getElementById('group-custom-ratio');
+      if (currentRatio !== 'custom') {
+        target.setAttribute('data-frame', currentRatio);
+        target.style.removeProperty('--ratio');
+        customGroup.classList.add('demo-hidden');
+        document.getElementById('val-ratio').textContent = currentRatio;
+      } else {
+        customGroup.classList.remove('demo-hidden');
+        const customVal = document.getElementById('input-custom-ratio').value || '1';
+        target.setAttribute('data-frame', '');
+        target.style.setProperty('--ratio', customVal);
+        document.getElementById('val-ratio').textContent = `var(--ratio: ${customVal})`;
+      }
+      demo.updateCode();
+    }
+
+    // Ratio buttons
+    document.querySelectorAll('#btn-group-ratio button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-ratio button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentRatio = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    // Object fit buttons
+    document.querySelectorAll('#btn-group-fit button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-fit button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        img.style.objectFit = btn.dataset.fit;
+        document.getElementById('val-fit').textContent = btn.dataset.fit;
+        demo.updateCode();
+      });
+    });
+
+    document.getElementById('input-custom-ratio').addEventListener('input', updateTarget);
+
+    document.getElementById('input-width').addEventListener('input', (e) => {
+      const w = e.target.value;
+      stageBox.style.maxWidth = `${w}px`;
+      document.getElementById('val-width').textContent = `${w}px`;
+    });
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      currentRatio = 'ratio:16/9';
+      document.querySelectorAll('#btn-group-ratio button').forEach(b => b.classList.toggle('active', b.dataset.val === 'ratio:16/9'));
+      document.querySelectorAll('#btn-group-fit button').forEach(b => b.classList.toggle('active', b.dataset.fit === 'cover'));
+      img.style.objectFit = 'cover';
+      stageBox.style.maxWidth = '600px';
+      document.getElementById('input-width').value = 600;
+      document.getElementById('val-width').textContent = '600px';
+      document.getElementById('input-custom-ratio').value = '21 / 9';
+      updateTarget();
+    });
+
+    updateTarget();
+  </script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Container Layout Demo — Elemental</title>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-body">
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <a href="index.html" class="demo-back-btn">← All Layouts</a>
+      <div class="demo-title-group">
+        <h1>Container <span class="demo-badge">[data-container]</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <select id="nav-select" class="demo-nav-select"></select>
+      <button class="demo-code-toggle-btn" id="code-toggle"><span>&lt;/&gt;</span> Code</button>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <div class="demo-layout">
+    <main class="demo-stage-wrapper">
+      <div class="demo-desc-bar">
+        <strong>Container</strong> is the primary page wrapper that caps horizontal content width (<code>width:sm|md|lg</code>) while enforcing standardized responsive side gutter paddings.
+      </div>
+      
+      <div class="demo-stage-container" id="stage-box">
+        <div class="demo-target-box">
+          <div id="layout-target" data-container="width:md padding:md">
+            <div class="demo-item demo-card-highlighted">
+              <span class="demo-item-tag" id="container-tag">[data-container]</span>
+              <h3 class="demo-heading-md">Main Page Section</h3>
+              <p class="demo-lead">
+                Inside this container, content expands fluidly across smaller devices up to the defined max-width threshold, preserving consistent outer gutter spacing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="demo-controls-panel">
+      <div>
+        <div class="demo-section-title">Container Width</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Width Scale</span>
+            <span class="demo-control-val" id="val-width">width:md</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-width">
+            <button class="demo-toggle-btn" data-val="width:sm">sm (65rem)</button>
+            <button class="demo-toggle-btn active" data-val="width:md">md (75rem)</button>
+            <button class="demo-toggle-btn" data-val="width:lg">lg (84.375rem)</button>
+            <button class="demo-toggle-btn" data-val="custom">Custom</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-width">
+          <label class="demo-control-label">
+            <span>Custom --container-size</span>
+            <span class="demo-control-val" id="val-custom-width">600px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-custom-width" min="300" max="1100" value="600">
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Gutter Padding Scale</span>
+            <span class="demo-control-val" id="val-padding">padding:md</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-padding">
+            <button class="demo-toggle-btn" data-val="padding:sm">sm (1rem)</button>
+            <button class="demo-toggle-btn active" data-val="padding:md">md (2rem)</button>
+            <button class="demo-toggle-btn" data-val="padding:lg">lg (3rem)</button>
+            <button class="demo-toggle-btn" data-val="custom">Custom</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-pad">
+          <label class="demo-control-label">
+            <span>Custom --container-padding</span>
+            <span class="demo-control-val" id="val-custom-pad">24px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-custom-pad" min="0" max="80" value="24">
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Simulated Screen Width</div>
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Viewport Width</span>
+            <span class="demo-control-val" id="val-sim-width">100%</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-sim-width" min="320" max="1200" value="1200">
+        </div>
+      </div>
+
+      <button class="demo-reset-btn" id="btn-reset">↺ Reset to Defaults</button>
+    </aside>
+  </div>
+
+  <div class="demo-code-drawer" id="code-drawer">
+    <div class="demo-code-header">
+      <span class="demo-code-title">HTML Output</span>
+      <button class="demo-copy-btn" id="copy-code-btn"><span>📋</span> Copy HTML</button>
+    </div>
+    <pre class="demo-code-pre"><code id="code-display"></code></pre>
+  </div>
+
+  <script src="demo.js"></script>
+  <script>
+    const demo = new ElementalDemo({ layoutId: 'container' });
+    const target = document.getElementById('layout-target');
+    const stageBox = document.getElementById('stage-box');
+
+    let currentWidth = 'width:md';
+    let currentPadding = 'padding:md';
+
+    function updateTarget() {
+      const customWidthGroup = document.getElementById('group-custom-width');
+      const customPadGroup = document.getElementById('group-custom-pad');
+      const attrs = [];
+
+      if (currentWidth !== 'custom') {
+        attrs.push(currentWidth);
+        target.style.removeProperty('--container-size');
+        customWidthGroup.classList.add('demo-hidden');
+        document.getElementById('val-width').textContent = currentWidth;
+      } else {
+        customWidthGroup.classList.remove('demo-hidden');
+        const customPx = document.getElementById('input-custom-width').value;
+        target.style.setProperty('--container-size', `${customPx}px`);
+        document.getElementById('val-custom-width').textContent = `${customPx}px`;
+        document.getElementById('val-width').textContent = `var(--container-size: ${customPx}px)`;
+      }
+
+      if (currentPadding !== 'custom') {
+        attrs.push(currentPadding);
+        target.style.removeProperty('--container-padding');
+        customPadGroup.classList.add('demo-hidden');
+        document.getElementById('val-padding').textContent = currentPadding;
+      } else {
+        customPadGroup.classList.remove('demo-hidden');
+        const padPx = document.getElementById('input-custom-pad').value;
+        target.style.setProperty('--container-padding', `${padPx}px`);
+        document.getElementById('val-custom-pad').textContent = `${padPx}px`;
+        document.getElementById('val-padding').textContent = `var(--container-padding: ${padPx}px)`;
+      }
+
+      target.setAttribute('data-container', attrs.join(' '));
+      document.getElementById('container-tag').textContent = `[data-container="${attrs.join(' ')}"]`;
+
+      demo.updateCode();
+    }
+
+    // Width buttons
+    document.querySelectorAll('#btn-group-width button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-width button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentWidth = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    // Padding buttons
+    document.querySelectorAll('#btn-group-padding button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-padding button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentPadding = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    document.getElementById('input-custom-width').addEventListener('input', updateTarget);
+    document.getElementById('input-custom-pad').addEventListener('input', updateTarget);
+
+    // Viewport Simulator
+    document.getElementById('input-sim-width').addEventListener('input', (e) => {
+      const w = e.target.value;
+      stageBox.style.maxWidth = `${w}px`;
+      document.getElementById('val-sim-width').textContent = `${w}px`;
+    });
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      currentWidth = 'width:md';
+      currentPadding = 'padding:md';
+
+      document.querySelectorAll('#btn-group-width button').forEach(b => b.classList.toggle('active', b.dataset.val === 'width:md'));
+      document.querySelectorAll('#btn-group-padding button').forEach(b => b.classList.toggle('active', b.dataset.val === 'padding:md'));
+
+      stageBox.style.maxWidth = '100%';
+      document.getElementById('input-sim-width').value = 1200;
+      document.getElementById('val-sim-width').textContent = '100%';
+
+      updateTarget();
+    });
+
+    updateTarget();
+  </script>
+</body>
+</html>

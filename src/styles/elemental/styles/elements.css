@@ -1,0 +1,378 @@
+/* Reset using modern properties */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Block elements */
+address,
+area,
+article,
+aside,
+audio,
+blockquote,
+datalist,
+details,
+dl,
+fieldset,
+figure,
+form,
+input,
+iframe,
+img,
+meter,
+nav,
+ol,
+optgroup,
+option,
+output,
+p,
+pre,
+progress,
+ruby,
+section,
+table,
+textarea,
+ul,
+video {
+  margin-block-end: initial;
+}
+
+html,
+input,
+select,
+button {
+  font-family: var(--font-sans);
+}
+
+body {
+  min-block-size: 100vh;
+  margin-inline: auto;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  background: var(--color-bg-primary);
+  color: var(--color-text-secondary);
+  font-size: 1.03rem;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  font-weight: var(--default-headline-font-weight);
+}
+
+h1 {
+  font-size: var(--step-3);
+}
+
+h2 {
+  font-size: var(--step-2);
+}
+
+h3 {
+  font-size: var(--step-1);
+}
+
+h4 {
+  font-size: var(--step-0);
+}
+
+p,
+h5 {
+  font-size: var(--step-0);
+}
+
+h6 {
+  font-size: var(--step--1);
+}
+
+
+
+
+/* Blockquote */
+blockquote {
+  padding: 1.5rem;
+  background: var(--color-bg-secondary);
+  border-inline-start: 5px solid var(--color-bg-muted);
+}
+
+/* Form elements */
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  /* API:
+  --btn-padding-block
+  --btn-padding-inline
+  --btn-font-size
+  --color-link-primary
+  --color-text-white
+  */
+  font-size: var(--btn-font-size);
+  padding-block: var(--btn-padding-block);
+  padding-inline: var(--btn-padding-inline);
+  text-align: center;
+  background: var(--color-link-primary);
+  color: var(--color-text-white);
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input:disabled,
+button:disabled,
+button[disabled] {
+  opacity: .75;
+  cursor: not-allowed;
+}
+
+/* Lists */
+ol,
+ul {
+  padding-inline-start: 2rem;
+}
+
+li {
+  margin-block-start: initial;
+}
+
+/* Tables */
+td,
+th {
+  border: 1px solid var(--color-bg-muted);
+  text-align: start;
+  padding: .5rem;
+}
+
+/* Form inputs */
+textarea,
+select,
+input {
+  padding-block: var(--input-padding-block);
+  padding-inline: var(--input-padding-inline);
+  margin-block-end: initial;
+  background: var(--input-bg-color);
+  color: var(--input-text-color);
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+}
+
+/* Images */
+img {
+  inline-size: 100%;
+  max-inline-size: 100%;
+}
+
+/* Remove `figure` spacing below images */
+figure img {
+  vertical-align: bottom;
+}
+
+
+/* Monospace elements */
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono);
+}
+
+/* Base styles for code-like elements */
+code,
+samp,
+kbd,
+pre {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-bg-muted);
+  border-radius: 4px;
+  color: var(--color-text-primary);
+  padding-block: 3px;
+  padding-inline: 6px;
+  font-size: 0.9em;
+}
+
+/* Keyboard styling */
+kbd {
+  border-block-end: 3px solid var(--color-bg-muted);
+}
+
+/* Pre block styling */
+pre {
+  padding-block: 1rem;
+  padding-inline: 1.4rem;
+  max-inline-size: 100%;
+  overflow: auto;
+  white-space: pre;
+  tab-size: 4;
+}
+
+/* Reset code within pre */
+pre code {
+  background: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Reset pre within code */
+code pre {
+  display: inline;
+  background: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Details element */
+details {
+  padding-block: .6rem;
+  padding-inline: 1rem;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-bg-muted);
+  border-radius: 4px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+details[open] {
+  padding-block-end: .75rem;
+}
+
+details[open] summary {
+  margin-block-end: 6px;
+}
+
+details[open]>*:last-child {
+  margin-block-end: 0;
+}
+
+/* Definition lists */
+dt {
+  font-weight: bold;
+}
+
+dd::before {
+  content: '→ ';
+}
+
+/* Horizontal rule */
+hr {
+  border: 0;
+  border-block-end: 1px solid var(--color-bg-muted);
+  margin-block: 1rem;
+  inline-size: 100%;
+}
+
+/* Mark element */
+mark {
+  padding-block: 3px;
+  padding-inline: 6px;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+}
+
+/* Fieldset styles */
+fieldset {
+  margin-block-start: initial;
+  padding: 2rem;
+  border: 1px solid var(--color-bg-muted);
+  border-radius: 4px;
+}
+
+legend {
+  padding-inline: .5rem;
+}
+
+/* Table styles */
+table {
+  border-collapse: collapse;
+  inline-size: 100%;
+}
+
+table caption {
+  font-weight: bold;
+  margin-block-end: initial;
+}
+
+tr:nth-child(even) {
+  background: var(--color-bg-secondary);
+}
+
+/* Textarea constraints */
+textarea {
+  max-inline-size: 100%;
+  resize: vertical;
+}
+
+/* Nested list margins */
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-block-end: 0;
+}
+
+/* Link styles */
+a {
+  color: var(--color-link-primary);
+}
+
+a:hover {
+  color: var(--color-link-secondary);
+}
+
+/* Image in link */
+a img {
+  margin-block-end: 0;
+}
+
+/* Abbreviation */
+abbr:hover {
+  cursor: help;
+}
+
+/* Modern aspect-ratio property for responsive media */
+img,
+video,
+iframe {
+  aspect-ratio: auto;
+}
+
+/* Modern scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Modern focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-link-primary);
+  outline-offset: .25rem;
+}
+
+/* Modern text selection */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-text-white);
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cover Layout Demo — Elemental</title>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-body">
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <a href="index.html" class="demo-back-btn">← All Layouts</a>
+      <div class="demo-title-group">
+        <h1>Cover <span class="demo-badge">[data-cover]</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <select id="nav-select" class="demo-nav-select"></select>
+      <button class="demo-code-toggle-btn" id="code-toggle"><span>&lt;/&gt;</span> Code</button>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <div class="demo-layout">
+    <main class="demo-stage-wrapper">
+      <div class="demo-desc-bar">
+        <strong>Cover</strong> creates a hero/landing layout that vertically centers a principal child marked with <code>[data-cover-main]</code> between optional top and bottom accessories across a designated height (<code>height:25|50|75|100</code>).
+      </div>
+      
+      <div class="demo-stage-container" id="stage-box">
+        <div class="demo-target-box">
+          <div id="layout-target" data-cover="height:50 padding:md" class="demo-cover-target">
+            <header id="cover-header" class="demo-cover-header-area demo-cover-section">
+              <strong class="demo-icon-accent">Elemental</strong>
+              <nav class="demo-links-row">
+                <span>Docs</span>
+                <span>Components</span>
+                <span>GitHub</span>
+              </nav>
+            </header>
+
+            <div data-cover-main class="demo-cover-center-content demo-cover-section">
+              <span class="demo-badge">[data-cover-main]</span>
+              <h2 class="demo-heading-lg">Fluid Cover Layout</h2>
+              <p class="demo-lead">
+                The principal child is pinned at the exact vertical center using auto margins while the top and bottom elements stay anchored at the boundaries.
+              </p>
+              <div class="demo-actions-bar">
+                <button class="demo-btn-primary">Explore Framework</button>
+              </div>
+            </div>
+
+            <footer id="cover-footer" class="demo-cover-footer-area demo-cover-section">
+              <span>© 2026 Elemental CSS</span>
+              <span>Fixed Bottom Anchor</span>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="demo-controls-panel">
+      <div>
+        <div class="demo-section-title">Cover Height</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Minimum Block Size</span>
+            <span class="demo-control-val" id="val-height">height:50</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-height">
+            <button class="demo-toggle-btn" data-val="height:25">25 dvh</button>
+            <button class="demo-toggle-btn active" data-val="height:50">50 dvh</button>
+            <button class="demo-toggle-btn" data-val="height:75">75 dvh</button>
+            <button class="demo-toggle-btn" data-val="height:100">100 dvh</button>
+            <button class="demo-toggle-btn" data-val="custom">Custom</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-height">
+          <label class="demo-control-label">
+            <span>Custom --block-size</span>
+            <span class="demo-control-val" id="val-custom-height">400px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-custom-height" min="250" max="800" value="400">
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Padding Scale</span>
+            <span class="demo-control-val" id="val-padding">padding:md</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-padding">
+            <button class="demo-toggle-btn" data-val="padding:sm">sm (16px)</button>
+            <button class="demo-toggle-btn active" data-val="padding:md">md (32px)</button>
+            <button class="demo-toggle-btn" data-val="padding:lg">lg (48px)</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Accessories</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-checkbox-label">
+            <input type="checkbox" id="toggle-header" checked>
+            <span>Include Top Header</span>
+          </label>
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-checkbox-label">
+            <input type="checkbox" id="toggle-footer" checked>
+            <span>Include Bottom Footer</span>
+          </label>
+        </div>
+      </div>
+
+      <button class="demo-reset-btn" id="btn-reset">↺ Reset to Defaults</button>
+    </aside>
+  </div>
+
+  <div class="demo-code-drawer" id="code-drawer">
+    <div class="demo-code-header">
+      <span class="demo-code-title">HTML Output</span>
+      <button class="demo-copy-btn" id="copy-code-btn"><span>📋</span> Copy HTML</button>
+    </div>
+    <pre class="demo-code-pre"><code id="code-display"></code></pre>
+  </div>
+
+  <script src="demo.js"></script>
+  <script>
+    const demo = new ElementalDemo({ layoutId: 'cover' });
+    const target = document.getElementById('layout-target');
+    const headerEl = document.getElementById('cover-header');
+    const footerEl = document.getElementById('cover-footer');
+
+    let currentHeight = 'height:50';
+    let currentPadding = 'padding:md';
+
+    function updateTarget() {
+      const customGroup = document.getElementById('group-custom-height');
+      const attrs = [currentPadding];
+
+      if (currentHeight !== 'custom') {
+        attrs.unshift(currentHeight);
+        target.style.removeProperty('--block-size');
+        customGroup.classList.add('demo-hidden');
+        document.getElementById('val-height').textContent = currentHeight;
+      } else {
+        customGroup.classList.remove('demo-hidden');
+        const customPx = document.getElementById('input-custom-height').value;
+        target.style.setProperty('--block-size', `${customPx}px`);
+        document.getElementById('val-custom-height').textContent = `${customPx}px`;
+        document.getElementById('val-height').textContent = `var(--block-size: ${customPx}px)`;
+      }
+
+      target.setAttribute('data-cover', attrs.filter(Boolean).join(' '));
+
+      document.getElementById('val-padding').textContent = currentPadding;
+      if (document.getElementById('toggle-header').checked) {
+        headerEl.classList.remove('demo-hidden');
+      } else {
+        headerEl.classList.add('demo-hidden');
+      }
+
+      if (document.getElementById('toggle-footer').checked) {
+        footerEl.classList.remove('demo-hidden');
+      } else {
+        footerEl.classList.add('demo-hidden');
+      }
+
+      demo.updateCode();
+    }
+
+    // Height buttons
+    document.querySelectorAll('#btn-group-height button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-height button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentHeight = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    // Padding buttons
+    document.querySelectorAll('#btn-group-padding button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-padding button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentPadding = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    document.getElementById('input-custom-height').addEventListener('input', updateTarget);
+    document.getElementById('toggle-header').addEventListener('change', updateTarget);
+    document.getElementById('toggle-footer').addEventListener('change', updateTarget);
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      currentHeight = 'height:50';
+      currentPadding = 'padding:md';
+
+      document.querySelectorAll('#btn-group-height button').forEach(b => b.classList.toggle('active', b.dataset.val === 'height:50'));
+      document.querySelectorAll('#btn-group-padding button').forEach(b => b.classList.toggle('active', b.dataset.val === 'padding:md'));
+
+      document.getElementById('toggle-header').checked = true;
+      document.getElementById('toggle-footer').checked = true;
+
+      updateTarget();
+    });
+
+    updateTarget();
+  </script>
+</body>
+</html>

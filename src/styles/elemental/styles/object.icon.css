@@ -1,0 +1,23 @@
+[data-icon] {
+  --icon-size: 0.75em;
+  --icon-space: var(--space-3xs, 0.25rem);
+
+  display: inline-flex;
+  align-items: baseline;
+}
+
+[data-icon] > svg {
+  inline-size: var(--icon-size);
+  block-size: var(--icon-size);
+  max-inline-size: 1lh;
+  max-block-size: 1lh;
+  vertical-align: -0.125em;
+}
+
+[data-icon~="space:end"] {
+  margin-inline-end: var(--icon-space);
+}
+
+[data-icon~="space:start"] {
+  margin-inline-start: var(--icon-space);
+}

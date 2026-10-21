@@ -1,0 +1,15 @@
+@layer settings, reset, vendor, elements, objects, components, app, utils;
+/*
+add vendor css in the appropriate layer
+@shoealce is added as a dev dependency should you want to use it
+@import url('@shoelace-style/shoelace/dist/themes/light.css') layer(vendor);
+*/
+@import url('./settings.css') layer(settings);
+/*
+Reset based on Josh Comeau’s [CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/)
+Currently this is a lot of the same as the elments.css file so not adding it here.
+  @import url('./reset.css') layer(reset);
+*/
+@import url('./elements.css') layer(elements);
+@import url('./objects.css') layer(objects);
+@import url('./utils.css') layer(utils);

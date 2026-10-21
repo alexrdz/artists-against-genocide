@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elemental Layouts — Interactive Gallery</title>
+  <script>
+    if (window.location.pathname.endsWith('/demos')) {
+      window.location.replace(window.location.pathname + '/' + window.location.search + window.location.hash);
+    }
+  </script>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+
+<body class="demo-body">
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <div class="demo-title-group">
+        <h1>Elemental <span class="demo-badge">v1.0 Layout Studio</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <a href="responsive-viewer.html" class="demo-back-btn demo-back-btn-highlight">📐 Responsive Sandbox</a>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <main class="demo-hub-container">
+    <section class="demo-hub-header">
+      <h1>Interactive Layout Gallery</h1>
+      <p>Explore, customize, and experiment with all 18 CSS layout primitives provided by Elemental. Adjust gaps,
+        alignments, ratios, and thresholds in real-time.</p>
+
+      <div class="demo-search-box">
+        <span class="demo-search-icon">🔍</span>
+        <input type="text" id="layout-search" class="demo-search-input"
+          placeholder="Search layouts (e.g. grid, stack, split, masonry)...">
+      </div>
+    </section>
+
+    <div class="demo-hub-grid" id="layouts-grid">
+      <!-- Box -->
+      <a href="box.html" class="demo-hub-card" data-name="box data-box padding border invert">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Box</h2>
+          <span class="demo-hub-card-attr">[data-box]</span>
+        </div>
+        <p class="demo-hub-card-desc">Atomic visual container managing padding scales, border styling, and inverted
+          color schemes.</p>
+        <div class="demo-hub-card-preview">
+          <div data-box="padding:s" class="hub-preview-box">
+            [data-box]
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Box Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Stack -->
+      <a href="stack.html" class="demo-hub-card" data-name="stack data-stack vertical gap flow alignment">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Stack</h2>
+          <span class="demo-hub-card-attr">[data-stack]</span>
+        </div>
+        <p class="demo-hub-card-desc">Vertical flex flow managing consistent spacing between child elements with
+          alignment controls.</p>
+        <div class="demo-hub-card-preview">
+          <div data-stack="gap:3xs" class="hub-preview-stack">
+            <div class="hub-bar"></div>
+            <div class="hub-bar hub-bar-70"></div>
+            <div class="hub-bar hub-bar-40"></div>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Stack Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Cluster -->
+      <a href="cluster.html" class="demo-hub-card" data-name="cluster data-cluster tags inline flex wrap group">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Cluster</h2>
+          <span class="demo-hub-card-attr">[data-cluster]</span>
+        </div>
+        <p class="demo-hub-card-desc">Wrapping horizontal flow for tags, buttons, badges, and inline groupings with
+          custom justification.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-preview-cluster">
+            <span class="hub-tag-solid">Tag A</span>
+            <span class="hub-tag-outline">Tag B</span>
+            <span class="hub-tag-solid">Tag C</span>
+            <span class="hub-tag-outline">Tag D</span>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Cluster Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Center -->
+      <a href="center.html" class="demo-hub-card" data-name="center data-center max-width margin auto intrinsic">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Center</h2>
+          <span class="demo-hub-card-attr">[data-center]</span>
+        </div>
+        <p class="demo-hub-card-desc">Horizontally and vertically bounded centering with measure clamps and intrinsic
+          child alignment.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-preview-center">
+            <div class="hub-center-box">Centered</div>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Center Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Split -->
+      <a href="split.html" class="demo-hub-card"
+        data-name="split data-split columns fraction 1/3 2/3 collapse responsive">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Split</h2>
+          <span class="demo-hub-card-attr">[data-split]</span>
+        </div>
+        <p class="demo-hub-card-desc">Proportioned 2-column flex layout (1/4, 1/3, 1/2, 2/3, 3/4) that collapses into
+          single-column below thresholds.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-preview-split">
+            <div class="hub-split-1">1/3</div>
+            <div class="hub-split-2">2/3</div>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Split Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Switcher -->
+      <a href="switcher.html" class="demo-hub-card"
+        data-name="switcher data-switcher breakpoint switch vertical horizontal limit">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Switcher</h2>
+          <span class="demo-hub-card-attr">[data-switcher]</span>
+        </div>
+        <p class="demo-hub-card-desc">Dynamic container switching between horizontal columns and vertical stack based on
+          threshold or item count.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-preview-switcher">
+            <div class="hub-switcher-item"></div>
+            <div class="hub-switcher-item"></div>
+            <div class="hub-switcher-item"></div>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Switcher Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Frame -->
+      <a href="frame.html" class="demo-hub-card"
+        data-name="frame data-frame aspect-ratio 16/9 4/3 image video object-fit">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Frame</h2>
+          <span class="demo-hub-card-attr">[data-frame]</span>
+        </div>
+        <p class="demo-hub-card-desc">Strict aspect-ratio container for cropping and scaling responsive images, videos,
+          and visual cards.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-frame-preview">16:9</div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Frame Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Cover -->
+      <a href="cover.html" class="demo-hub-card" data-name="cover data-cover hero viewport min-block-size center-main">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Cover</h2>
+          <span class="demo-hub-card-attr">[data-cover]</span>
+        </div>
+        <p class="demo-hub-card-desc">Full-screen hero and landing layout keeping a principal element vertically
+          centered above optional footer/header.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-cover-preview">
+            <div class="hub-cover-sub">Header</div>
+            <div class="hub-cover-hero">Main Center</div>
+            <div class="hub-cover-sub">Footer</div>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Cover Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Container -->
+      <a href="container.html" class="demo-hub-card"
+        data-name="container data-container max-width gutters padding page wrapper">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Container</h2>
+          <span class="demo-hub-card-attr">[data-container]</span>
+        </div>
+        <p class="demo-hub-card-desc">Standard responsive layout wrapper with max-width boundaries and standardized side
+          padding scales.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-container-preview">max-width: md</div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Container Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Masonry -->
+      <a href="masonry.html" class="demo-hub-card"
+        data-name="masonry data-masonry columns waterfall cascade gallery cards">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Masonry</h2>
+          <span class="demo-hub-card-attr">[data-masonry]</span>
+        </div>
+        <p class="demo-hub-card-desc">CSS multi-column masonry flow allowing varied item heights without vertical gap
+          whitespace.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-masonry-preview">
+            <div class="hub-masonry-col">
+              <div class="hub-masonry-block-35"></div>
+              <div class="hub-masonry-block-20"></div>
+            </div>
+            <div class="hub-masonry-col">
+              <div class="hub-masonry-block-20"></div>
+              <div class="hub-masonry-block-35"></div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Masonry Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Media -->
+      <a href="media.html" class="demo-hub-card" data-name="media data-media avatar figure body comment list-item">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Media</h2>
+          <span class="demo-hub-card-attr">[data-media]</span>
+        </div>
+        <p class="demo-hub-card-desc">Classic media object pairing a fixed visual element alongside an auto-expanding
+          flexible content body.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-media-preview">
+            <div class="demo-avatar-sm"></div>
+            <div class="hub-media-lines">
+              <div class="hub-media-line-title"></div>
+              <div class="hub-media-line-desc"></div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Media Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Clamp -->
+      <a href="clamp.html" class="demo-hub-card" data-name="clamp data-clamp percentage width align left center right">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Clamp</h2>
+          <span class="demo-hub-card-attr">[data-clamp]</span>
+        </div>
+        <p class="demo-hub-card-desc">Inline percentage width clamping with directional alignment helpers for callouts
+          and prose.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-clamp-preview">
+            <div class="hub-clamp-bar">60% clamp</div>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Clamp Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Row -->
+      <a href="row.html" class="demo-hub-card" data-name="row data-row flex-row columns col:2 col:3 equal width">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Row</h2>
+          <span class="demo-hub-card-attr">[data-row]</span>
+        </div>
+        <p class="demo-hub-card-desc">Flexbox-based equal and fractional multi-column rows with responsive column
+          min-widths.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-row-preview">
+            <div class="hub-switcher-item"></div>
+            <div class="hub-switcher-item"></div>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Row Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Grid -->
+      <a href="grid.html" class="demo-hub-card" data-name="grid data-grid css grid auto-fit minmax responsive columns">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Grid</h2>
+          <span class="demo-hub-card-attr">[data-grid]</span>
+        </div>
+        <p class="demo-hub-card-desc">CSS Grid auto-fitting layout that rearranges columns fluidly based on specified
+          column minimum widths.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-grid-preview">
+            <div class="hub-grid-item"></div>
+            <div class="hub-grid-item"></div>
+            <div class="hub-grid-item"></div>
+            <div class="hub-grid-item"></div>
+            <div class="hub-grid-item"></div>
+            <div class="hub-grid-item"></div>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Grid Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Reel -->
+      <a href="reel.html" class="demo-hub-card" data-name="reel data-reel carousel horizontal scroll snap slider">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Reel</h2>
+          <span class="demo-hub-card-attr">[data-reel]</span>
+        </div>
+        <p class="demo-hub-card-desc">Horizontal scrolling carousel with CSS scroll-snap and predetermined visible item
+          counts.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-reel-preview">
+            <div class="hub-reel-card"></div>
+            <div class="hub-reel-card"></div>
+            <div class="hub-reel-card"></div>
+            <div class="hub-reel-card hub-reel-card-dim"></div>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Reel Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Flanked -->
+      <a href="flanked.html" class="demo-hub-card" data-name="flanked data-flanked sidebar drawer left right layout">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Flanked</h2>
+          <span class="demo-hub-card-attr">[data-flanked]</span>
+        </div>
+        <p class="demo-hub-card-desc">Sidebar layout where the sidebar retains its target width while the adjacent main
+          area consumes remaining room.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-flanked-preview">
+            <div class="hub-flanked-side"></div>
+            <div class="hub-flanked-body"></div>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Flanked Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Imposter -->
+      <a href="imposter.html" class="demo-hub-card"
+        data-name="imposter data-imposter modal overlay popup dialog center">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Imposter</h2>
+          <span class="demo-hub-card-attr">[data-imposter]</span>
+        </div>
+        <p class="demo-hub-card-desc">Overlay and dialog primitive placed precisely over the viewport or parent
+          container with containment margins.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-imposter-preview">
+            <div class="hub-imposter-dialog">Dialog</div>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Imposter Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Icon -->
+      <a href="icon.html" class="demo-hub-card" data-name="icon data-icon svg text inline baseline alignment">
+        <div class="demo-hub-card-header">
+          <h2 class="demo-hub-card-title">Icon</h2>
+          <span class="demo-hub-card-attr">[data-icon]</span>
+        </div>
+        <p class="demo-hub-card-desc">Inline icon aligner ensuring SVGs align optically with accompanying typography
+          text baselines.</p>
+        <div class="demo-hub-card-preview">
+          <div class="hub-icon-preview">
+            <span class="hub-icon-star">★</span>
+            <span>Star Action</span>
+          </div>
+        </div>
+        <div class="demo-hub-card-footer">
+          <span>Explore Icon Demo</span>
+          <span>→</span>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <script src="demo.js"></script>
+  <script>
+    // Search filtering
+    const searchInput = document.getElementById('layout-search');
+    const cards = document.querySelectorAll('.demo-hub-card');
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      cards.forEach(card => {
+        const text = card.getAttribute('data-name').toLowerCase();
+        if (!query || text.includes(query)) {
+          card.classList.remove('demo-hidden');
+        } else {
+          card.classList.add('demo-hidden');
+        }
+      });
+    });
+
+    // Theme toggle initialization
+    new ElementalDemo({ layoutId: 'index' });
+  </script>
+</body>
+
+</html>

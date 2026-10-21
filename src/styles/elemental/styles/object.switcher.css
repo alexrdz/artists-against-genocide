@@ -1,0 +1,47 @@
+[data-switcher] {
+  --switcher-gap: var(--layout-switcher-gap-sm, 1rem);
+  --collapse-at: var(--layout-switcher-collapse-sm, 30rem);
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--switcher-gap);
+}
+
+[data-switcher] > * {
+  flex-grow: 1;
+  flex-basis: calc((var(--collapse-at) - 100%) * 666);
+}
+
+/* Switch to vertical if more than 4 items (or specified limit) */
+[data-switcher] > :nth-last-child(n+5),
+[data-switcher] > :nth-last-child(n+5) ~ * {
+  flex-basis: 100%;
+}
+
+[data-switcher~="limit:2"] > :nth-last-child(n+3),
+[data-switcher~="limit:2"] > :nth-last-child(n+3) ~ * {
+  flex-basis: 100%;
+}
+
+[data-switcher~="limit:3"] > :nth-last-child(n+4),
+[data-switcher~="limit:3"] > :nth-last-child(n+4) ~ * {
+  flex-basis: 100%;
+}
+
+[data-switcher~="limit:4"] > :nth-last-child(n+5),
+[data-switcher~="limit:4"] > :nth-last-child(n+5) ~ * {
+  flex-basis: 100%;
+}
+
+/* Gap scale */
+[data-switcher~="gap:sm"],
+[data-switcher~="gap:1"] { --switcher-gap: var(--layout-switcher-gap-sm); }
+[data-switcher~="gap:md"],
+[data-switcher~="gap:2"] { --switcher-gap: var(--layout-switcher-gap-md); }
+[data-switcher~="gap:lg"],
+[data-switcher~="gap:3"] { --switcher-gap: var(--layout-switcher-gap-lg); }
+
+/* Collapse thresholds */
+[data-switcher~="collapse:sm"] { --collapse-at: var(--layout-switcher-collapse-sm); }
+[data-switcher~="collapse:md"] { --collapse-at: var(--layout-switcher-collapse-md); }
+[data-switcher~="collapse:lg"] { --collapse-at: var(--layout-switcher-collapse-lg); }

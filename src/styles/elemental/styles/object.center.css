@@ -1,0 +1,43 @@
+[data-center] {
+  --measure: 65ch;
+  --max-width: var(--measure);
+  --center-padding: 0;
+
+  box-sizing: content-box;
+  max-inline-size: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--center-padding);
+}
+
+/* Modifiers */
+[data-center~="center:children"],
+[data-center~="intrinsic"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+[data-center~="center:text"] {
+  text-align: center;
+}
+
+[data-center~="center:vertically"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-block-size: 100%;
+}
+
+/* Max Width Sizing */
+[data-center~="max:sm"]      { --max-width: var(--container-size-sm, 65rem); }
+[data-center~="max:md"]      { --max-width: var(--container-size-md, 75rem); }
+[data-center~="max:lg"]      { --max-width: var(--container-size-lg, 84.375rem); }
+[data-center~="max:measure"] { --max-width: var(--measure, 65ch); }
+
+/* Padding / Gutters */
+[data-center~="padding:sm"],
+[data-center~="padding:1"]   { --center-padding: var(--space-s, 1rem); }
+[data-center~="padding:md"],
+[data-center~="padding:2"]   { --center-padding: var(--space-m, 1.5rem); }
+[data-center~="padding:lg"],
+[data-center~="padding:3"]   { --center-padding: var(--space-l, 2rem); }

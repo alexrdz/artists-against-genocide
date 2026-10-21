@@ -1,0 +1,127 @@
+@layer custom, onefourth, onehalf, threefourths, twothirds, onethird, split;
+
+@layer split {
+  [data-split] {
+    container: split / inline-size;
+
+    --split-gap: initial;
+    --split-align: initial;
+    --basis: initial;
+    --collapse-at: initial;
+    --custom-split: initial;
+  }
+
+  [data-split] > * {
+    align-items: var(--split-align);
+    display: flex;
+    gap: var(--split-gap, 0);
+
+    > * {
+      flex: 1;
+      flex-basis: var(--basis);
+    }
+  }
+
+  [data-split~="collapse:sm"] > * {
+    /* 480px */
+    @container (width <= 30rem) {
+      flex-wrap: wrap;
+
+      > *:nth-child(n+0) {--basis: 100%; }
+    }
+  }
+
+  [data-split~="collapse:md"] > * {
+    /* 720px */
+    @container split (width <= 45rem) {
+      flex-wrap: wrap;
+
+      > *:nth-child(n+0) {--basis: 100%; }
+    }
+  }
+
+  [data-split~="collapse:lg"] > * {
+    /* 960px */
+    @container split (width <= 60rem) {
+      flex-wrap: wrap;
+
+      > *:nth-child(n+0) {--basis: 100%; }
+    }
+  }
+
+  [data-split~="gap:1"] { --split-gap: 1rem; }
+  [data-split~="gap:2"] { --split-gap: 2rem; }
+  [data-split~="gap:3"] { --split-gap: 3rem; }
+
+  [data-split~="align:start"] { --split-align: flex-start; }
+  [data-split~="align:end"] { --split-align: flex-end; }
+  [data-split~="align:center"] { --split-align: center; }
+
+}
+
+
+@layer onefourth {
+  [data-split~="1/4"] > * > *:nth-child(1) {
+    --basis: 25%;
+    inline-size: var(--basis);
+  }
+  [data-split~="1/4"] > * > *:nth-child(2) {
+    --basis: 75%;
+    inline-size: var(--basis);
+  }
+}
+
+
+@layer onehalf {
+  [data-split~="1/2"] > * > *:nth-child(n+0) {
+    --basis: 50%;
+    inline-size: var(--basis);
+  }
+}
+
+
+@layer threefourths {
+  [data-split~="3/4"] > * > *:nth-child(1) {
+    --basis: 75%;
+    inline-size: var(--basis);
+  }
+  [data-split~="3/4"] > * > *:nth-child(2) {
+    --basis: 25%;
+    inline-size: var(--basis);
+  }
+}
+
+@layer twothirds {
+  [data-split~="2/3"] > * > *:nth-child(1) {
+    --basis: 66.6666667%;
+    inline-size: var(--basis);
+  }
+  [data-split~="2/3"] > * > *:nth-child(2) {
+    --basis: 33.3333333%;
+    inline-size: var(--basis);
+  }
+}
+
+
+@layer onethird {
+  [data-split~="1/3"] > * > *:nth-child(1) {
+    --basis: 33.3333333%;
+    inline-size: var(--basis);
+  }
+  [data-split~="1/3"] > * > *:nth-child(2) {
+    --basis: 66.6666667%;
+    inline-size: var(--basis);
+  }
+}
+
+
+@layer custom {
+  [data-split] > * > *:nth-child(1) {
+    --basis: var(--custom-split);
+    inline-size: var(--custom-split);
+  }
+  [data-split] > * > *:nth-child(2) {
+    --basis: calc(100% - var(--custom-split));
+    inline-size: var(--basis);
+  }
+}

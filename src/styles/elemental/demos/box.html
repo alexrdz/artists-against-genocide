@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Layout Demo — Elemental</title>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-body">
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <a href="index.html" class="demo-back-btn">← All Layouts</a>
+      <div class="demo-title-group">
+        <h1>Box <span class="demo-badge">[data-box]</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <select id="nav-select" class="demo-nav-select"></select>
+      <button class="demo-code-toggle-btn" id="code-toggle"><span>&lt;/&gt;</span> Code</button>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <div class="demo-layout">
+    <main class="demo-stage-wrapper">
+      <div class="demo-desc-bar">
+        <strong>Box</strong> is an atomic container handling padding scales, subtle borders, and color inversion. Modifiers include <code>padding:xs|s|m|l|xl</code>, <code>invert</code>, and <code>border:none</code>.
+      </div>
+      
+      <div class="demo-stage-container">
+        <div id="layout-target" data-box="padding:m" class="demo-box-card">
+          <h3 class="demo-heading-md">Box Container</h3>
+          <p class="demo-lead">
+            A box provides consistent internal padding, clean surface borders, and can effortlessly flip foreground/background color themes with <code>invert</code>.
+          </p>
+          <div class="demo-actions-bar">
+            <button class="demo-btn-primary">Action Button</button>
+            <button class="demo-btn-ghost">Dismiss</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="demo-controls-panel">
+      <div>
+        <div class="demo-section-title">Box Padding</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Padding Scale Preset</span>
+            <span class="demo-control-val" id="val-padding">padding:m</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-padding">
+            <button class="demo-toggle-btn" data-val="padding:xs">xs (12px)</button>
+            <button class="demo-toggle-btn" data-val="padding:s">s (16px)</button>
+            <button class="demo-toggle-btn active" data-val="padding:m">m (24px)</button>
+            <button class="demo-toggle-btn" data-val="padding:l">l (32px)</button>
+            <button class="demo-toggle-btn" data-val="padding:xl">xl (48px)</button>
+            <button class="demo-toggle-btn" data-val="custom">Custom</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-pad">
+          <label class="demo-control-label">
+            <span>Custom --box-padding</span>
+            <span class="demo-control-val" id="val-custom-pad">24px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-custom-pad" min="0" max="80" value="24">
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Visual Options</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-checkbox-label">
+            <input type="checkbox" id="toggle-invert">
+            <span>Invert Theme (<code>invert</code>)</span>
+          </label>
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-checkbox-label">
+            <input type="checkbox" id="toggle-border-none">
+            <span>Remove Border (<code>border:none</code>)</span>
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Border Customization</div>
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Border Width</span>
+            <span class="demo-control-val" id="val-border-width">1px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-border-width" min="0" max="8" value="1">
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Border Radius</span>
+            <span class="demo-control-val" id="val-radius">8px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-radius" min="0" max="32" value="8">
+        </div>
+      </div>
+
+      <button class="demo-reset-btn" id="btn-reset">↺ Reset to Defaults</button>
+    </aside>
+  </div>
+
+  <div class="demo-code-drawer" id="code-drawer">
+    <div class="demo-code-header">
+      <span class="demo-code-title">HTML Output</span>
+      <button class="demo-copy-btn" id="copy-code-btn"><span>📋</span> Copy HTML</button>
+    </div>
+    <pre class="demo-code-pre"><code id="code-display"></code></pre>
+  </div>
+
+  <script src="demo.js"></script>
+  <script>
+    const demo = new ElementalDemo({ layoutId: 'box' });
+    const target = document.getElementById('layout-target');
+    let currentPadding = 'padding:m';
+
+    function updateTarget() {
+      const classes = [];
+      const customGroup = document.getElementById('group-custom-pad');
+
+      if (currentPadding !== 'custom') {
+        classes.push(currentPadding);
+        target.style.removeProperty('--box-padding');
+        customGroup.classList.add('demo-hidden');
+        document.getElementById('val-padding').textContent = currentPadding;
+      } else {
+        customGroup.classList.remove('demo-hidden');
+        const customPx = document.getElementById('input-custom-pad').value;
+        target.style.setProperty('--box-padding', `${customPx}px`);
+        document.getElementById('val-custom-pad').textContent = `${customPx}px`;
+        document.getElementById('val-padding').textContent = `var(--box-padding: ${customPx}px)`;
+      }
+
+      if (document.getElementById('toggle-invert').checked) classes.push('invert');
+      if (document.getElementById('toggle-border-none').checked) classes.push('border:none');
+      target.setAttribute('data-box', classes.filter(Boolean).join(' '));
+      
+      const bWidth = document.getElementById('input-border-width').value;
+      const bRadius = document.getElementById('input-radius').value;
+      target.style.setProperty('--box-border-width', `${bWidth}px`);
+      target.style.borderRadius = `${bRadius}px`;
+
+      document.getElementById('val-border-width').textContent = `${bWidth}px`;
+      document.getElementById('val-radius').textContent = `${bRadius}px`;
+
+      demo.updateCode();
+    }
+
+    // Padding group buttons
+    document.querySelectorAll('#btn-group-padding button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-padding button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentPadding = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    document.getElementById('input-custom-pad').addEventListener('input', updateTarget);
+    document.getElementById('toggle-invert').addEventListener('change', updateTarget);
+    document.getElementById('toggle-border-none').addEventListener('change', updateTarget);
+    document.getElementById('input-border-width').addEventListener('input', updateTarget);
+    document.getElementById('input-radius').addEventListener('input', updateTarget);
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      currentPadding = 'padding:m';
+      document.querySelectorAll('#btn-group-padding button').forEach(b => {
+        b.classList.toggle('active', b.dataset.val === 'padding:m');
+      });
+      document.getElementById('toggle-invert').checked = false;
+      document.getElementById('toggle-border-none').checked = false;
+      document.getElementById('input-border-width').value = 1;
+      document.getElementById('input-radius').value = 8;
+      updateTarget();
+    });
+
+    updateTarget();
+  </script>
+</body>
+</html>

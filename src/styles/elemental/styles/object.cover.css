@@ -1,0 +1,41 @@
+[data-cover] {
+  --cover-padding: var(--layout-cover-padding-sm, 1rem);
+  --cover-margin: var(--space-s, 1rem);
+  --block-size: 100dvh;
+
+  /* Establish columnar flex context */
+  display: flex;
+  flex-direction: column;
+  min-block-size: var(--block-size);
+  padding: var(--cover-padding);
+}
+
+[data-cover] > * {
+  margin-block: var(--cover-margin);
+}
+
+[data-cover] > :first-child:not([data-cover-main]) {
+  margin-block-start: 0;
+}
+
+[data-cover] > :last-child:not([data-cover-main]) {
+  margin-block-end: 0;
+}
+
+[data-cover] > [data-cover-main] {
+  margin-block: auto;
+}
+
+/* Padding scale */
+[data-cover~="padding:sm"],
+[data-cover~="padding:1"] { --cover-padding: var(--layout-cover-padding-sm); }
+[data-cover~="padding:md"],
+[data-cover~="padding:2"] { --cover-padding: var(--layout-cover-padding-md); }
+[data-cover~="padding:lg"],
+[data-cover~="padding:3"] { --cover-padding: var(--layout-cover-padding-lg); }
+
+/* Height / Min-block-size */
+[data-cover~="height:25"]  { --block-size: 25dvh; }
+[data-cover~="height:50"]  { --block-size: 50dvh; }
+[data-cover~="height:75"]  { --block-size: 75dvh; }
+[data-cover~="height:100"] { --block-size: 100dvh; }

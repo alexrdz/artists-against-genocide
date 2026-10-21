@@ -1,0 +1,36 @@
+[data-box] {
+  --box-padding: var(--space-s, 1rem);
+  --box-border-width: 1px;
+  --box-border-color: var(--color-bg-muted);
+  --box-bg: transparent;
+  --box-color: inherit;
+
+  display: block;
+  padding: var(--box-padding);
+  border: var(--box-border-width) solid var(--box-border-color);
+  background-color: var(--box-bg);
+  color: var(--box-color);
+}
+
+[data-box~="invert"] {
+  --box-bg: var(--dark, #1f1f1f);
+  --box-color: var(--light, #eaeaea);
+  --box-border-color: transparent;
+}
+
+[data-box~="border:none"] {
+  --box-border-width: 0;
+}
+
+/* Padding scale */
+[data-box~="padding:xs"] { --box-padding: var(--space-xs); }
+[data-box~="padding:s"],
+[data-box~="padding:sm"],
+[data-box~="padding:1"]  { --box-padding: var(--space-s); }
+[data-box~="padding:m"],
+[data-box~="padding:md"],
+[data-box~="padding:2"]  { --box-padding: var(--space-m); }
+[data-box~="padding:l"],
+[data-box~="padding:lg"],
+[data-box~="padding:3"]  { --box-padding: var(--space-l); }
+[data-box~="padding:xl"] { --box-padding: var(--space-xl); }

@@ -1,0 +1,39 @@
+[data-stack] {
+  --stack-gap: var(--space-s, 1.5rem);
+  --stack-align: stretch;
+
+  /* Establish vertical flex context */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--stack-gap);
+  align-items: var(--stack-align);
+}
+
+/* Sizing variations */
+[data-stack~="gap:3xs"] { --stack-gap: var(--space-3xs); }
+[data-stack~="gap:2xs"] { --stack-gap: var(--space-2xs); }
+[data-stack~="gap:xs"]  { --stack-gap: var(--space-xs); }
+[data-stack~="gap:s"],
+[data-stack~="gap:sm"],
+[data-stack~="gap:1"]   { --stack-gap: var(--layout-stack-gap-sm); }
+[data-stack~="gap:m"],
+[data-stack~="gap:md"],
+[data-stack~="gap:2"]   { --stack-gap: var(--layout-stack-gap-md); }
+[data-stack~="gap:l"],
+[data-stack~="gap:lg"],
+[data-stack~="gap:3"]   { --stack-gap: var(--layout-stack-gap-lg); }
+[data-stack~="gap:xl"]  { --stack-gap: var(--space-xl); }
+[data-stack~="gap:2xl"] { --stack-gap: var(--space-2xl); }
+[data-stack~="gap:3xl"] { --stack-gap: var(--space-3xl); }
+
+/* Alignment variations */
+[data-stack~="align:start"]   { --stack-align: flex-start; }
+[data-stack~="align:center"]  { --stack-align: center; }
+[data-stack~="align:end"]     { --stack-align: flex-end; }
+[data-stack~="align:stretch"] { --stack-align: stretch; }
+
+/* Fill available height if only child */
+[data-stack]:only-child {
+  block-size: 100%;
+}

@@ -1,0 +1,19 @@
+[data-imposter] {
+  --imposter-margin: 0;
+
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[data-imposter~="fixed"] {
+  position: fixed;
+}
+
+[data-imposter~="contain"] {
+  --imposter-margin: var(--space-m, 1.5rem);
+  overflow: auto;
+  max-inline-size: calc(100% - (var(--imposter-margin) * 2));
+  max-block-size: calc(100% - (var(--imposter-margin) * 2));
+}

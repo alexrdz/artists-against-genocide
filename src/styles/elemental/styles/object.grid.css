@@ -1,0 +1,24 @@
+[data-grid] {
+  --min-width: var(--layout-grid-min-width, 16rem);
+  --grid-gap: var(--layout-grid-gap-sm, 1rem);
+
+  display: grid;
+  gap: var(--grid-gap);
+  /* min() with 100% prevents overflow in extra narrow spaces */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min-width)), 1fr));
+}
+
+/* Gap scale */
+[data-grid~="gap:sm"],
+[data-grid~="gap:1"] { --grid-gap: var(--layout-grid-gap-sm); }
+[data-grid~="gap:md"],
+[data-grid~="gap:2"] { --grid-gap: var(--layout-grid-gap-md); }
+[data-grid~="gap:lg"],
+[data-grid~="gap:3"] { --grid-gap: var(--layout-grid-gap-lg); }
+
+/* Column Min Widths */
+[data-grid~="min:xs"] { --min-width: 12rem; }
+[data-grid~="min:sm"] { --min-width: 16rem; }
+[data-grid~="min:md"] { --min-width: 20rem; }
+[data-grid~="min:lg"] { --min-width: 25rem; }
+[data-grid~="min:xl"] { --min-width: 30rem; }

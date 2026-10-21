@@ -1,0 +1,33 @@
+[data-row] {
+  --row-gap: var(--space-s, 1rem);
+  --min-col-width: 12.5rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--row-gap);
+}
+
+[data-row] > * {
+  min-inline-size: min(100%, var(--min-col-width));
+}
+
+[data-row~="col:2"] > * {
+  flex: 1 0 calc(50% - var(--row-gap));
+}
+
+[data-row~="col:3"] > * {
+  flex: 1 1 calc(33.333333% - var(--row-gap));
+}
+
+/* Gap scale */
+[data-row~="gap:sm"],
+[data-row~="gap:1"] { --row-gap: var(--space-s, 1rem); }
+[data-row~="gap:md"],
+[data-row~="gap:2"] { --row-gap: var(--space-m, 2rem); }
+[data-row~="gap:lg"],
+[data-row~="gap:3"] { --row-gap: var(--space-l, 3rem); }
+
+/* Minimum column sizes */
+[data-row~="col-size:sm"] { --min-col-width: 12.5rem; }
+[data-row~="col-size:md"] { --min-col-width: 25rem; }
+[data-row~="col-size:lg"] { --min-col-width: 37.5rem; }

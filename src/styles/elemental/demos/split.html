@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Split Layout Demo — Elemental</title>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-body">
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <a href="index.html" class="demo-back-btn">← All Layouts</a>
+      <div class="demo-title-group">
+        <h1>Split <span class="demo-badge">[data-split]</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <select id="nav-select" class="demo-nav-select"></select>
+      <button class="demo-code-toggle-btn" id="code-toggle"><span>&lt;/&gt;</span> Code</button>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <div class="demo-layout">
+    <main class="demo-stage-wrapper">
+      <div class="demo-desc-bar">
+        <strong>Split</strong> creates a proportioned 2-column layout (<code>1/4</code>, <code>1/3</code>, <code>1/2</code>, <code>2/3</code>, <code>3/4</code>) using the flex collapse technique to stack into a single column below a defined threshold.
+      </div>
+      
+      <div class="demo-stage-container" id="stage-box">
+        <div class="demo-target-box">
+          <div id="layout-target" data-split="1/3 gap:md collapse:sm align:stretch">
+            <div class="demo-item demo-split-aside-card">
+              <span class="demo-item-tag" id="tag-col-1">Primary Col (1/3)</span>
+              <div class="demo-item-label">Column 1</div>
+              <div class="demo-item-sub">Proportioned child block</div>
+            </div>
+            <div class="demo-item demo-split-main-card">
+              <span class="demo-item-tag" id="tag-col-2">Secondary Col</span>
+              <div class="demo-item-label">Column 2</div>
+              <div class="demo-item-sub">Taller block showcasing cross-axis alignment</div>
+              <p class="demo-body-text">
+                Expands horizontally to consume available room, and folds below threshold.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="demo-controls-panel">
+      <div>
+        <div class="demo-section-title">Split Ratio & Collapse</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Split Ratio</span>
+            <span class="demo-control-val" id="val-fraction">1/3</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-fraction">
+            <button class="demo-toggle-btn" data-val="1/4">1/4</button>
+            <button class="demo-toggle-btn active" data-val="1/3">1/3</button>
+            <button class="demo-toggle-btn" data-val="1/2">1/2</button>
+            <button class="demo-toggle-btn" data-val="2/3">2/3</button>
+            <button class="demo-toggle-btn" data-val="3/4">3/4</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Collapse Threshold</span>
+            <span class="demo-control-val" id="val-collapse">collapse:sm</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-collapse">
+            <button class="demo-toggle-btn active" data-val="collapse:sm">sm (30rem)</button>
+            <button class="demo-toggle-btn" data-val="collapse:md">md (45rem)</button>
+            <button class="demo-toggle-btn" data-val="collapse:lg">lg (60rem)</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Spacing & Alignment</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Gap Scale Preset</span>
+            <span class="demo-control-val" id="val-gap">gap:md</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-gap">
+            <button class="demo-toggle-btn" data-val="gap:sm">sm (16px)</button>
+            <button class="demo-toggle-btn active" data-val="gap:md">md (24px)</button>
+            <button class="demo-toggle-btn" data-val="gap:lg">lg (40px)</button>
+            <button class="demo-toggle-btn" data-val="custom">Custom</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-gap">
+          <label class="demo-control-label">
+            <span>Custom --split-gap</span>
+            <span class="demo-control-val" id="val-custom-gap">24px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-custom-gap" min="0" max="80" value="24">
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Cross-Axis Alignment</span>
+            <span class="demo-control-val" id="val-align">align:stretch</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-align">
+            <button class="demo-toggle-btn" data-val="align:start">start</button>
+            <button class="demo-toggle-btn" data-val="align:center">center</button>
+            <button class="demo-toggle-btn" data-val="align:end">end</button>
+            <button class="demo-toggle-btn active" data-val="align:stretch">stretch</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Interactive Viewport Tester</div>
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Container Width Simulator</span>
+            <span class="demo-control-val" id="val-width-sim">850px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-width-sim" min="300" max="950" value="850">
+        </div>
+      </div>
+
+      <button class="demo-reset-btn" id="btn-reset">↺ Reset to Defaults</button>
+    </aside>
+  </div>
+
+  <div class="demo-code-drawer" id="code-drawer">
+    <div class="demo-code-header">
+      <span class="demo-code-title">HTML Output</span>
+      <button class="demo-copy-btn" id="copy-code-btn"><span>📋</span> Copy HTML</button>
+    </div>
+    <pre class="demo-code-pre"><code id="code-display"></code></pre>
+  </div>
+
+  <script src="demo.js"></script>
+  <script>
+    const demo = new ElementalDemo({ layoutId: 'split' });
+    const target = document.getElementById('layout-target');
+    const stageBox = document.getElementById('stage-box');
+    
+    let currentFraction = '1/3';
+    let currentCollapse = 'collapse:sm';
+    let currentGap = 'gap:md';
+    let currentAlign = 'align:stretch';
+
+    function updateTarget() {
+      const customGroup = document.getElementById('group-custom-gap');
+      const attrs = [currentFraction, currentCollapse, currentAlign];
+
+      if (currentGap !== 'custom') {
+        attrs.push(currentGap);
+        target.style.removeProperty('--split-gap');
+        customGroup.classList.add('demo-hidden');
+        document.getElementById('val-gap').textContent = currentGap;
+      } else {
+        customGroup.classList.remove('demo-hidden');
+        const customPx = document.getElementById('input-custom-gap').value;
+        target.style.setProperty('--split-gap', `${customPx}px`);
+        document.getElementById('val-custom-gap').textContent = `${customPx}px`;
+        document.getElementById('val-gap').textContent = `var(--split-gap: ${customPx}px)`;
+      }
+
+      target.setAttribute('data-split', attrs.filter(Boolean).join(' '));
+
+      document.getElementById('val-fraction').textContent = currentFraction;
+      document.getElementById('val-collapse').textContent = currentCollapse;
+      document.getElementById('val-align').textContent = currentAlign;
+
+      // Update badges
+      document.getElementById('tag-col-1').textContent = `Col 1 (${currentFraction})`;
+      document.getElementById('tag-col-2').textContent = `Col 2`;
+
+      demo.updateCode();
+    }
+
+    // Fraction buttons
+    document.querySelectorAll('#btn-group-fraction button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-fraction button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFraction = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    // Collapse buttons
+    document.querySelectorAll('#btn-group-collapse button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-collapse button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCollapse = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    // Gap buttons
+    document.querySelectorAll('#btn-group-gap button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-gap button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentGap = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    // Align buttons
+    document.querySelectorAll('#btn-group-align button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-align button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentAlign = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    document.getElementById('input-custom-gap').addEventListener('input', updateTarget);
+
+    // Viewport Simulator
+    document.getElementById('input-width-sim').addEventListener('input', (e) => {
+      const w = e.target.value;
+      stageBox.style.maxWidth = `${w}px`;
+      document.getElementById('val-width-sim').textContent = `${w}px`;
+    });
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      currentFraction = '1/3';
+      currentCollapse = 'collapse:sm';
+      currentGap = 'gap:md';
+      currentAlign = 'align:stretch';
+
+      document.querySelectorAll('#btn-group-fraction button').forEach(b => b.classList.toggle('active', b.dataset.val === '1/3'));
+      document.querySelectorAll('#btn-group-collapse button').forEach(b => b.classList.toggle('active', b.dataset.val === 'collapse:sm'));
+      document.querySelectorAll('#btn-group-gap button').forEach(b => b.classList.toggle('active', b.dataset.val === 'gap:md'));
+      document.querySelectorAll('#btn-group-align button').forEach(b => b.classList.toggle('active', b.dataset.val === 'align:stretch'));
+
+      stageBox.style.maxWidth = '850px';
+      document.getElementById('input-width-sim').value = 850;
+      document.getElementById('val-width-sim').textContent = '850px';
+
+      updateTarget();
+    });
+
+    updateTarget();
+  </script>
+</body>
+</html>

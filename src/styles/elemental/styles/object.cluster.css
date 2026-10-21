@@ -1,0 +1,58 @@
+[data-cluster] {
+  --cluster-padding: 0;
+  --cluster-gap: var(--space-s, 1rem);
+  --justify: flex-start;
+  --align: center;
+
+  /* Establish wrapping flex context */
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cluster-gap);
+  justify-content: var(--justify);
+  align-items: var(--align);
+  padding: var(--cluster-padding);
+}
+
+/* Justification */
+[data-cluster~="justify:start"]   { --justify: flex-start; }
+[data-cluster~="justify:center"]  { --justify: center; }
+[data-cluster~="justify:end"]     { --justify: flex-end; }
+[data-cluster~="justify:around"]  { --justify: space-around; }
+[data-cluster~="justify:between"] { --justify: space-between; }
+[data-cluster~="justify:evenly"]  { --justify: space-evenly; }
+
+/* Alignment */
+[data-cluster~="align:start"]    { --align: flex-start; }
+[data-cluster~="align:center"]   { --align: center; }
+[data-cluster~="align:end"]      { --align: flex-end; }
+[data-cluster~="align:stretch"]  { --align: stretch; }
+[data-cluster~="align:baseline"] { --align: baseline; }
+
+/* Gap scales */
+[data-cluster~="gap:3xs"] { --cluster-gap: var(--space-3xs); }
+[data-cluster~="gap:2xs"] { --cluster-gap: var(--space-2xs); }
+[data-cluster~="gap:xs"]  { --cluster-gap: var(--space-xs); }
+[data-cluster~="gap:s"],
+[data-cluster~="gap:sm"],
+[data-cluster~="gap:1"]   { --cluster-gap: var(--layout-cluster-gap-sm); }
+[data-cluster~="gap:m"],
+[data-cluster~="gap:md"],
+[data-cluster~="gap:2"]   { --cluster-gap: var(--layout-cluster-gap-md); }
+[data-cluster~="gap:l"],
+[data-cluster~="gap:lg"],
+[data-cluster~="gap:3"]   { --cluster-gap: var(--layout-cluster-gap-lg); }
+[data-cluster~="gap:xl"]  { --cluster-gap: var(--space-xl); }
+[data-cluster~="gap:2xl"] { --cluster-gap: var(--space-2xl); }
+[data-cluster~="gap:3xl"] { --cluster-gap: var(--space-3xl); }
+
+/* Padding */
+[data-cluster~="padding:sm"],
+[data-cluster~="padding:1"] { --cluster-padding: var(--layout-cluster-padding-sm); }
+[data-cluster~="padding:md"],
+[data-cluster~="padding:2"] { --cluster-padding: var(--layout-cluster-padding-md); }
+[data-cluster~="padding:lg"],
+[data-cluster~="padding:3"] { --cluster-padding: var(--layout-cluster-padding-lg); }
+
+/* Modifiers */
+[data-cluster~="distribute:equally"] > * { flex: 1; }
+[data-cluster] > input { inline-size: auto; }

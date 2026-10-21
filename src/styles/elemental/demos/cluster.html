@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cluster Layout Demo — Elemental</title>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-body">
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <a href="index.html" class="demo-back-btn">← All Layouts</a>
+      <div class="demo-title-group">
+        <h1>Cluster <span class="demo-badge">[data-cluster]</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <select id="nav-select" class="demo-nav-select"></select>
+      <button class="demo-code-toggle-btn" id="code-toggle"><span>&lt;/&gt;</span> Code</button>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <div class="demo-layout">
+    <main class="demo-stage-wrapper">
+      <div class="demo-desc-bar">
+        <strong>Cluster</strong> creates a wrapping horizontal flex layout for inline elements such as badge lists, tags, and button groups. Modifiers: <code>justify:*</code>, <code>align:*</code>, <code>gap:*</code>, <code>padding:*</code>, and <code>distribute:equally</code>.
+      </div>
+      
+      <div class="demo-stage-container">
+        <div class="demo-target-box">
+          <div id="layout-target" data-cluster="gap:s justify:start align:center">
+            <!-- Rendered items with varied heights to demonstrate alignment -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="demo-controls-panel">
+      <div>
+        <div class="demo-section-title">Justification (Horizontal)</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Justify Content</span>
+            <span class="demo-control-val" id="val-justify">justify:start</span>
+          </label>
+          <select id="select-justify" class="demo-input-select">
+            <option value="justify:start" selected>justify:start (Start)</option>
+            <option value="justify:center">justify:center (Center)</option>
+            <option value="justify:end">justify:end (End)</option>
+            <option value="justify:between">justify:between (Space Between)</option>
+            <option value="justify:around">justify:around (Space Around)</option>
+            <option value="justify:evenly">justify:evenly (Space Evenly)</option>
+          </select>
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Align Items (Cross-Axis)</span>
+            <span class="demo-control-val" id="val-align">align:center</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-align">
+            <button class="demo-toggle-btn" data-val="align:start">start</button>
+            <button class="demo-toggle-btn active" data-val="align:center">center</button>
+            <button class="demo-toggle-btn" data-val="align:end">end</button>
+            <button class="demo-toggle-btn" data-val="align:stretch">stretch</button>
+            <button class="demo-toggle-btn" data-val="align:baseline">baseline</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Gap & Spacing</div>
+        
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Gap Scale Preset</span>
+            <span class="demo-control-val" id="val-gap">gap:s</span>
+          </label>
+          <select id="select-gap" class="demo-input-select">
+            <option value="gap:3xs">gap:3xs (4px)</option>
+            <option value="gap:2xs">gap:2xs (8px)</option>
+            <option value="gap:xs">gap:xs (12px)</option>
+            <option value="gap:s" selected>gap:s (16px)</option>
+            <option value="gap:m">gap:m (24px)</option>
+            <option value="gap:l">gap:l (36px)</option>
+            <option value="gap:xl">gap:xl (48px)</option>
+            <option value="gap:2xl">gap:2xl (64px)</option>
+            <option value="gap:3xl">gap:3xl (96px)</option>
+            <option value="custom">Custom Slider</option>
+          </select>
+        </div>
+
+        <div class="demo-control-group demo-hidden" id="group-custom-gap">
+          <label class="demo-control-label">
+            <span>Custom --cluster-gap</span>
+            <span class="demo-control-val" id="val-custom-gap">20px</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-custom-gap" min="0" max="64" value="20">
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Padding Scale</span>
+            <span class="demo-control-val" id="val-padding">none</span>
+          </label>
+          <div class="demo-btn-group" id="btn-group-padding">
+            <button class="demo-toggle-btn active" data-val="">none</button>
+            <button class="demo-toggle-btn" data-val="padding:sm">sm</button>
+            <button class="demo-toggle-btn" data-val="padding:md">md</button>
+            <button class="demo-toggle-btn" data-val="padding:lg">lg</button>
+          </div>
+        </div>
+
+        <div class="demo-control-group">
+          <label class="demo-checkbox-label">
+            <input type="checkbox" id="toggle-distribute">
+            <span>Distribute Equally (<code>distribute:equally</code>)</span>
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <div class="demo-section-title">Items</div>
+        <div class="demo-control-group">
+          <label class="demo-control-label">
+            <span>Tag Count</span>
+            <span class="demo-control-val" id="val-items">6 tags</span>
+          </label>
+          <input type="range" class="demo-input-range" id="input-item-count" min="1" max="14" value="6">
+        </div>
+      </div>
+
+      <button class="demo-reset-btn" id="btn-reset">↺ Reset to Defaults</button>
+    </aside>
+  </div>
+
+  <div class="demo-code-drawer" id="code-drawer">
+    <div class="demo-code-header">
+      <span class="demo-code-title">HTML Output</span>
+      <button class="demo-copy-btn" id="copy-code-btn"><span>📋</span> Copy HTML</button>
+    </div>
+    <pre class="demo-code-pre"><code id="code-display"></code></pre>
+  </div>
+
+  <script src="demo.js"></script>
+  <script>
+    const demo = new ElementalDemo({ layoutId: 'cluster' });
+    const target = document.getElementById('layout-target');
+    
+    let currentAlign = 'align:center';
+    let currentPadding = '';
+
+    const sampleItems = [
+      { text: 'JavaScript', sub: 'ES2026' },
+      { text: 'CSS Primitives', sub: 'Layout Engine' },
+      { text: 'HTML5', sub: 'Semantic' },
+      { text: 'Flexbox Cluster', sub: 'Multi-line Flow' },
+      { text: 'Design Systems', sub: 'Tokens' },
+      { text: 'Accessibility', sub: 'WCAG AAA' },
+      { text: 'Performance', sub: '0ms Runtime' },
+      { text: 'Typography', sub: 'Fluid Scale' },
+    ];
+
+    function renderItems(count) {
+      demo.setContainerItems(count, (i) => {
+        const item = sampleItems[(i - 1) % sampleItems.length];
+        return `
+          <div class="demo-item">
+            <div class="demo-item-label">${item.text}</div>
+            <div class="demo-item-sub">${item.sub}</div>
+          </div>
+        `;
+      });
+    }
+
+    function updateTarget() {
+      const justify = document.getElementById('select-justify').value;
+      const gapVal = document.getElementById('select-gap').value;
+      const distribute = document.getElementById('toggle-distribute').checked ? 'distribute:equally' : '';
+      const customGroup = document.getElementById('group-custom-gap');
+
+      const attrs = [justify, currentAlign, currentPadding, distribute];
+
+      if (gapVal !== 'custom') {
+        attrs.unshift(gapVal);
+        target.style.removeProperty('--cluster-gap');
+        customGroup.classList.add('demo-hidden');
+        document.getElementById('val-gap').textContent = gapVal;
+      } else {
+        customGroup.classList.remove('demo-hidden');
+        const customPx = document.getElementById('input-custom-gap').value;
+        target.style.setProperty('--cluster-gap', `${customPx}px`);
+        document.getElementById('val-custom-gap').textContent = `${customPx}px`;
+        document.getElementById('val-gap').textContent = `var(--cluster-gap: ${customPx}px)`;
+      }
+
+      target.setAttribute('data-cluster', attrs.filter(Boolean).join(' '));
+
+      document.getElementById('val-justify').textContent = justify;
+      document.getElementById('val-align').textContent = currentAlign;
+      document.getElementById('val-padding').textContent = currentPadding || 'none';
+
+      demo.updateCode();
+    }
+
+    // Align buttons
+    document.querySelectorAll('#btn-group-align button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-align button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentAlign = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    // Padding buttons
+    document.querySelectorAll('#btn-group-padding button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#btn-group-padding button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentPadding = btn.dataset.val;
+        updateTarget();
+      });
+    });
+
+    document.getElementById('select-justify').addEventListener('change', updateTarget);
+    document.getElementById('select-gap').addEventListener('change', updateTarget);
+    document.getElementById('input-custom-gap').addEventListener('input', updateTarget);
+    document.getElementById('toggle-distribute').addEventListener('change', updateTarget);
+
+    document.getElementById('input-item-count').addEventListener('input', (e) => {
+      const count = parseInt(e.target.value, 10);
+      document.getElementById('val-items').textContent = `${count} tag${count > 1 ? 's' : ''}`;
+      renderItems(count);
+      updateTarget();
+    });
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      document.getElementById('select-justify').value = 'justify:start';
+      document.getElementById('select-gap').value = 'gap:s';
+      document.getElementById('toggle-distribute').checked = false;
+      currentAlign = 'align:center';
+      currentPadding = '';
+
+      document.querySelectorAll('#btn-group-align button').forEach(b => b.classList.toggle('active', b.dataset.val === 'align:center'));
+      document.querySelectorAll('#btn-group-padding button').forEach(b => b.classList.toggle('active', b.dataset.val === ''));
+
+      document.getElementById('input-item-count').value = 6;
+      document.getElementById('val-items').textContent = '6 tags';
+      renderItems(6);
+
+      updateTarget();
+    });
+
+    renderItems(6);
+    updateTarget();
+  </script>
+</body>
+</html>

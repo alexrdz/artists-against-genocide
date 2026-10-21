@@ -1,0 +1,32 @@
+[data-clamp] {
+  --clamp-padding: 0;
+  --width: 100%;
+
+  max-inline-size: var(--width);
+  padding-inline: var(--clamp-padding);
+}
+
+/* Width percentages */
+[data-clamp~="width:10%"] { --width: 10%; }
+[data-clamp~="width:20%"] { --width: 20%; }
+[data-clamp~="width:25%"] { --width: 25%; }
+[data-clamp~="width:30%"] { --width: 30%; }
+[data-clamp~="width:40%"] { --width: 40%; }
+[data-clamp~="width:50%"] { --width: 50%; }
+[data-clamp~="width:60%"] { --width: 60%; }
+[data-clamp~="width:70%"] { --width: 70%; }
+[data-clamp~="width:75%"] { --width: 75%; }
+[data-clamp~="width:80%"] { --width: 80%; }
+
+/* Padding scale */
+[data-clamp~="padding:sm"],
+[data-clamp~="padding-inline:1"] { --clamp-padding: var(--space-s, 1rem); }
+[data-clamp~="padding:md"],
+[data-clamp~="padding-inline:2"] { --clamp-padding: var(--space-m, 2rem); }
+[data-clamp~="padding:lg"],
+[data-clamp~="padding-inline:3"] { --clamp-padding: var(--space-l, 3rem); }
+
+/* Alignment with logical properties */
+[data-clamp~="center"] { margin-inline: auto; }
+[data-clamp~="right"]  { margin-inline-start: auto; }
+[data-clamp~="left"]   { margin-inline-end: auto; }

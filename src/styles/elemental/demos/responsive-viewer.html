@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Device Sandbox — Elemental</title>
+  <link rel="stylesheet" href="elemental.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-body">
+  <header class="demo-header">
+    <div class="demo-header-left">
+      <a href="index.html" class="demo-back-btn">← All Layouts</a>
+      <div class="demo-title-group">
+        <h1>Responsive Sandbox <span class="demo-badge">Device Viewport Tester</span></h1>
+      </div>
+    </div>
+    <div class="demo-header-right">
+      <select id="nav-select" class="demo-nav-select"></select>
+      <button class="demo-theme-btn" id="theme-toggle"><span>☀️</span> Light</button>
+    </div>
+  </header>
+
+  <div class="sandbox-container">
+    <div class="sandbox-toolbar">
+      <!-- URL / Layout selector -->
+      <div class="sandbox-url-group">
+        <select id="layout-picker" class="demo-input-select sandbox-url-select">
+          <option value="cluster.html">Cluster</option>
+          <option value="stack.html">Stack</option>
+          <option value="grid.html">Grid</option>
+          <option value="split.html">Split</option>
+          <option value="switcher.html">Switcher</option>
+          <option value="masonry.html">Masonry</option>
+          <option value="reel.html">Reel</option>
+          <option value="flanked.html">Flanked</option>
+          <option value="center.html">Center</option>
+          <option value="box.html">Box</option>
+          <option value="cover.html">Cover</option>
+          <option value="frame.html">Frame</option>
+          <option value="container.html">Container</option>
+          <option value="media.html">Media</option>
+          <option value="clamp.html">Clamp</option>
+          <option value="row.html">Row</option>
+          <option value="imposter.html">Imposter</option>
+          <option value="icon.html">Icon</option>
+          <option value="custom">Custom URL...</option>
+        </select>
+        <input type="text" id="url-input" class="demo-input-text" value="cluster.html" placeholder="Enter page or URL...">
+      </div>
+
+      <!-- Device buttons -->
+      <div class="demo-viewport-presets">
+        <button class="demo-viewport-btn" data-width="375" id="btn-mobile">📱 375px</button>
+        <button class="demo-viewport-btn" data-width="768" id="btn-tablet">📱 768px</button>
+        <button class="demo-viewport-btn" data-width="1024" id="btn-laptop">💻 1024px</button>
+        <button class="demo-viewport-btn active" data-width="100%" id="btn-full">🖥️ 100%</button>
+      </div>
+
+      <!-- Fluid Width Slider -->
+      <div class="sandbox-slider-group">
+        <span class="demo-viewport-label">Width:</span>
+        <input type="range" id="width-slider" class="demo-viewport-slider" min="20" max="100" value="100">
+        <span class="demo-viewport-badge" id="width-badge">100%</span>
+      </div>
+    </div>
+
+    <div class="sandbox-viewport-area">
+      <div class="sandbox-frame-wrapper" id="frame-wrapper">
+        <div class="sandbox-frame-header">
+          <div class="sandbox-frame-dots">
+            <div class="sandbox-dot sandbox-dot-red"></div>
+            <div class="sandbox-dot sandbox-dot-amber"></div>
+            <div class="sandbox-dot sandbox-dot-green"></div>
+          </div>
+          <span id="frame-dimensions">100% — Full Width</span>
+          <span id="frame-target-label">cluster.html</span>
+        </div>
+        <iframe id="preview-frame" class="sandbox-iframe" src="cluster.html" title="Elemental Layout Sandbox"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="demo.js"></script>
+  <script>
+    const demo = new ElementalDemo({ layoutId: 'responsive-viewer' });
+    
+    const urlInput = document.getElementById('url-input');
+    const layoutPicker = document.getElementById('layout-picker');
+    const previewFrame = document.getElementById('preview-frame');
+    const widthSlider = document.getElementById('width-slider');
+    const widthBadge = document.getElementById('width-badge');
+    const frameWrapper = document.getElementById('frame-wrapper');
+    const frameDimensions = document.getElementById('frame-dimensions');
+    const frameTargetLabel = document.getElementById('frame-target-label');
+    const presetBtns = document.querySelectorAll('.demo-viewport-btn');
+
+    function updateUrl(newUrl) {
+      if (!newUrl) return;
+      previewFrame.src = newUrl;
+      urlInput.value = newUrl;
+      frameTargetLabel.textContent = newUrl;
+    }
+
+    layoutPicker.addEventListener('change', (e) => {
+      if (e.target.value !== 'custom') {
+        updateUrl(e.target.value);
+      }
+    });
+
+    urlInput.addEventListener('change', (e) => {
+      updateUrl(e.target.value);
+    });
+
+    function setWidth(percentOrPx, isPercent = true) {
+      if (isPercent) {
+        frameWrapper.style.width = `${percentOrPx}%`;
+        widthSlider.value = percentOrPx;
+        widthBadge.textContent = `${percentOrPx}%`;
+        frameDimensions.textContent = `${percentOrPx}% (${frameWrapper.offsetWidth}px)`;
+      } else {
+        frameWrapper.style.width = `${percentOrPx}px`;
+        const pct = Math.min(100, Math.round((percentOrPx / frameWrapper.parentElement.offsetWidth) * 100));
+        widthSlider.value = pct;
+        widthBadge.textContent = `${percentOrPx}px (${pct}%)`;
+        frameDimensions.textContent = `${percentOrPx}px`;
+      }
+    }
+
+    widthSlider.addEventListener('input', (e) => {
+      presetBtns.forEach(b => b.classList.remove('active'));
+      const val = e.target.value;
+      if (val >= 98) {
+        document.getElementById('btn-full').classList.add('active');
+        setWidth(100, true);
+      } else {
+        setWidth(val, true);
+      }
+    });
+
+    presetBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        presetBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const w = btn.dataset.width;
+        if (w === '100%') {
+          setWidth(100, true);
+        } else {
+          setWidth(parseInt(w, 10), false);
+        }
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      frameDimensions.textContent = `${frameWrapper.offsetWidth}px`;
+    });
+  </script>
+</body>
+</html>
