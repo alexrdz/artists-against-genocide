@@ -18,7 +18,7 @@ const RESEARCH_DATA_PATH = join(__dirname, '..', 'src', 'data', 'palestine-direc
 
 function main(): void {
   console.log('─'.repeat(60));
-  console.log('Palestine Music Directory — Build Public Export');
+  console.log('Artists Against Genocide — Build Public Export');
   console.log('─'.repeat(60));
 
   const store = new ContentStore();

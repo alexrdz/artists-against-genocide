@@ -15,7 +15,7 @@ function main(): void {
   const log = store.getLog();
 
   console.log('─'.repeat(60));
-  console.log('Palestine Music Directory — Status');
+  console.log('Artists Against Genocide — Status');
   console.log('─'.repeat(60));
 
   console.log('\nArtists:');

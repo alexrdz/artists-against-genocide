@@ -21,7 +21,7 @@ const isDryRun = process.argv.includes('--dry-run');
 
 function main(): void {
   console.log('─'.repeat(60));
-  console.log('Palestine Music Directory — Import');
+  console.log('Artists Against Genocide — Import');
   console.log('─'.repeat(60));
 
   // 1. Read and validate raw research data

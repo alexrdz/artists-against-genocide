@@ -953,34 +953,6 @@
       "updatedAt": "2026-10-21T15:17:30.796Z"
     },
     {
-      "id": "a-1tilyhx",
-      "slug": "eric-clapton",
-      "name": "Eric Clapton",
-      "sortKey": "eric clapton",
-      "tier": "G-D",
-      "evidence": [
-        {
-          "id": "e-1m6tvad",
-          "category": "G-D",
-          "summary": "June 2024: Posted support for Palestinian freedom and opposition to “the genocide in Gaza.”",
-          "sourceUrl": "https://x.com/EricClapton/status/1800596642367758459",
-          "sourceLabel": "Eric Clapton’s own post",
-          "campaignIds": [
-            "other"
-          ]
-        }
-      ],
-      "campaignIds": [
-        "other"
-      ],
-      "status": "published",
-      "reviewedAt": "2026-10-21T15:17:30.794Z",
-      "reviewedBy": "agent-assisted",
-      "reviewNotes": "Initial cohort: verified evidence sources and campaign associations from research baseline.",
-      "importedAt": "2026-10-21T15:16:46.180Z",
-      "updatedAt": "2026-10-21T15:17:30.794Z"
-    },
-    {
       "id": "a-moens3",
       "slug": "fka-twigs",
       "name": "FKA twigs",
@@ -2632,20 +2604,6 @@
         "S"
       ],
       "evidenceCount": 3
-    },
-    {
-      "id": "a-1tilyhx",
-      "slug": "eric-clapton",
-      "name": "Eric Clapton",
-      "sortKey": "eric clapton",
-      "tier": "G-D",
-      "campaignIds": [
-        "other"
-      ],
-      "evidenceCategories": [
-        "G-D"
-      ],
-      "evidenceCount": 1
     },
     {
       "id": "a-moens3",

@@ -1,6 +1,6 @@
 {
   "formatVersion": "1.0.0",
-  "title": "Palestine Music Directory: Research Import Baseline",
+  "title": "Artists Against Genocide: Research Import Baseline",
   "researchSnapshotDate": "2026-09-16",
   "packagedOn": "2026-10-21",
   "reviewStatus": "Import baseline only; this packaging does not reverify sources or authorize publication.",
@@ -3673,18 +3673,6 @@
         ]
       ],
       "tier": "G-C"
-    },
-    {
-      "name": "Eric Clapton",
-      "evidence": [
-        [
-          "G-D",
-          "June 2024: Posted support for Palestinian freedom and opposition to “the genocide in Gaza.”",
-          "https://x.com/EricClapton/status/1800596642367758459",
-          "Eric Clapton’s own post"
-        ]
-      ],
-      "tier": "G-D"
     },
     {
       "name": "Erika de Casier",

@@ -25,7 +25,7 @@ function main(): void {
   let warnings = 0;
 
   console.log('─'.repeat(60));
-  console.log('Palestine Music Directory — Validation');
+  console.log('Artists Against Genocide — Validation');
   console.log('─'.repeat(60));
 
   // 1. Schema validation

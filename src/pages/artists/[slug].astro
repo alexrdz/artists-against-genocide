@@ -37,7 +37,7 @@ const related = data.artists
   .filter(a => a.id !== artist.id && a.campaignIds.some(c => artist.campaignIds.includes(c)))
   .slice(0, 5);
 
-const pageTitle = `${artist.name} — Palestine Music Directory`;
+const pageTitle = `${artist.name} — Artists Against Genocide`;
 ---
 
 <BaseLayout title={pageTitle} description={`${artist.name}: ${categoryLabels[artist.tier]} — evidence and campaign associations.`}>

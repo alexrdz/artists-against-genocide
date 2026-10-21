@@ -1,4 +1,4 @@
-# Palestine Music Directory
+# Artists Against Genocide
 
 A community-maintained directory of musicians who have made public statements against the genocide of Palestinians. Every entry traces back to a named, verifiable source. Inclusion is documentation, not endorsement.
 

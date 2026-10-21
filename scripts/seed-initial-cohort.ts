@@ -15,7 +15,6 @@ const INITIAL_COHORT_SLUGS: string[] = [
   // All 13 G-D (direct anti-genocide statement) artists
   'chico-buarque',
   'dua-lipa',
-  'eric-clapton',
   'garbage',
   'hozier',
   'kehlani',

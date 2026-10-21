@@ -1,7 +1,7 @@
 # ADR 0004: Standardize Editorial Separators and Typography Conventions
 
 ## Context
-The design previously overused the programming-style double slash delimiter (`//`) across section coordinate headers, card badges, inline metadata, and drawer headers (e.g., `02 // SPOTLIGHT & EVIDENCE PILLARS`, `CAMPAIGN // 01`, `// Documented Record`, `Dec 2023 // #A4`). While suitable for cyber-brutalist tech interfaces, repetitive `//` diluted the serious archival and documentary character of the Palestine Music Directory.
+The design previously overused the programming-style double slash delimiter (`//`) across section coordinate headers, card badges, inline metadata, and drawer headers (e.g., `02 // SPOTLIGHT & EVIDENCE PILLARS`, `CAMPAIGN // 01`, `// Documented Record`, `Dec 2023 // #A4`). While suitable for cyber-brutalist tech interfaces, repetitive `//` diluted the serious archival and documentary character of Artists Against Genocide.
 
 ## Decision
 Adopt a context-specific typographic separation system replacing `//`:
